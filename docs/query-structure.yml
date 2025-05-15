@@ -1,0 +1,21 @@
+# This file describes the basic structure of a Cypher query in the BloodHound Cypher Library
+# Please use it as a template when creating new queries
+name: The name of the query.
+guid: 51cd8e42-f795-4551-a009-61395e6cedf5 # Unique GUID for the query, for example from Cmdlet `New-Guid`
+platform: Active Directory # The identity provider the query targets/shows risk in. Should be the same as the platform directory the query resides in, e.g. 'Active Directory' for queries in 'Cypher/Active Directory'
+category: The category of the query # Should be the same as the directory the query resides in, e.g. 'Cypher/Active Directory/Domain Information'
+description: Short description of the query.
+query: |-
+  // My Cypher Query
+  MATCH p = (b:BloodHoundUsers) - [h:ThinkIn] -> (e:Graphs)
+  RETURN p
+note: Note meant to be stored only in the yml file.
+revision: 1 # Version number integer starting at 1.
+resources: https://github.com/martinsohn/BloodHoundCypherLibrary # URL references, for example related to Acknowledgements.
+# Use a list for multiple Resources:
+# - https://github.com/martinsohn/BloodHoundCypherLibrary
+# - https://github.com/SadProcessor/Cheats/blob/master/DogWhispererV2.md
+acknowledgements: Name of Person, @TheirHandle # For example the query author
+# Use a list for multiple Acknowledgements:
+# - Name of Person1, @PersonHandle1
+# - Name of Person2, @PersonHandle2

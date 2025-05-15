@@ -121,7 +121,7 @@ Cypher is a powerful but sometimes underutilized feature of BloodHound, often be
 You can contribute by creating a pull request.
 
 Before comitting, please ensure that:
-- The query follows the [YAML query structure](query-structure.yml).
+- The query follows the [YAML query structure](docs/query-structure.yml).
 - The query is compatible with the [latest BloodHound CE version](https://github.com/SpecterOps/BloodHound)
 - The query passess all automated CI/CD tests
 
