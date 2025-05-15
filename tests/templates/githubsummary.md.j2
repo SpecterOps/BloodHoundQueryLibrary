@@ -1,0 +1,57 @@
+# Test Results
+
+Run on: {{ data.timestamp }}
+
+| Status | Count |
+|--------|-------|
+| ✅ Passed | {{ data.summary.passed }} |
+| ❌ Failed | {{ data.summary.failed }} |
+| ⏭️ Skipped | {{ data.summary.skipped }} |
+
+{% if data.summary.failed > 0 -%}
+## Failed Tests
+
+{%- for test in data.tests.failed %}
+### {{ test.name }}
+```
+{{ test.query }}
+```
+- Path: `{{ test.path }}`
+- Reason: {{ test.message }}
+- Duration: {{ "%.2f"|format(test.duration) }}s
+{% if test.get('error') %}
+<details>
+<summary>Error Details</summary>
+```
+{{ test.error }}
+```
+</details>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if data.summary.passed > 0 -%}
+## Passed Tests
+
+<details>
+<summary>Show all passed tests</summary>
+{% for test in data.tests.passed %}
+### {{ test.name }}
+- Path: `{{ test.path }}`
+- Duration: {{ "%.2f"|format(test.duration) }}s
+{% endfor %}
+</details>
+{% endif %}
+
+{% if data.summary.skipped > 0 %}
+## Skipped Tests
+
+<details>
+<summary>Show all skipped tests</summary>
+
+{% for test in data.tests %}
+### {{ test.name }}
+- Path: `{{ test.path }}`
+{% endfor %}
+</details>
+{% endif %}
