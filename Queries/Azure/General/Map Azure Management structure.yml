@@ -1,0 +1,13 @@
+name: Map Azure Management structure
+guid: c1bb109e-e6a4-4c91-864f-f78e1e42615e
+platform: Azure
+category: General
+description: Maps the structure of Azure Management
+query: |-
+  MATCH p = (:AZTenant)-[:AZContains*1..]->(:AZResourceGroup)
+  RETURN p
+  LIMIT 1000
+note: 
+revision: 1
+resources: https://learn.microsoft.com/en-us/azure/governance/management-groups/overview
+acknowledgement: Martin Sohn Christensen, @martinsohndk
