@@ -4,7 +4,7 @@ platform: Active Directory
 category: Domain Information
 description: Objects whose permissions are set by SDProp to the template AdminSDHolder object as per MS-ADTS 3.1.1.6.1.2 Protected Objects. Does not exclude objects if specified in dSHeuristics dwAdminSDExMask
 query: |-
-  MATCHN (n:Base)-[:MemberOf*0..]->(m:Group)
+  MATCH (n:Base)-[:MemberOf*0..]->(m:Group)
   WHERE (
     n.objectid =~ ".*-(S-1-5-32-544|S-1-5-32-548|S-1-5-32-549|S-1-5-32-550|S-1-5-32-551|S-1-5-32-552|518|512|519)" // Groups
     OR m.objectid =~ ".*-(S-1-5-32-544|S-1-5-32-548|S-1-5-32-549|S-1-5-32-550|S-1-5-32-551|S-1-5-32-552|518|512|519)" // Members of groups

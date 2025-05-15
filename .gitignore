@@ -1,6 +1,7 @@
 # Additional ignores
 .env
 .vscode
+test-report.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
