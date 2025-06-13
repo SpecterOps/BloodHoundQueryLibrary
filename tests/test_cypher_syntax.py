@@ -63,5 +63,20 @@ def test_cypher_validation(file_path: str, request: pytest.FixtureRequest) -> No
         pytest.fail(f"Parsing failed for file {file_path}: {str(e)}", pytrace=False)
 
 
+def test_duplicate_guid() -> None:
+    query_files = get_query_files("Queries")
+    guids = set()
+
+    # Iterate over all query files and check for duplicate GUIDs
+    for file_path in query_files:
+        with open(file_path, "r") as f:
+            yaml_object = yaml.safe_load(f)
+
+        query_guid = yaml_object["guid"]
+        if query_guid in guids:
+            pytest.fail(f"Duplicate GUID found: {query_guid} in file {file_path}", pytrace=False)
+        guids.add(query_guid)
+
+
 if __name__ == "__main__":
     pytest.main(["-v", __file__])
