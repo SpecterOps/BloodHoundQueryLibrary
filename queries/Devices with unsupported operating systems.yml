@@ -1,7 +1,7 @@
 name: Devices with unsupported operating systems
 guid: e3f2b53a-7ce6-4e52-9c74-68b69338288b
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Azure Hygiene
 description: 
 query: |-

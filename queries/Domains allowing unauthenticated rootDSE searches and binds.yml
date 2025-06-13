@@ -1,7 +1,7 @@
 name: Domains allowing unauthenticated rootDSE searches and binds
 guid: ebc79aa4-e816-4be8-93fe-a0b30dbc771d
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: Checks the fLDAPBlockAnonOps flag of dSHeuristics.
 query: |-

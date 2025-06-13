@@ -1,7 +1,7 @@
 name: Non-Tier Zero account with 'Admin Count' flag
 guid: e7f703b3-5dba-4aef-8346-4d589be2c828
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: Users who were a member of one of AD's built-in administrative groups but are not currently Tier Zero.
 query: |-

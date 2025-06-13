@@ -1,7 +1,7 @@
 name: Domains allowing authenticated domain enumeration
 guid: 1e1e6fdd-6973-4547-906c-a494b5fbdcba
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

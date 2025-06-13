@@ -1,7 +1,7 @@
 name: All coerce and NTLM relay edges
 guid: 15c5ff3b-856c-44d1-a731-a8cb72512dd1
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: NTLM Relay Attacks
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: On-Prem Users synced to Entra Users that Own Entra Objects
 guid: 4baf1026-e64c-4e31-afeb-2090b8090130
 prebuilt: true
-platform:
+platforms:
 - Active Directory
 - Azure
 category: Cross Platform Attack Paths

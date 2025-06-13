@@ -1,7 +1,7 @@
 name: Shortest paths to Domain Admins
 guid: f40cb34b-5ec7-44bc-9aa8-a200a4a41f22
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Shortest Paths
 description: 
 query: |-

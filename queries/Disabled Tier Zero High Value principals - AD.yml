@@ -1,7 +1,7 @@
 name: Disabled Tier Zero / High Value principals
 guid: d65a801f-d3ef-4b7e-8030-99ebfd6dad12
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

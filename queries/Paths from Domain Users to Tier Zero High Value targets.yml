@@ -1,7 +1,7 @@
 name: Paths from Domain Users to Tier Zero / High Value targets
 guid: 977bec40-565c-40b8-90c8-e3e122c291cd
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

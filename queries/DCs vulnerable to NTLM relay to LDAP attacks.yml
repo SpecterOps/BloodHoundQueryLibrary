@@ -1,7 +1,7 @@
 name: DCs vulnerable to NTLM relay to LDAP attacks
 guid: 3f87e0b0-fc06-4986-a94c-e08781253dc8
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: NTLM Relay Attacks
 description: 
 query: |-

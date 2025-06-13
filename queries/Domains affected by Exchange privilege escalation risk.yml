@@ -1,7 +1,7 @@
 name: Domains affected by Exchange privilege escalation risk
 guid: f2d09c94-b6f2-4901-9a2d-f8bacd61edc7
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

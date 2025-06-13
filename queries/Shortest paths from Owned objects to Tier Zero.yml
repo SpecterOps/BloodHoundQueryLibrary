@@ -1,7 +1,7 @@
 name: Shortest paths from Owned objects to Tier Zero
 guid: dfaa8e8f-2c79-4e92-a291-b1347f6e83b0
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Shortest Paths
 description: 
 query: |-

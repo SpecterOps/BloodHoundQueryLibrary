@@ -1,7 +1,7 @@
 name: All service principals with Microsoft Graph App Role assignments
 guid: 74440269-eb41-476b-8dec-b4095569b029
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Microsoft Graph
 description: 
 query: |-

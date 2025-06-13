@@ -1,7 +1,7 @@
 name: Domains not verifying UPN and SPN uniqueness
 guid: cb0b1591-5c3e-45f1-afb7-984e5ad865d0
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: Checks the DoNotVerifyUPNAndOrSPNUniqueness flag of dSHeuristics.
 query: |-

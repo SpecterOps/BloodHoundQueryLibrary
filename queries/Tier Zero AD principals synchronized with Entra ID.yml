@@ -1,7 +1,7 @@
 name: Tier Zero AD principals synchronized with Entra ID
 guid: a8b6ec67-21aa-4dd2-8906-47bb81bf5262
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Azure Hygiene
 description: 
 query: |-

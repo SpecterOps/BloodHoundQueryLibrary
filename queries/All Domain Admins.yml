@@ -1,7 +1,7 @@
 name: All Domain Admins
 guid: 0596dba7-9180-49a0-aa54-00243240037c
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

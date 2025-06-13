@@ -1,7 +1,7 @@
 name: Enabled users inactive for 180 days
 guid: 71972f3c-b32d-4023-a841-5cc8cc1c1867
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

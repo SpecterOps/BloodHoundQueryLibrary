@@ -1,7 +1,7 @@
 name: All Schema Admins
 guid: 76d8e61d-7a86-40ff-8a85-fd37f1e2563f
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

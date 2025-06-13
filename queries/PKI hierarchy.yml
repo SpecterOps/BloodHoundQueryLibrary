@@ -1,7 +1,7 @@
 name: PKI hierarchy
 guid: 928acc23-ee4c-40a5-bde7-64c05cc1491d
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

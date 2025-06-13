@@ -1,7 +1,7 @@
 name: Accounts with SID History to a same-domain account
 guid: 275d2d58-0cad-4cad-8103-e0874cece666
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

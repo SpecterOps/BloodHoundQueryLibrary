@@ -1,7 +1,7 @@
 name: Non-default members in Pre-Windows 2000 Compatible Access
 guid: 091995b9-7254-473a-996f-6b8368d20431
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

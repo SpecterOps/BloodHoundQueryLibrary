@@ -1,7 +1,7 @@
 name: All Operators
 guid: 3dfd0843-1ff9-4c21-aa67-feae08d109de
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

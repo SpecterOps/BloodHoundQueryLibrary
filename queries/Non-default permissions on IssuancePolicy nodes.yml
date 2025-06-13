@@ -1,7 +1,7 @@
 name: Non-default permissions on IssuancePolicy nodes
 guid: b2280665-c91b-448c-8c0f-97d1f38b6f59
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

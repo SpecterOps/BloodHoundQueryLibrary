@@ -1,7 +1,7 @@
 name: Shortest paths from Azure Applications to Tier Zero / High Value targets
 guid: 60ff7c58-a98e-4bc1-9e32-8378d2db0c43
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Shortest Paths
 description: 
 query: |-

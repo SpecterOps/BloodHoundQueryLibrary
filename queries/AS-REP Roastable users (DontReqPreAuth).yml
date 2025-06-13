@@ -1,7 +1,7 @@
 name: AS-REP Roastable users (DontReqPreAuth)
 guid: 2570e359-dec1-419d-b0dc-a204bd64ee42
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Kerberos Interaction
 description: 
 query: |-

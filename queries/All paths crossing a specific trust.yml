@@ -1,7 +1,7 @@
 name: All paths crossing a specific trust
 guid: 251fc893-7a6b-4a0a-8650-9d5408d38c3c
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: All paths crossing a specific trust from a trusted to a trusting domain.
 query: |-
@@ -15,6 +15,5 @@ query: |-
 note: 
 revision: 1
 resources: 
-acknowledgement: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

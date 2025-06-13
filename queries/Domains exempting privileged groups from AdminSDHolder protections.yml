@@ -1,7 +1,7 @@
 name: Domains exempting privileged groups from AdminSDHolder protections
 guid: 79f8d8f9-8291-4bf7-a13a-15989018075f
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: Checks the dwAdminSDExMask flag of dSHeuristics.
 query: |-

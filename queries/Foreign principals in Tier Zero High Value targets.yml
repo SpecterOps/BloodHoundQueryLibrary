@@ -1,7 +1,7 @@
 name: Foreign principals in Tier Zero / High Value targets
 guid: 95bec736-86ef-4017-8465-9b9b66548b17
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Azure Hygiene
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Domains with functional level not the latest version
 guid: 3da9d14a-f1cb-4df7-b3da-8d73ff5c401b
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

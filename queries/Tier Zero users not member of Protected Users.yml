@@ -1,7 +1,7 @@
 name: Tier Zero users not member of Protected Users
 guid: 543eb01d-9fa3-4b8f-a936-b46bbfdaa2ae
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

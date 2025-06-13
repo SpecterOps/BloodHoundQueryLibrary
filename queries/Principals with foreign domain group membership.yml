@@ -1,7 +1,7 @@
 name: Principals with foreign domain group membership
 guid: 8fb3214a-5a75-4ecd-b293-c121abd94b4b
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

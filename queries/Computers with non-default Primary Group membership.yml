@@ -1,7 +1,7 @@
 name: Computers with non-default Primary Group membership
 guid: 5862dc4e-6f6f-4321-9474-d838968495ed
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

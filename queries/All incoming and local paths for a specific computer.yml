@@ -1,7 +1,7 @@
 name: All incoming and local paths for a specific computer
 guid: 1f67e538-19d4-4020-89c8-5b39b31571bd
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: All incoming and local paths for a specific computer; incoming from domain objects and paths local inside the computer.
 query: |-
@@ -13,6 +13,5 @@ query: |-
 note: 
 revision: 1
 resources: 
-acknowledgement: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

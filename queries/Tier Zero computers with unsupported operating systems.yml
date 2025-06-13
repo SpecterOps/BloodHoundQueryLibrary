@@ -1,7 +1,7 @@
 name: Tier Zero computers with unsupported operating systems
 guid: a87b558c-5746-4a90-9f83-c86e7b924a52
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Enrollment rights on CertTemplates with OIDGroupLink
 guid: 140a68eb-d21c-4b75-971f-309225fb2d75
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

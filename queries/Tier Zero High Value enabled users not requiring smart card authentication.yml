@@ -1,7 +1,7 @@
 name: Tier Zero / High Value enabled users not requiring smart card authentication
 guid: 867f9f17-c149-4c4b-ad84-9a807622ff8c
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

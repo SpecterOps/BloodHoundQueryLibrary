@@ -1,7 +1,7 @@
 name: Accounts with SID History
 guid: 8172d52c-a975-49bd-9180-5b6efc59c9ab
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

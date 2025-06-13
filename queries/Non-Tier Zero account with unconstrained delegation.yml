@@ -1,7 +1,7 @@
 name: Non-Tier Zero account with unconstrained delegation
 guid: e7e9a927-3f34-42c7-b921-d8bcf626011e
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

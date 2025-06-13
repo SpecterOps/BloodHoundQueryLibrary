@@ -1,7 +1,7 @@
 name: Large default group added to computer-local group
 guid: dde133d2-b4d2-4de9-a656-905f3bf066f3
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

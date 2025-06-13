@@ -1,7 +1,7 @@
 name: Sessions across trusts
 guid: aea7ac64-1f51-407b-b0ee-19fd30075794
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: Users logging on across a trust, the users originate from trusted domains.
 query: |-
@@ -12,6 +12,5 @@ query: |-
 note: 
 revision: 1
 resources: 
-acknowledgement: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

@@ -1,7 +1,7 @@
 name: Nested groups within Tier Zero / High Value
 guid: 8e541e75-df1d-423f-b429-4bbf0403a338
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

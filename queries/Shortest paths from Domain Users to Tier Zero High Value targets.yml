@@ -1,7 +1,7 @@
 name: Shortest paths from Domain Users to Tier Zero / High Value targets
 guid: 469dc0f3-71b8-41b0-a03b-b4af7874665d
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Shortest Paths
 description: 
 query: |-

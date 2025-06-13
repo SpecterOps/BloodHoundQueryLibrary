@@ -1,7 +1,7 @@
 name: All ADCS ESC privilege escalation edges
 guid: 49db8edc-8421-438f-b97b-23c042959bef
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Domains with more than 50 Tier Zero accounts
 guid: f046e95a-5f84-4e83-bcda-6e83f3d8e21a
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

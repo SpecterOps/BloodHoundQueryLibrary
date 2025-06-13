@@ -1,7 +1,7 @@
 name: Domains without Microsoft LAPS computers
 guid: f9b440b5-732c-4ed3-b6d2-83857db17e1a
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

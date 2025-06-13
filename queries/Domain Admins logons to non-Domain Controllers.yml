@@ -1,7 +1,7 @@
 name: Domain Admins logons to non-Domain Controllers
 guid: e2f3fd0a-1df2-4089-b0a4-272ad6e369a9
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

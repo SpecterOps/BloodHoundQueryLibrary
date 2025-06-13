@@ -1,7 +1,7 @@
 name: Domain controllers with UPN certificate mapping enabled
 guid: 799ea3ce-572b-4594-98c4-041aa2ae6176
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

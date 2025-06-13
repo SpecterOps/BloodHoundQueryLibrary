@@ -1,7 +1,7 @@
 name: Tier Zero users with email
 guid: 9654c0d4-f1e8-4393-a2d1-53a5554a9de8
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: Tier Zero accounts with email access have an increased attack surface.
 query: |-

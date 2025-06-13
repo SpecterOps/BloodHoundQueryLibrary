@@ -1,7 +1,7 @@
 name: Tier Zero accounts that can be delegated
 guid: 4316eaf1-6af0-4879-8f55-ac2633a711c3
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Kerberos Interaction
 description: 
 query: |-

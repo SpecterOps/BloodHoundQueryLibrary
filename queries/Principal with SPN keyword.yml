@@ -1,7 +1,7 @@
 name: Principal with SPN keyword
 guid: 38a9c4c9-3d70-453f-a017-cbfd35ed9917
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Kerberos Interaction
 description: Finds service accounts used with a specific Kerberos-enabled service or all service accounts running on a Kerberos-enabled service on a specific server.
 query: |-
@@ -13,6 +13,5 @@ query: |-
 note: 
 revision: 1
 resources: https://adsecurity.org/?page_id=183
-acknowledgement: Ryan, @haus3c
-acknowledgements: Martin Sohn Christensen, @martinsohndk
+acknowledgements: Ryan, @haus3c
 

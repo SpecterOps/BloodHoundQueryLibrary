@@ -1,7 +1,7 @@
 name: Accounts with SID History to a non-existent domain
 guid: 2710401a-c4c2-4d2c-9edb-d7625045f2e8
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

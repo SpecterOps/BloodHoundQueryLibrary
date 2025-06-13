@@ -1,7 +1,7 @@
 name: Domain migration groups
 guid: f39c4953-ae92-4d67-bb50-eb1a161d4d3f
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

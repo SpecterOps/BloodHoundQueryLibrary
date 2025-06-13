@@ -1,7 +1,7 @@
 name: Non-default delegation on MicrosoftDNS container
 guid: 008792c0-4458-46a1-a10d-50cdaf95af1e
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

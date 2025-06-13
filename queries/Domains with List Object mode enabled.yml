@@ -1,7 +1,7 @@
 name: Domains with List Object mode enabled
 guid: 05e2a94b-5ee6-47ec-b715-3982f30af01b
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: Checks the fDoListObject flag of dSHeuristics.
 query: |-

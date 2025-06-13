@@ -1,7 +1,7 @@
 name: Shortest paths to Azure Subscriptions
 guid: 4785b305-c101-461c-80fc-3fb3ff67a8ce
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Shortest Paths
 description: 
 query: |-

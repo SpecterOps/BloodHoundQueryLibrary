@@ -1,7 +1,7 @@
 name: All Kerberoastable users
 guid: 14ab4eaa-b73b-49c4-b2d1-1e020757c995
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Kerberos Interaction
 description: 
 query: |-

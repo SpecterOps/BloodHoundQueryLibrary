@@ -1,7 +1,7 @@
 name: Usage of built-in domain Administrator account
 guid: 35b1206f-871b-44aa-a601-c5258060dfcf
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: Usage of Active Directory's built-in Administrator account is a sign that the account is not only used for break-glass purposes.
 query: |-

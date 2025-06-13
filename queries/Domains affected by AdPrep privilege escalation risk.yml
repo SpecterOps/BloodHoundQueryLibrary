@@ -1,7 +1,7 @@
 name: Domains affected by AdPrep privilege escalation risk
 guid: 815ff190-f6f3-4757-a516-2f4bf589b705
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

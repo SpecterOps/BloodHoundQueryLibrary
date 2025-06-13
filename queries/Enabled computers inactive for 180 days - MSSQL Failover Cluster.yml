@@ -1,7 +1,7 @@
 name: Enabled computers inactive for 180 days - MSSQL Failover Cluster
 guid: d263e621-7f1b-4efb-ad25-098fc7d4fb72
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

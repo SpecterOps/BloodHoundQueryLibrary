@@ -1,7 +1,7 @@
 name: Shortest paths to Domain Admins from Kerberoastable users
 guid: bd163361-1e05-47c7-908b-962aef251535
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Shortest Paths
 description: 
 query: |-

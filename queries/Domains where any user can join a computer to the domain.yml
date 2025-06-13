@@ -1,7 +1,7 @@
 name: Domains where any user can join a computer to the domain
 guid: 421921fa-bc0f-4659-9680-b7481adcb132
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

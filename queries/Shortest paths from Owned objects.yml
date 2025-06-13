@@ -1,7 +1,7 @@
 name: Shortest paths from Owned objects
 guid: e370a01d-c129-4f19-b88d-9479cbe00028
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Shortest Paths
 description: 
 query: |-

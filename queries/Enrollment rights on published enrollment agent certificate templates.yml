@@ -1,7 +1,7 @@
 name: Enrollment rights on published enrollment agent certificate templates
 guid: 8483bf5b-89f1-4723-abb2-c48295f6393e
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

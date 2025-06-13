@@ -1,7 +1,7 @@
 name: On-Prem Users synced to Entra Users with Azure RM Roles (direct)
 guid: 8569113b-e42e-49b0-a968-53bcf0ccd970
 prebuilt: true
-platform:
+platforms:
 - Active Directory
 - Azure
 category: Cross Platform Attack Paths

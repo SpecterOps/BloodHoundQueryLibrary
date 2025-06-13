@@ -1,7 +1,7 @@
 name: ESC8-vulnerable Enterprise CAs
 guid: 60881923-296c-4702-adf7-a4f059dc9bb8
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: NTLM Relay Attacks
 description: 
 query: |-

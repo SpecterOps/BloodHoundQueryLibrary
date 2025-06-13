@@ -1,7 +1,7 @@
 name: Enabled built-in guest user accounts
 guid: bb0f620d-6a55-4413-ac74-4c82905e8598
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

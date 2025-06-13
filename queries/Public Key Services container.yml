@@ -1,7 +1,7 @@
 name: Public Key Services container
 guid: 07e94492-71aa-4665-ab8c-e7aec25906cd
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

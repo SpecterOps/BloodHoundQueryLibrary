@@ -1,7 +1,7 @@
 name: ACEs across trusts
 guid: c902d3b4-1a75-4335-acd7-28246dab746d
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: ACEs granted across a trust, the ACEs are set on trusting objects and the rights are granted to objects from trusted domains.
 query: |-
@@ -13,6 +13,5 @@ query: |-
 note: 
 revision: 1
 resources: 
-acknowledgement: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

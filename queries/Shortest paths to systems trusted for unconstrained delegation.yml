@@ -1,7 +1,7 @@
 name: Shortest paths to systems trusted for unconstrained delegation
 guid: 16a9e47b-45f8-4514-b409-771bb5186142
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Shortest Paths
 description: 
 query: |-

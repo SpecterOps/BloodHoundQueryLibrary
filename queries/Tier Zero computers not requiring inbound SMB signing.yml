@@ -1,7 +1,7 @@
 name: Tier Zero omputers not requiring inbound SMB signing
 guid: 13485477-f026-4b1f-906d-4f2e37364ba4
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: NTLM Relay Attacks
 description: 
 query: |-

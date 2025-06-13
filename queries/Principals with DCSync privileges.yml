@@ -1,7 +1,7 @@
 name: Principals with DCSync privileges
 guid: 6e9beb8a-ad14-43de-bda1-644d174a5906
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

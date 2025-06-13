@@ -1,7 +1,7 @@
 name: Map domain trusts
 guid: 268d3d26-5bc2-4820-a6ed-09d20f3d5413
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

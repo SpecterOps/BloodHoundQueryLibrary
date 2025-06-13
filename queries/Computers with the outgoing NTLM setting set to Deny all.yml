@@ -1,7 +1,7 @@
 name: Computers with the outgoing NTLM setting set to Deny all
 guid: a9ddca74-feeb-4dbf-8b0f-de08b3cfa8a6
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: NTLM Relay Attacks
 description: 
 query: |-

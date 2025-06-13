@@ -1,7 +1,7 @@
 name: Computers with the WebClient running
 guid: 51107ad1-f0bc-43d3-a561-5cee471ca196
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: NTLM Relay Attacks
 description: 
 query: |-

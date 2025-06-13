@@ -1,7 +1,7 @@
 name: Disabled Tier Zero / High Value principals
 guid: 860d5c2d-84fe-4c85-80de-e0a9badbd0e7
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Azure Hygiene
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Enrollment rights on published certificate templates with no security extension
 guid: 0677b70c-4e04-4e89-a6a2-f5764604a6a7
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Domains allowing unauthenticated NSPI RPC binds
 guid: a950fdab-5934-4c69-a88b-e2e0e3da9d52
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: Checks the fAllowAnonNSPI flag of dSHeuristics.
 query: |-

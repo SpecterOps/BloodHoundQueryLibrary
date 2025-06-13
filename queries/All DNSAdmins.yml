@@ -1,7 +1,7 @@
 name: All DNSAdmins
 guid: 183fb320-f3ae-4ab3-a090-3f9a7db692e1
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

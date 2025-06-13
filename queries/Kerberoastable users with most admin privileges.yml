@@ -1,7 +1,7 @@
 name: Kerberoastable users with most admin privileges
 guid: 9907b208-494c-4ba6-846d-485e6de14e17
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Kerberos Interaction
 description: 
 query: |-

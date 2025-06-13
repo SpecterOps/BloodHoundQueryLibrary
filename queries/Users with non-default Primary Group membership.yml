@@ -1,7 +1,7 @@
 name: Users with non-default Primary Group membership
 guid: 93890f88-df2c-4167-a945-a53961d08d00
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Entra Users synced from On-Prem Users added to Domain Admins group
 guid: 62722d5f-bd93-4d11-beeb-9be261827e4e
 prebuilt: true
-platform:
+platforms:
 - Active Directory
 - Azure
 category: Cross Platform Attack Paths

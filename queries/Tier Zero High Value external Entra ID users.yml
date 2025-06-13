@@ -1,7 +1,7 @@
 name: Tier Zero / High Value external Entra ID users
 guid: 20e07417-d286-4dca-a962-568f2b262f65
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Azure Hygiene
 description: 
 query: |-

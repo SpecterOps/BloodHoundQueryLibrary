@@ -1,7 +1,7 @@
 name: Map Azure Management structure
 guid: c1bb109e-e6a4-4c91-864f-f78e1e42615e
 prebuilt: false
-platform: Azure
+platforms: Azure
 category: Kerberos Interaction
 description: Maps the structure of Azure Management
 query: |-
@@ -11,6 +11,5 @@ query: |-
 note: 
 revision: 1
 resources: https://learn.microsoft.com/en-us/azure/governance/management-groups/overview
-acknowledgement: Martin Sohn Christensen, @martinsohndk
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

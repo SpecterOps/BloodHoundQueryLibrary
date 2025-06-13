@@ -1,7 +1,7 @@
 name: Locations of Tier Zero / High Value objects
 guid: 18a83a17-b451-4343-acfe-7620516e2968
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

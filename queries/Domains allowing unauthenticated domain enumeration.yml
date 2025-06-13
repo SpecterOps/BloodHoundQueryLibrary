@@ -1,7 +1,7 @@
 name: Domains allowing unauthenticated domain enumeration
 guid: 41a08d76-f8a5-4296-ad19-464c4c5c69fe
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

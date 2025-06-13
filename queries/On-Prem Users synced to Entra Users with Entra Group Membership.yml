@@ -1,7 +1,7 @@
 name: On-Prem Users synced to Entra Users with Entra Group Membership
 guid: edb575df-2048-4ef0-a0e4-168544a496e9
 prebuilt: true
-platform:
+platforms:
 - Active Directory
 - Azure
 category: Cross Platform Attack Paths

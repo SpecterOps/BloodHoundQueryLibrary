@@ -1,7 +1,7 @@
 name: Unresolved SID with outbound control
 guid: 4e8429f9-cba2-41e9-bac6-0c42f96b2c57
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

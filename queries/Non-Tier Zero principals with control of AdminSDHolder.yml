@@ -1,7 +1,7 @@
 name: Non-Tier Zero principals with control of AdminSDHolder
 guid: 4c1e0137-5b7f-48d8-bd09-9db7674bca61
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

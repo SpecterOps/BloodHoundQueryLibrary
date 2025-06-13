@@ -1,7 +1,7 @@
 name: Principals with weak supported Kerberos encryption types
 guid: ca329573-2157-41da-ab17-4d122c54b11d
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Workstations where Domain Users can RDP
 guid: 9486e0e6-2617-4595-b969-cf57ca21fc86
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

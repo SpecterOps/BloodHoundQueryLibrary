@@ -1,7 +1,7 @@
 name: Enabled computers inactive for 180 days
 guid: 0768e810-1e1e-4319-a216-76d9c2058644
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

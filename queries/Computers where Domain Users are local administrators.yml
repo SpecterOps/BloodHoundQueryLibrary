@@ -1,7 +1,7 @@
 name: Computers where Domain Users are local administrators
 guid: d43a7bdc-33c6-4a39-a3bb-24115749e595
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

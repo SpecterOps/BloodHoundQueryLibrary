@@ -1,7 +1,7 @@
 name: AS-REP Roastable Tier Zero users (DontReqPreAuth)
 guid: 6d51e4dc-e1ad-477a-b6c6-324f18f03120
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-

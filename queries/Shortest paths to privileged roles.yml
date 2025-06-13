@@ -1,7 +1,7 @@
 name: Shortest paths to privileged roles
 guid: 3dc73dd8-4873-4aeb-a88f-56a58c77f512
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Shortest Paths
 description: 
 query: |-

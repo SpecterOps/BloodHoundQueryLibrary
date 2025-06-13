@@ -1,7 +1,7 @@
 name: Shortest paths from Entra Users to Tier Zero / High Value targets
 guid: 58089b28-54e0-4fd2-bf66-3db480b00e2f
 prebuilt: true
-platform: Azure
+platforms: Azure
 category: Shortest Paths
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Domain controllers with weak certificate binding enabled
 guid: a2444d99-10b5-412d-8fea-4b063cfddd2c
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

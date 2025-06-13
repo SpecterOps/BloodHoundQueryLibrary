@@ -1,7 +1,7 @@
 name: On-Prem Users synced to Entra Users with Entra Admin Roles (direct)
 guid: de717635-d31f-4fbd-930b-b4dac0f22118
 prebuilt: true
-platform:
+platforms:
 - Active Directory
 - Azure
 category: Cross Platform Attack Paths

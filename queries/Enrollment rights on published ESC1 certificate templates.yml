@@ -1,7 +1,7 @@
 name: Enrollment rights on published ESC1 certificate templates
 guid: 2af855bc-f48f-4b22-9839-627d8231e425
 prebuilt: true
-platform: Active Directory
+platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-

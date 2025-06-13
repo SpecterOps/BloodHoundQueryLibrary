@@ -1,7 +1,7 @@
 name: Tier Zero computers at risk of resource-based constrained delegation
 guid: 4dc97cf4-3c03-4fe6-8a8b-4f665c67e1e5
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-

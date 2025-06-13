@@ -1,7 +1,7 @@
 name: Domains without Protected Users group
 guid: 8c3e0811-a31b-45b4-a29d-1dce80fa2c5f
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Domain Information
 description: 
 query: |-

@@ -1,7 +1,7 @@
 name: Large default groups with outbound control of OUs
 guid: 310b3626-f8e6-4ab0-832c-72df6048597f
 prebuilt: false
-platform: Active Directory
+platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-
