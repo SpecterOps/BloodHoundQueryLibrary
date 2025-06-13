@@ -9,7 +9,6 @@ query: |-
   WHERE n.name STARTS WITH "EXCHANGE "
   AND ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

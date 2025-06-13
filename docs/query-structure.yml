@@ -13,7 +13,6 @@ query: |-
   // My clean and well-commented Cypher query
   MATCH p = (b:BloodHoundUsers) - [h:ThinkIn] -> (e:Graphs)
   RETURN p
-note: Note meant to be stored only in the yml file.
 revision: 1 # Version number integer starting at 1.
 resources:  # URL references, for example related to Acknowledgements.
 # Use a list for multiple Resources:

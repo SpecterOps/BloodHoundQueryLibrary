@@ -12,7 +12,6 @@ query: |-
   AND NOT n.objectid ENDS WITH '-500' // Removes false positive, built-in Administrator
   RETURN n
   LIMIT 100
-note: 
 revision: 1
 resources: 
 acknowledgements: 

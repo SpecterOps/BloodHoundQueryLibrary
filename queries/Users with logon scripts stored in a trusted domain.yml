@@ -11,7 +11,6 @@ query: |-
   WITH n,last(split(d.name, '@')) AS domain
   WHERE toUpper(n.logonscript) STARTS WITH ("\\\\" + domain + "\\")
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

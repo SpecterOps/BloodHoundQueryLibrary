@@ -10,7 +10,6 @@ query: |-
   MATCH p = (:User)-[:SyncedToEntraUser]->(:AZUser)-[:AZMemberOf]->(:AZGroup)
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

@@ -11,7 +11,6 @@ query: |-
   MATCH p=()-[:GenericAll {isacl:true,isinherited:false}]->()-[:Contains*1..]->(:Base{objectid:OID})
   WHERE NONE(ou in NODES(p) WHERE ou:OU AND ou.isaclprotected IS NOT NULL)
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Walter.Legowski, @SadProcessor

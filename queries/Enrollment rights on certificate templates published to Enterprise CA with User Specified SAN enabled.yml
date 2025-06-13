@@ -9,7 +9,6 @@ query: |-
   WHERE eca.isuserspecifiessanenabled = True
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

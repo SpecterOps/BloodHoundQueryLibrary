@@ -9,7 +9,6 @@ query: |-
   WHERE n.enabled = true
   AND n.usedeskeyonly = true
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: 

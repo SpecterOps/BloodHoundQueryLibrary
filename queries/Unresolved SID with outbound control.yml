@@ -10,7 +10,6 @@ query: |-
   AND n.name CONTAINS "S-1-5-21-" // Unresolved SID
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

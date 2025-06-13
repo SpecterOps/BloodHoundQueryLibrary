@@ -8,7 +8,6 @@ query: |-
   MATCH p = (:Base)-[:MemberOf*1..]->(g:Group)
   WHERE g.objectid ENDS WITH "-525"
   RETURN p LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

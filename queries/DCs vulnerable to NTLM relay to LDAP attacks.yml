@@ -10,7 +10,6 @@ query: |-
   OR (dc.ldapsavailable = True AND dc.ldapsepa = False)
   OR (dc.ldapavailable = True AND dc.ldapsavailable = True AND dc.ldapsigning = False and dc.ldapsepa = True)
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: 

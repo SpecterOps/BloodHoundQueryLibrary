@@ -8,7 +8,6 @@ query: |-
   MATCH (c:Computer)
   WHERE c.restrictoutboundntlm = True
   RETURN c LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

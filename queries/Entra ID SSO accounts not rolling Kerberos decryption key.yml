@@ -11,7 +11,6 @@ query: |-
   WHERE n.name STARTS WITH "AZUREADSSOACC."
   AND n.pwdlastset < (datetime().epochseconds - (30 * 86400))
   RETURN n
-note: 
 revision: 1
 resources: https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sso-faq#how-can-i-roll-over-the-kerberos-decryption-key-of-the--azureadsso--computer-account-
 acknowledgements: Martin Sohn Christensen, @martinsohndk

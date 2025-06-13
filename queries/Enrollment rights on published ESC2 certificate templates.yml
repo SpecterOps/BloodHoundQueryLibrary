@@ -11,7 +11,6 @@ query: |-
   AND (c.authorizedsignatures = 0 OR c.schemaversion = 1)
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

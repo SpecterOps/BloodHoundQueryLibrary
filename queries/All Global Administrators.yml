@@ -8,7 +8,6 @@ query: |-
   MATCH p = (:AZBase)-[:AZGlobalAdmin*1..]->(:AZTenant)
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

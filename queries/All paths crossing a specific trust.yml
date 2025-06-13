@@ -12,7 +12,6 @@ query: |-
   AND Trusting.domainsid = 'S-1-5-21-2222222222-2222222222-2222222222'
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

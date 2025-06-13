@@ -10,7 +10,6 @@ query: |-
   WHERE m.name CONTAINS 'HOSTNAME'
   AND m.name CONTAINS '.' // Only see computer-related objects (eg. not AD Groups)
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

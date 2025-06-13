@@ -8,7 +8,6 @@ query: |-
   MATCH (n:Computer)
   WHERE n.smbsigning = False
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: 

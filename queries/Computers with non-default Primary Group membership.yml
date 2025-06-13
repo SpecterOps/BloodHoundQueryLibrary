@@ -11,7 +11,6 @@ query: |-
   AND NOT g.objectid ENDS WITH "-521" // Read-Only Domain Controllers
   AND r.isprimarygroup = true
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

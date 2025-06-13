@@ -9,7 +9,6 @@ query: |-
   WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
   AND n.admincount = true
   RETURN n
-note: 
 revision: 1
 resources: https://learn.microsoft.com/en-us/windows/win32/adschema/a-admincount
 acknowledgements: Martin Sohn Christensen, @martinsohndk

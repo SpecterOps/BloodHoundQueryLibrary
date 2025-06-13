@@ -10,7 +10,6 @@ query: |-
   MATCH (n:User)
   WHERE ANY(keyword IN n.serviceprincipalnames WHERE toUpper(keyword) CONTAINS toUpper(SPNKeyword))
   RETURN n
-note: 
 revision: 1
 resources: https://adsecurity.org/?page_id=183
 acknowledgements: Ryan, @haus3c

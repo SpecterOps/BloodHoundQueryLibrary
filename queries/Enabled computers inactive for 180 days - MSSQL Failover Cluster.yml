@@ -17,7 +17,6 @@ query: |-
       toLower(type) CONTAINS 'msclustervirtualserver')
   RETURN n
   LIMIT 1000
-note: 
 revision: 1
 resources: https://learn.microsoft.com/en-us/troubleshoot/windows-server/high-availability/troubleshoot-issues-accounts-used-failover-clusters#troubleshoot-password-issues-with-the-cluster-name-account
 acknowledgements: Martin Sohn Christensen, @martinsohndk

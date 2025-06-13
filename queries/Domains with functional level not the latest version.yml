@@ -3,15 +3,13 @@ guid: 3da9d14a-f1cb-4df7-b3da-8d73ff5c401b
 prebuilt: false
 platforms: Active Directory
 category: Active Directory Hygiene
-description: Check for functional level <4
+description: 
 query: |-
   MATCH (n:Domain)
-  WHERE (
-    n.functionallevel IS NULL
-    OR NOT n.functionallevel IN ["2016","2025"]
-  )
+  WHERE toString(n.functionallevel) IN ['2008','2003','2003 Interim','2000 Mixed/Native']
   RETURN  n
+note: Functional level <4
 revision: 1
-resources: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-functional-levels
+resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

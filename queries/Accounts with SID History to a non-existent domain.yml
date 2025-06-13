@@ -10,7 +10,6 @@ query: |-
   MATCH p=(n:Base)-[:HasSIDHistory]->(m:Base)
   WHERE NOT n.domainsid IN domainSIDs
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

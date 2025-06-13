@@ -10,7 +10,6 @@ query: |-
   AND n.name CONTAINS '#EXT#@'
   RETURN n
   LIMIT 100
-note: 
 revision: 1
 resources: 
 acknowledgements: 

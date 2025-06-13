@@ -10,7 +10,6 @@ query: |-
   WITH d, COUNT(n) AS adminCount
   WHERE adminCount > 50
   RETURN d
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

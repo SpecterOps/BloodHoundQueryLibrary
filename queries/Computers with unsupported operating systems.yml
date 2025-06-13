@@ -9,7 +9,6 @@ query: |-
   WHERE c.operatingsystem =~ '(?i).*Windows.* (2000|2003|2008|2012|xp|vista|7|8|me|nt).*'
   RETURN c
   LIMIT 100
-note: 
 revision: 1
 resources: 
 acknowledgements: 

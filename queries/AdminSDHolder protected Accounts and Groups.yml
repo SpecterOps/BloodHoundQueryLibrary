@@ -12,7 +12,6 @@ query: |-
     OR n.objectid =~ ".*-(500|502|516|521)$" // Direct objects
   )
   RETURN n
-note: 
 revision: 1
 resources:
 - https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/a0d0b4fa-2895-4c64-b182-ba64ad0f84b8

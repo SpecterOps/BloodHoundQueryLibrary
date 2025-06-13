@@ -8,7 +8,6 @@ query: |-
   MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(:CertTemplate)-[:PublishedTo]->(:EnterpriseCA)
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

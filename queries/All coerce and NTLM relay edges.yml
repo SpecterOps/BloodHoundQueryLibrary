@@ -7,7 +7,6 @@ description:
 query: |-
   MATCH p = (n:Base)-[:CoerceAndRelayNTLMToLDAP|CoerceAndRelayNTLMToLDAPS|CoerceAndRelayNTLMToADCS|CoerceAndRelayNTLMToSMB]->(:Base)
   RETURN p LIMIT 500
-note: 
 revision: 1
 resources: https://specterops.io/blog/2025/04/08/the-renaissance-of-ntlm-relay-attacks-everything-you-need-to-know/
 acknowledgements: 

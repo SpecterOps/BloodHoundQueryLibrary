@@ -3,12 +3,15 @@ guid: 421921fa-bc0f-4659-9680-b7481adcb132
 prebuilt: true
 platforms: Active Directory
 category: Active Directory Hygiene
-description: Authenticated Users can by default create 10 domain computers as defined by the attribute 'ms-DS-MachineAccountQuota' and the DC URA Security Policy 'Add workstations to domain'. This query does not check the latter.
+description: 
 query: |-
   MATCH (n:Domain)
   WHERE n.machineaccountquota > 0
   RETURN n
-note: 
+<<<<<<< Updated upstream
+note: Does not check the 'Add workstations to domain' URA Security Policy on DCs.
+=======
+>>>>>>> Stashed changes
 revision: 1
 resources: 
 - https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/default-workstation-numbers-join-domain

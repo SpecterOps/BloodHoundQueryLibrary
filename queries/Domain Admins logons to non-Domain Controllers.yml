@@ -12,7 +12,6 @@ query: |-
   WHERE g.objectid ENDS WITH '-512' AND NOT c IN exclude
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

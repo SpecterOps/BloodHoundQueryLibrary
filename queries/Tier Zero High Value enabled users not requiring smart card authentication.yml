@@ -13,7 +13,6 @@ query: |-
   AND NOT u.name STARTS WITH 'PROVAGENTGMSA' // Removes false positive, Entra sync
   AND NOT u.name STARTS WITH 'ADSYNCMSA_' // Removes false positive, Entra sync
   RETURN u
-note: 
 revision: 1
 resources: 
 acknowledgements: 

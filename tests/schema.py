@@ -13,7 +13,6 @@ class CypherQuery(BaseModel):
     description: Optional[str] = None
     query: str
     revision: int
-    note: Optional[str] = None
     resources: Optional[Union[str, list[str]]] = None
     acknowledgements: Optional[Union[str, list[str]]] = None
 

@@ -3,7 +3,7 @@ guid: 944cecfe-519b-4318-b226-e8520161b454
 prebuilt: false
 platforms: Active Directory
 category: Dangerous Privileges
-description: Finds Non-Tier Zero principals with control of >1000 Non-Tier Zero principals
+description: 
 query: |-
   MATCH (d:Domain)-[:Contains*1..]->(u:User)
   WHERE u.enabled = true
@@ -13,7 +13,10 @@ query: |-
   WITH n, enabledUserCount, COLLECT(DISTINCT(m)) AS endNodes
   WHERE SIZE(endNodes) >= 1000
   RETURN n
-note: 
+<<<<<<< Updated upstream
+note: Finds Non-Tier Zero principals with control of >1000 Non-Tier Zero principals
+=======
+>>>>>>> Stashed changes
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

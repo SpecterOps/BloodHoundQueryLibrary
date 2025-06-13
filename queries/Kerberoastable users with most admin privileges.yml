@@ -16,7 +16,6 @@ query: |-
   RETURN u
   ORDER BY adminCount DESC
   LIMIT 100
-note: 
 revision: 1
 resources: https://attack.mitre.org/techniques/T1558/003/
 acknowledgements: 

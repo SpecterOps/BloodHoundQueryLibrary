@@ -12,7 +12,6 @@ query: |-
   WITH m, COLLECT(n) AS matchingNs
   WHERE NONE(n IN matchingNs WHERE n.objectid = m.objectid)
   RETURN m
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

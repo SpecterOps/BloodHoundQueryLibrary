@@ -13,7 +13,6 @@ query: |-
   RETURN ENTRA
   // Replace 'RETURN ENTRA' with 'RETURN AD' to see the corresponding AD principals
   LIMIT 100
-note: 
 revision: 1
 resources: 
 acknowledgements: 

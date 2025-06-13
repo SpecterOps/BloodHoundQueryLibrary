@@ -8,7 +8,6 @@ query: |-
   MATCH p=(n:Base)-[:MemberOf]->(g:Group) 
   WHERE n.name STARTS WITH "DNSADMINS@"
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -8,7 +8,6 @@ query: |-
   MATCH p=(n:Base)-[:HasSIDHistory]->(m:Base)
   WHERE n.domainsid = m.domainsid
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

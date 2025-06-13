@@ -16,7 +16,6 @@ query: |-
   AND NOT n.objectid ENDS WITH '-500' // Removes false positive, built-in Administrator
   AND NOT n.name STARTS WITH 'AZUREADSSOACC.' // Removes false positive, Entra Seamless SSO
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: 

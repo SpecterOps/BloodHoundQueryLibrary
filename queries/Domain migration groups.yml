@@ -8,7 +8,6 @@ query: |-
   MATCH (n:Group)
   WHERE n.name CONTAINS "$$$@"
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -12,7 +12,6 @@ query: |-
   AND (n.gmsa IS NULL OR n.gmsa = false) // Not gMSA, as it has primaryGroup to Domain Computers
   AND (n.msa IS NULL OR n.msa = false) // Not MSA, as it has primaryGroup to Domain Computers
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

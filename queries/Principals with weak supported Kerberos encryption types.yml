@@ -10,7 +10,6 @@ query: |-
   OR 'DES-CBC-MD5' IN u.supportedencryptiontypes
   OR 'RC4-HMAC-MD5' IN u.supportedencryptiontypes
   RETURN u
-note: 
 revision: 1
 resources: 
 acknowledgements: 

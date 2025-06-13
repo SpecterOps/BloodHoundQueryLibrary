@@ -7,7 +7,6 @@ description:
 query: |-
   MATCH p=(:Base)-[:ADCSESC1|ADCSESC3|ADCSESC4|ADCSESC6a|ADCSESC6b|ADCSESC9a|ADCSESC9b|ADCSESC10a|ADCSESC10b|ADCSESC13|GoldenCert|CoerceAndRelayNTLMToADCS]->(:Base)
   RETURN p
-note: 
 revision: 1
 resources:
 - https://posts.specterops.io/certified-pre-owned-d95910965cd2

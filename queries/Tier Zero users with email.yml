@@ -23,7 +23,6 @@ query: |-
       OR n.name STARTS WITH "HEALTHMAILBOX")
   )
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

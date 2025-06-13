@@ -16,7 +16,6 @@ query: |-
     n.objectid ENDS WITH 'S-1-5-32-550' // Print Operators
   )
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

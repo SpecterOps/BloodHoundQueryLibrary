@@ -9,7 +9,6 @@ query: |-
   WHERE (n:User OR n:Computer)
   AND m.objectid ENDS WITH "-518" // Schema Admins
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

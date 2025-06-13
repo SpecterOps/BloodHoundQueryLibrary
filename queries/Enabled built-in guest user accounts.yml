@@ -9,7 +9,6 @@ query: |-
   WHERE n.objectid ENDS WITH "-501"
   AND n.enabled = true
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

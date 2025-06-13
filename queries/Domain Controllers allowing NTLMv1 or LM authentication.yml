@@ -9,7 +9,6 @@ query: |-
   WHERE dc.isdc = true
   AND (dc.lmcompatibilitylevel IS NOT NULL AND NOT dc.lmcompatibilitylevel = 5)
   RETURN dc
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -8,7 +8,6 @@ query: |-
   MATCH (n:EnterpriseCA)
   WHERE n.hasvulnerableendpoint=true
   RETURN n
-note: 
 revision: 1
 resources: 
 acknowledgements: 

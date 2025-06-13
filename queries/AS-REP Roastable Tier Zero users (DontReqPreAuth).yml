@@ -9,7 +9,6 @@ query: |-
   WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
   AND n.dontreqpreauth = true
   RETURN n
-note: 
 revision: 1
 resources: https://attack.mitre.org/techniques/T1558/004/
 acknowledgements: Martin Sohn Christensen, @martinsohndk

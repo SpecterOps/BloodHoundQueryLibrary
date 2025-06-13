@@ -8,7 +8,6 @@ query: |-
   MATCH (n:Base)
   WHERE n.distinguishedname CONTAINS 'CNF:'
   RETURN n
-note: 
 revision: 1
 resources: https://learn.microsoft.com/en-us/archive/technet-wiki/15435.active-directory-duplicate-object-name-resolution
 acknowledgements: Martin Sohn Christensen, @martinsohndk

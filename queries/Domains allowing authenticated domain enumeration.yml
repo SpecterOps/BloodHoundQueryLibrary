@@ -9,7 +9,6 @@ query: |-
   WHERE n.objectid ENDS WITH "S-1-5-11" // Authenticated Users
   AND m.objectid ENDS WITH "S-1-5-32-554" // Pre-Windows 2000 Compatible Access
   RETURN p
-note: 
 revision: 1
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk

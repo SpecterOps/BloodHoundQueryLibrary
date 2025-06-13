@@ -14,7 +14,6 @@ query: |-
   AND t.objectid ENDS WITH '-512'
   RETURN p
   LIMIT 1000
-note: 
 revision: 1
 resources: 
 acknowledgements: 

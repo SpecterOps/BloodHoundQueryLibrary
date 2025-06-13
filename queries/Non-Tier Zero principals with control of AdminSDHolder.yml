@@ -9,7 +9,6 @@ query: |-
   WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
   AND m.name STARTS WITH "ADMINSDHOLDER@"
   RETURN p
-note: 
 revision: 1
 resources: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory#adminsdholder
 acknowledgements: Martin Sohn Christensen, @martinsohndk

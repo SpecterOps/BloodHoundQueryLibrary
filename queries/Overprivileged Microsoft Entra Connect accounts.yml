@@ -12,7 +12,6 @@ query: |-
   AND (g.objectid ENDS WITH "-512" // Domain Admins
   OR g.objectid ENDS WITH "-519") // Entterprise Admins
   RETURN p
-note: 
 revision: 1
 resources: https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/reference-connect-accounts-permissions
 acknowledgements: Martin Sohn Christensen, @martinsohndk
