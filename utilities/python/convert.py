@@ -1,5 +1,6 @@
 from typing_extensions import Annotated
 from pathlib import Path
+from schema import CypherQuery
 import json
 import glob
 import typer
@@ -27,7 +28,9 @@ def to_json(
     all_objects = []
     for cypher_query in cypher_queries:
         with open(cypher_query, "r") as yaml_file:
-            all_objects.append(yaml.safe_load(yaml_file))
+            yaml_obj = yaml.safe_load(yaml_file)
+            query = CypherQuery(**yaml_obj)
+            all_objects.append(query.model_dump())
 
     output_file.write(json.dumps(all_objects, indent=2))
     typer.echo(f"Finished converting Cypher queries to JSON to {output_file.name}")
