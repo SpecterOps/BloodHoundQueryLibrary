@@ -1,4 +1,4 @@
-name: Tier Zero omputers not requiring inbound SMB signing
+name: Tier Zero computers not requiring inbound SMB signing
 guid: 13485477-f026-4b1f-906d-4f2e37364ba4
 prebuilt: false
 platforms: Active Directory
