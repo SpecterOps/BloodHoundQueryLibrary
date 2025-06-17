@@ -23,13 +23,13 @@ class CypherErrorListener(ErrorListener):
         raise ValueError(f"Syntax error at line: {line}, msg: {msg}")
 
 
-def get_query_files(cypher_dir: str = "Queries") -> list:
+def get_query_files(cypher_dir: str = "queries") -> list:
     if not os.path.exists(cypher_dir):
         return []
-    return glob.glob(os.path.join("Queries", "**", "*.yml"), recursive=True)
+    return glob.glob(os.path.join("queries", "**", "*.yml"), recursive=True)
 
 
-@pytest.mark.parametrize("file_path", get_query_files("Queries"))
+@pytest.mark.parametrize("file_path", get_query_files("queries"))
 def test_cypher_validation(file_path: str, request: pytest.FixtureRequest) -> None:
     with open(file_path, "r") as f:
         yaml_object = yaml.safe_load(f)
@@ -64,7 +64,7 @@ def test_cypher_validation(file_path: str, request: pytest.FixtureRequest) -> No
 
 
 def test_duplicate_guid() -> None:
-    query_files = get_query_files("Queries")
+    query_files = get_query_files("queries")
     guids = set()
 
     # Iterate over all query files and check for duplicate GUIDs
