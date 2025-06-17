@@ -19,14 +19,20 @@ class CypherQuery(BaseModel):
     @field_validator('platforms', mode='after')  
     @classmethod
     def platforms_is_list(cls, value: str | list[str]) -> list[str]:
+        if value is None:
+            return []
         return value if isinstance(value, list) else [value]
 
     @field_validator('resources', mode='after')
     @classmethod
     def resources_is_list(cls, value: str | list[str]) -> list[str]:
+        if value is None:
+            return []
         return value if isinstance(value, list) else [value]
 
     @field_validator('acknowledgements', mode='after')
     @classmethod
     def acknowledgementsis_list(cls, value: str | list[str]) -> list[str]:
+        if value is None:
+            return []
         return value if isinstance(value, list) else [value]
