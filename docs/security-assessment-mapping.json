@@ -1,0 +1,2329 @@
+{
+	"definitions": {
+		"maps_to": [
+			"PingCastle",
+			"Nessus",
+			"MDI"
+		],
+		"mapping_scope": {
+			"partial": "Query covers the core assessment control but with different approach/scope",
+			"combination": "Multiple queries are combined to fully cover a single assessment control",
+			"superset": "Query covers everything the assessment control does plus covers additional risk",
+			"exact": "Query identifies the same assessment control with same scope"
+		}
+	},
+	"mappings": [
+		{
+			"bloodhound_query": {
+				"guid": "d263e621-7f1b-4efb-ad25-098fc7d4fb72",
+				"name": "Enabled computers inactive for 180 days - MSSQL Failover Cluster"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-PwdLastSet-Cluster",
+							"name": "[M]Check if all cluster are using regular password change practices"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "185c5010-8d4f-4f9b-b24e-831707dddfca",
+				"name": "Computers with passwords older than the default maximum password age"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-PwdLastSet-45",
+							"name": "[M]Check if all computers are using regular password change practices"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-PwdLastSet-90",
+							"name": "[M]Check if all computers have changed their passwords in the last 3 months"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "72550bcb-3c4f-463d-8973-91a49163dc5a",
+				"name": "Enabled Tier Zero / High Value principals inactive for 60 days"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "S-DC-Inactive",
+							"name": "[M]Check if all DC are active"
+						}
+					]
+				},
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-Inactive",
+							"name": "[M]Check for inactive administrator accounts"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "",
+							"id": "Dormant entities in sensitive groups",
+							"name": "Dormant entities in sensitive groups"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "b6d6d0bf-130e-4719-996b-adc29bba36e9",
+				"name": "Tier Zero computers with passwords older than the default maximum password age"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "S-PwdLastSet-DC",
+							"name": "[M]Check if all DC are using regular password change practices"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Change Domain Controller computer account old password",
+							"name": "Change Domain Controller computer account old password"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "71972f3c-b32d-4023-a841-5cc8cc1c1867",
+				"name": "Enabled users inactive for 180 days"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-Inactive",
+							"name": "[M]Inactive account check"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "0768e810-1e1e-4319-a216-76d9c2058644",
+				"name": "Enabled computers inactive for 180 days"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-C-Inactive",
+							"name": "[M]Inactive computer check"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "5862dc4e-6f6f-4321-9474-d838968495ed",
+				"name": "Computers with non-default Primary Group membership"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-C-PrimaryGroup",
+							"name": "[M]Check for hidden group membership for computer accounts"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Primary Group ID integrity",
+							"name": "Primary Group ID integrity"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Accounts with non-default Primary Group ID",
+							"name": "Accounts with non-default Primary Group ID"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "93890f88-df2c-4167-a945-a53961d08d00",
+				"name": "Users with non-default Primary Group membership"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-PrimaryGroup",
+							"name": "[M]Check for hidden group membership for user accounts"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Primary Group ID integrity",
+							"name": "Primary Group ID integrity"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Accounts with non-default Primary Group ID",
+							"name": "Accounts with non-default Primary Group ID"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "ab900835-b2b8-4674-87b4-8b5141e80439",
+				"name": "Principals with passwords stored using reversible encryption"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-Reversible",
+							"name": "[T]Check for reversible password used for user accounts"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-C-Reversible",
+							"name": "[T]Check for reversible passwords used for computer accounts"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure account attributes: Remove Store password using reversible encryption",
+							"name": "Unsecure account attributes: Remove Store password using reversible encryption"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "2570e359-dec1-419d-b0dc-a204bd64ee42",
+				"name": "AS-REP Roastable users (DontReqPreAuth)"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-NoPreAuth",
+							"name": "[T]Check if all accounts require Kerberos pre-authentication"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Kerberos pre-authentication validation",
+							"name": "Kerberos pre-authentication validation"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure account attributes: Remove Do not require Kerberos preauthentication",
+							"name": "Unsecure account attributes: Remove Do not require Kerberos preauthentication"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "6d51e4dc-e1ad-477a-b6c6-324f18f03120",
+				"name": "AS-REP Roastable Tier Zero users (DontReqPreAuth)"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "S-NoPreAuthAdmin",
+							"name": "[T]Check if all admin accounts require Kerberos pre-authentication"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "23bdc2ad-6739-4b2b-85d3-258e3f424eb2",
+				"name": "Users which do not require password to authenticate"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-PwdNotRequired",
+							"name": "[M]Check that every account requires a password"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Blank passwords",
+							"name": "Blank passwords"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure account attributes: Remove Password not required",
+							"name": "Unsecure account attributes: Remove Password not required"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "212c2a98-53d9-4dfa-b177-42c601452dd1",
+				"name": "Users with non-expiring passwords"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-PwdNeverExpires",
+							"name": "[M]Check that there is no account with never-expiring passwords"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Non-expiring account password",
+							"name": "Non-expiring account password"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "8172d52c-a975-49bd-9180-5b6efc59c9ab",
+				"name": "Accounts with SID History"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-SIDHistory",
+							"name": "[M][T]SIDHistory check"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "3da9d14a-f1cb-4df7-b3da-8d73ff5c401b",
+				"name": "Domains with functional level not the latest version"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-FunctionalLevel4",
+							"name": "[M]Ensure that the functional level of the domain and the forest are up to date to use the latest security features (4)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-FunctionalLevel3",
+							"name": "[M]Ensure that the functional level of the domain and the forest are up to date to use the latest security features (3)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-FunctionalLevel1",
+							"name": "[M]Ensure that the functional level of the domain and the forest are up to date to use the latest security features (1)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "a87b558c-5746-4a90-9f83-c86e7b924a52",
+				"name": "Tier Zero computers with unsupported operating systems"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "S-DC-2000",
+							"name": "[M]Obsolete Domain Controller (Windows 2000)"
+						},
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "S-DC-2003",
+							"name": "[M]Obsolete Domain Controller (Windows Server 2003)"
+						},
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "S-DC-2008",
+							"name": "[M]Obsolete Domain Controller (Windows Server 2008)"
+						},
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "S-DC-2012",
+							"name": "[M]Obsolete Domain Controller (Windows Server 2012)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "d06d3b14-0318-4fa9-9639-4b79ccaf3c2c",
+				"name": "Computers with unsupported operating systems"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-W10",
+							"name": "[M]Obsolete OS (Windows 10 or Windows 11)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-2000",
+							"name": "[M]Obsolete OS (Windows 2000)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-Win7",
+							"name": "[M]Obsolete OS (Windows 7)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-Win8",
+							"name": "[M]Obsolete OS (Windows 8)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-NT",
+							"name": "[M]Obsolete OS (Windows NT)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-2003",
+							"name": "[M]Obsolete OS (Windows Server 2003)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-2008",
+							"name": "[M]Obsolete OS (Windows Server 2008)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-2012",
+							"name": "[M]Obsolete OS (Windows Server 2012)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-Vista",
+							"name": "[M]Obsolete OS (Windows Vista)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OS-XP",
+							"name": "[M]Obsolete OS (Windows XP)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "cb8cf96e-21c9-422b-9439-390a13446ca6",
+				"name": "Kerberos-enabled service accounts without AES encryption support"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-AesNotEnabled",
+							"name": "[T]Check the use of Kerberos on services accounts without AES support"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure account attributes: Enable Kerberos AES encryption support",
+							"name": "Unsecure account attributes: Enable Kerberos AES encryption support"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "d03ea1ef-70f0-439b-b1ef-d7f94ceb2af3",
+				"name": "Principals with DES-only Kerberos authentication"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "S-DesEnabled",
+							"name": "[T]Check the use of Kerberos with weak encryption"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Weak Kerberos encryption",
+							"name": "Weak Kerberos encryption"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure account attributes: Remove Use Kerberos DES encryption types for this account",
+							"name": "Unsecure account attributes: Remove Use Kerberos DES encryption types for this account"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "ca329573-2157-41da-ab17-4d122c54b11d",
+				"name": "Principals with weak supported Kerberos encryption types"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "S-DesEnabled",
+							"name": "[T]Check the use of Kerberos with weak encryption"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Weak Kerberos encryption",
+							"name": "Weak Kerberos encryption"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Weak cipher usage",
+							"name": "Weak cipher usage"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "4b42513c-f89d-47ff-8d98-908af49d2b48",
+				"name": "Domain Controllers allowing NTLMv1 or LM authentication"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-OldNtlm",
+							"name": "[T]Ensure that the NTLMv1 and old LM protocols are banned"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "421921fa-bc0f-4659-9680-b7481adcb132",
+				"name": "Domains where any user can join a computer to the domain"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Does not check the Security Policy on DCs",
+							"id": "S-ADRegistration",
+							"name": "[M]Check the process of registration of computers to the domain"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure domain configurations: ms-DS-MachineAccountQuota",
+							"name": "Unsecure domain configurations: ms-DS-MachineAccountQuota"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "c561c4f8-ea45-453f-85a2-3fc2e20e7f8c",
+				"name": "Object name conflict"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-Duplicate",
+							"name": "[M]Duplicate account check"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "4316eaf1-6af0-4879-8f55-ac2633a711c3",
+				"name": "Tier Zero accounts that can be delegated"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-Delegated",
+							"name": "[M]At least one administrator account can be delegated"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Ensure privileged accounts are not delegated",
+							"name": "Ensure privileged accounts are not delegated"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "e6da7800-ae06-41cb-80a6-d5421ab2143a",
+				"name": "Kerberoastable members of Tier Zero / High Value groups"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-Kerberoasting",
+							"name": "[T]Check if admin accounts are vulnerable to the Kerberoast attack"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Kerberoasting",
+							"name": "Kerberoasting"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Unsecure account attributes: Remove a Service Principal Name (SPN)",
+							"name": "Unsecure account attributes: Remove a Service Principal Name (SPN)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "5e0d69b1-37d1-43ae-ac5d-f297f312fab5",
+				"name": "Tier Zero users with passwords not rotated in over 1 year"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-AdminPwdTooOld",
+							"name": "[M]Check if all admin passwords are changed on the field"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Change password of built-in domain Administrator account",
+							"name": "Change password of built-in domain Administrator account"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "97fb1310-d15d-4d63-82a2-8788056250f1",
+				"name": "Microsoft Entra Connect accounts with passwords not rotated in over 90 days"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Rotate password for Microsoft Entra Connect AD DS Connector account",
+							"name": "Rotate password for Microsoft Entra Connect AD DS Connector account"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "9e6e75b4-9ecc-45d4-a39b-b6427b813f0a",
+				"name": "Overprivileged Microsoft Entra Connect accounts"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Replace Enterprise or Domain Admin account for Entra Connect AD DS Connector account",
+							"name": "Replace Enterprise or Domain Admin account for Entra Connect AD DS Connector account"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "7c50f724-c467-4005-8e3f-9a6ce1461db0",
+				"name": "Computers without Windows LAPS"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Query does not check for computers that haven't had their LAPS managed password changed in the last 60 days",
+							"id": "Microsoft LAPS usage",
+							"name": "Microsoft LAPS usage"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "8bd6fcf2-3f3c-414c-857a-4caf28e49def",
+				"name": "Accounts with weak password storage encryption"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure account attributes: Remove Password stored with weak encryption",
+							"name": "Unsecure account attributes: Remove Password stored with weak encryption"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "78d59fe1-e1a0-4813-adc9-c3c96ac08b66",
+				"name": "Enrollment rights on published ESC15 certificate templates"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Prevent Certificate Enrollment with arbitrary Application Policies (ESC15)",
+							"name": "Prevent Certificate Enrollment with arbitrary Application Policies (ESC15)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "543eb01d-9fa3-4b8f-a936-b46bbfdaa2ae",
+				"name": "Tier Zero users not member of Protected Users"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-ProtectedUsers",
+							"name": "[M]Check if all privileged accounts are in the special group Protected Users"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "99d29ded-223a-442b-a0e0-f8b5694c6441",
+				"name": "Tier Zero computers not owned by Tier Zero"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-DCOwner",
+							"name": "[M]At least one domain controller is not owned correctly"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "05e2a94b-5ee6-47ec-b715-3982f30af01b",
+				"name": "Domains with List Object mode enabled"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-DsHeuristicsDoListObject",
+							"name": "[M]Check if the behavior DoListObject has been enabled"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "183fb320-f3ae-4ab3-a090-3f9a7db692e1",
+				"name": "All DNSAdmins"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-DNSAdmin",
+							"name": "[M]Check if the Dns Admins group is not empty"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "008792c0-4458-46a1-a10d-50cdaf95af1e",
+				"name": "Non-default delegation on MicrosoftDNS container"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-DNSDelegation",
+							"name": "[M]Check if there is an explicit delegation on DNS servers"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "815ff190-f6f3-4757-a516-2f4bf589b705",
+				"name": "Domains affected by AdPrep privilege escalation risk"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "",
+							"id": "P-DelegationKeyAdmin",
+							"name": "[M][T]Ensure that bogus Windows Server 2016 AD prep did not introduce vulnerabilities"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "f2d09c94-b6f2-4901-9a2d-f8bacd61edc7",
+				"name": "Domains affected by Exchange privilege escalation risk"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded source scope to all Exchange groups. Expanded target scope to Tier Zero",
+							"id": "P-ExchangePrivEsc",
+							"name": "[M]Ensure that Exchange did not introduce security vulnerabilities"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "4c1e0137-5b7f-48d8-bd09-9db7674bca61",
+				"name": "Non-Tier Zero principals with control of AdminSDHolder"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Non Tier Zero",
+							"id": "P-ExchangeAdminSDHolder",
+							"name": "[M]Ensure that Exchange did not modify the AdminSDHolder object to introduce vulnerabilities"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Non Tier Zero",
+							"id": "Admin SDHolder permissions",
+							"name": "Admin SDHolder permissions"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "79f8d8f9-8291-4bf7-a13a-15989018075f",
+				"name": "Domains exempting privileged groups from AdminSDHolder protections"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-DsHeuristicsAdminSDExMask",
+							"name": "[M]Ensure that the AdminSDHolder protection has not been disabled for some critical groups"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "35b1206f-871b-44aa-a601-c5258060dfcf",
+				"name": "Usage of built-in domain Administrator account"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Exclude newly created domains with the 'whencreated' property",
+							"id": "P-AdminLogin",
+							"name": "[M]Check for Native administrator usage"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "f046e95a-5f84-4e83-bcda-6e83f3d8e21a",
+				"name": "Domains with more than 50 Tier Zero accounts"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-AdminNum",
+							"name": "[M]Check for number of Administrator accounts above the baseline"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "3dfd0843-1ff9-4c21-aa67-feae08d109de",
+				"name": "All Operator groups"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-OperatorsEmpty",
+							"name": "[M]Check that the operator groups are empty"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "9654c0d4-f1e8-4393-a2d1-53a5554a9de8",
+				"name": "Tier Zero users with email"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero. Excluded false positives",
+							"id": "P-AdminEmailOn",
+							"name": "[M]Check if administrator accounts are email enabled"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "a334f21a-3d7f-448e-b7ea-1465a3127bce",
+				"name": "Large default groups with outbound control"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges. Extended group scope to include GUESTS",
+							"id": "P-ControlPathIndirectEveryone",
+							"name": "[T]Check if there is a control path involving everyone-like groups"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges",
+							"id": "GPO can be modified by unprivileged accounts",
+							"name": "GPO can be modified by unprivileged accounts"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "944cecfe-519b-4318-b226-e8520161b454",
+				"name": "Non-Tier Zero account with excessive control"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero. Expanded scope to include all BloodHound traversable edges",
+							"id": "P-ControlPathIndirectMany",
+							"name": "[T]Check if there is a control path involving too many users or computers"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "310b3626-f8e6-4ab0-832c-72df6048597f",
+				"name": "Large default groups with outbound control of OUs"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges",
+							"id": "P-DelegationEveryone",
+							"name": "[M][T]A Delegation is granted to Everyone"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "4e8429f9-cba2-41e9-bac6-0c42f96b2c57",
+				"name": "Unresolved SID with outbound control"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges",
+							"id": "P-UnkownDelegation",
+							"name": "[M][T]Check delegations for the recipient's existence"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "8641e593-f2f2-48ba-bd45-fbc86e9f632a",
+				"name": "Tier Zero computers at risk of constrained delegation"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-DelegationDCt2a4d",
+							"name": "[M][T]Check if all DC have no constrained delegation with protocol transition"
+						},
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-DelegationDCa2d2",
+							"name": "[M][T]Check if all DC have no constrained delegation"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Unsecure Kerberos delegation",
+							"name": "Unsecure Kerberos delegation"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "4dc97cf4-3c03-4fe6-8a8b-4f665c67e1e5",
+				"name": "Tier Zero computers at risk of resource-based constrained delegation"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-DelegationDCsourcedeleg",
+							"name": "[M][T]Check if all DC have no resource based constrained delegation"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "",
+							"id": "Unsecure Kerberos delegation",
+							"name": "Unsecure Kerberos delegation"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "e7e9a927-3f34-42c7-b921-d8bcf626011e",
+				"name": "Non-Tier Zero account with unconstrained delegation"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded exclusion scope to Tier Zero",
+							"id": "P-UnconstrainedDelegation",
+							"name": "[M][T]Ensure that no accounts are subject to unconstrained delegation"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded exclusion scope to Tier Zero",
+							"id": "Unconstrained delegation",
+							"name": "Unconstrained delegation"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "combination",
+							"mapping_scope_detail": "Expanded exclusion scope to Tier Zero",
+							"id": "Unsecure Kerberos delegation",
+							"name": "Unsecure Kerberos delegation"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "76d8e61d-7a86-40ff-8a85-fd37f1e2563f",
+				"name": "All Schema Admins"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-SchemaAdmin",
+							"name": "[M]Avoid unexpected schema modifications which could result in domain rebuild"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "42a856fc-257a-4142-9592-ca95fd49e579",
+				"name": "Kerberos-enabled service account member of built-in Admins groups"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded account scope to include accounts with SPN. Expanded group scope to include Enterprise Admins and Schema Admins",
+							"id": "P-ServiceDomainAdmin",
+							"name": "[M][T]Check if Service Accounts are domain administrators"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "19fc5acd-e30a-4038-a5b5-2e0494f93373",
+				"name": "Members of Allowed RODC Password Replication Group"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-RODCAllowedGroup",
+							"name": "[M]Check the Allowed RODC Password Replication Group group"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "e9613406-e346-410b-a033-690a6cf0c708",
+				"name": "Tier Zero accounts not members of Denied RODC Password Replication Group"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "P-RODCDeniedGroup",
+							"name": "[M]Check the Denied RODC Password Replication Group group"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "5cf1f354-80d4-420e-bc4b-424fabc21a56",
+				"name": "Cross-forest trusts with abusable configuration"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "T-SIDFiltering",
+							"name": "[M][T]Check for Trusts whose security is not maximum"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Dangerous trust relationship",
+							"name": "Dangerous trust relationship"
+						}
+					]
+				},
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "T-TGTDelegation",
+							"name": "[M][T]Check if Kerberos delegation can be used to take control of the forest from a trusted forest"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "275d2d58-0cad-4cad-8103-e0874cece666",
+				"name": "Accounts with SID History to a same-domain account"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "T-SIDHistorySameDomain",
+							"name": "[M][T]Check for local backdoor stored in SID History"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "f39c4953-ae92-4d67-bb50-eb1a161d4d3f",
+				"name": "Domain migration groups"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "S-Domain$$$",
+							"name": "[M]Check if a migration is in progress"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "59744dfe-9411-4daf-b342-1203dc62acd4",
+				"name": "Non-Tier Zero accounts with SID History of Tier Zero accounts"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "T-SIDHistoryDangerous",
+							"name": "[M][T]Check if dangerous SID are stored in the SIDHistory attribute"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Unsecure SID History attributes",
+							"name": "Unsecure SID History attributes"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "2710401a-c4c2-4d2c-9edb-d7625045f2e8",
+				"name": "Accounts with SID History to a non-existent domain"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "T-SIDHistoryUnknownDomain",
+							"name": "[M][T]Check if the account has been migrated from a domain which doesn't exist anymore"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "8d94d3f3-3d53-4939-a206-3c0a4dd3f646",
+				"name": "Users with logon scripts stored in a trusted domain"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "T-ScriptOutOfDomain",
+							"name": "[T]Check if login scripts may be located in a trusted domain"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "1867abf8-08e3-4ea8-8f65-8366079d35c4",
+				"name": "Entra ID SSO accounts not rolling Kerberos decryption key"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "T-AzureADSSO",
+							"name": "[T]Check if password rotation is in place with AzureAD SSO"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Change password for Microsoft Entra seamless SSO account",
+							"name": "Change password for Microsoft Entra seamless SSO account"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "3359a295-7cfd-491f-976b-c5a68647431c",
+				"name": "Domains with a single-point-of-failure Domain Controller"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-NotEnoughDC",
+							"name": "[M]Ensure that there are enough DCs to provide basic redundancy"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "ebc77984-1ceb-4ed2-a395-ce1067847941",
+				"name": "Enrollment rights on published ESC2 certificate templates"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Overly permissive certificate template with privileged EKU (ESC2)",
+							"name": "Overly permissive certificate template with privileged EKU (ESC2)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "49db8edc-8421-438f-b97b-23c042959bef",
+				"name": "All ADCS ESC privilege escalation edges"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-CertTempCustomSubject",
+							"name": "[T]Check if authentication certificate templates allow users to control the subject"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-CertTempAnyone",
+							"name": "[T]Check if certificate templates can be edited by everyone"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-CertTempAgent",
+							"name": "[T]Check the permission of agent certificate templates"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-CertTempAnyPurpose",
+							"name": "[T]Check the purpose provided by certificate templates"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Prevent requests for certificates valid for arbitrary users (ESC1)",
+							"name": "Prevent requests for certificates valid for arbitrary users (ESC1)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Misconfigured enrollment agent certificate template (ESC3)",
+							"name": "Misconfigured enrollment agent certificate template (ESC3)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Misconfigured certificate templates ACL (ESC4)",
+							"name": "Misconfigured certificate templates ACL (ESC4)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Misconfigured certificate templates owner (ESC4)",
+							"name": "Misconfigured certificate templates owner (ESC4)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Vulnerable Certificate Authority setting (ESC6)",
+							"name": "Vulnerable Certificate Authority setting (ESC6)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Insecure ADCS certificate enrollment IIS endpoints (ESC8)",
+							"name": "Insecure ADCS certificate enrollment IIS endpoints (ESC8)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "96e70597-2d74-4503-a624-f1e30b642894",
+				"name": "Enrollment rights on certificate templates published to Enterprise CA with User Specified SAN enabled"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "Checks ESC1 scenario which is also covered by the query 49db8edc-8421-438f-b97b-23c042959bef",
+							"id": "A-CertTempCustomSubject",
+							"name": "[T]Check if authentication certificate templates allow users to control the subject"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "60881923-296c-4702-adf7-a4f059dc9bb8",
+				"name": "ESC8-vulnerable Enterprise CAs"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-CertEnrollChannelBinding",
+							"name": "[T]Check if Extended Protection is in place for certificate requests"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-CertEnrollHttp",
+							"name": "[T]Check if certificate enrollment can be done with HTTP"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "b7c20217-5223-4a39-b8d5-32c15fe2b1da",
+				"name": "Enrollment rights on published certificate templates with no security extension"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-CertTempNoSecurity",
+							"name": "[T]Check if authentication certificate templates disallow the tracking of the certificate requester"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "1b3ae310-ffa7-4ce5-a37f-6111aef600c8",
+				"name": "KRBTGT accounts with passwords not rotated in over 1 year"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to include Entra ID KRBTGT accounts",
+							"id": "A-Krbtgt",
+							"name": "[T]Mitigate golden ticket attack via a regular change of the krbtgt password"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to include Entra ID KRBTGT accounts",
+							"id": "Kerberos KRBTGT",
+							"name": "Kerberos KRBTGT"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to include Entra ID KRBTGT accounts",
+							"id": "Change password for krbtgt account",
+							"name": "Change password for krbtgt account"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "dde133d2-b4d2-4de9-a656-905f3bf066f3",
+				"name": "Large default group added to computer-local group"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "PingCastle only collects on GPOs. SharpHound can both collect from GPOs and computers directly",
+							"id": "A-MembershipEveryone",
+							"name": "[M]Check if a GPO assigns everyone to a local group"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "MDI only collects on GPOs. SharpHound can both collect from GPOs and computers directly",
+							"id": "GPO assigns unprivileged identities to local groups with elevated privileges",
+							"name": "GPO assigns unprivileged identities to local groups with elevated privileges"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "3f87e0b0-fc06-4986-a94c-e08781253dc8",
+				"name": "DCs vulnerable to NTLM relay to LDAP attacks"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-DCLdapSign",
+							"name": "[T]Check if signing is really required for LDAP"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-DCLdapsChannelBinding",
+							"name": "[T]Check if the Channel Binding is enabled for LDAPS"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure domain configurations: LDAP Signing",
+							"name": "Unsecure domain configurations: LDAP Signing"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "97e05e67-5961-4aba-a8e7-fe5f92334035",
+				"name": "Domains with smart card accounts where smart account passwords do not expire"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-SmartCardPwdRotation",
+							"name": "[T]Automatic password rotation for smart card is not in place"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "7e56f2e7-79c3-4f0d-aa3e-14cf3de7ab73",
+				"name": "Smart card accounts with passwords not rotated in over 1 year"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-SmartCardRequired",
+							"name": "[T]Check for accounts using smart card with unchanged password for a long time"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "8c3e0811-a31b-45b4-a29d-1dce80fa2c5f",
+				"name": "Domains without Protected Users group"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-ProtectedUsers",
+							"name": "[M]Check for presence of the Protected Users group"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "92aa81d6-b08e-4abb-ae39-ecbe5735a74c",
+				"name": "Computer owners who can obtain LAPS passwords"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-LAPS-Joined-Computers",
+							"name": "[T]Check if LAPS passwords can be retrieved from computers that have been added manually by users"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "6e9beb8a-ad14-43de-bda1-644d174a5906",
+				"name": "Principals with DCSync privileges"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Remove non-admin accounts with DCSync permissions",
+							"name": "Remove non-admin accounts with DCSync permissions"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "f9b440b5-732c-4ed3-b6d2-83857db17e1a",
+				"name": "Domains without Microsoft LAPS computers"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-LAPS-Not-Installed",
+							"name": "[M][T]Check if the LAPS tool to handle the native local administrator passwords is installed"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "27a6f917-8ed4-4e2e-9b38-41a4b6de1b14",
+				"name": "Tier Zero computers with the WebClient running"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "A-DC-WebClient",
+							"name": "[T]Ensure that the WebClient client cannot be abused to force a DC connection to a HTTP server"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "13485477-f026-4b1f-906d-4f2e37364ba4",
+				"name": "Tier Zero computers not requiring inbound SMB signing"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "A-SMB2SignatureNotEnabled",
+							"name": "[T]Check if the file share protocol can sign its network dialog"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "e303498f-e3d4-489d-8a34-b68e187bc4e7",
+				"name": "Accounts with clear-text password attributes"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded attributes scope to include 'unicodepwd' and 'msSFU30Password'",
+							"id": "A-UnixPwd",
+							"name": "[T]Check if attributes unixUserPassword and userPassword are set"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "a950fdab-5934-4c69-a88b-e2e0e3da9d52",
+				"name": "Domains allowing unauthenticated NSPI RPC binds"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-DsHeuristicsAllowAnonNSPI",
+							"name": "[T]Check for access without any account to the Name Service Provider Interface (NSPI) protocol"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "ebc79aa4-e816-4be8-93fe-a0b30dbc771d",
+				"name": "Domains allowing unauthenticated rootDSE searches and binds"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-DsHeuristicsAnonymous",
+							"name": "[T]Check for access without any account via a forest wide setting"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "41a08d76-f8a5-4296-ad19-464c4c5c69fe",
+				"name": "Domains allowing unauthenticated domain enumeration"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-PreWin2000Anonymous",
+							"name": "[T]Check for Windows 2000 compatibility which allows access to the domain without any account"
+						}
+					]
+				},
+				{
+					"source": "Nessus",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Null sessions",
+							"name": "Null sessions"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "02202726-d86d-46c2-891c-9770c635f76f",
+				"name": "Domains not mitigating CVE-2021-42291"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-DsHeuristicsLDAPSecurity",
+							"name": "[T]Check if the mitigation for CVE-2021-42291 has been enabled"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "cb0b1591-5c3e-45f1-afb7-984e5ad865d0",
+				"name": "Domains not verifying UPN and SPN uniqueness"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-DsHeuristicsDoNotVerifyUniqueness",
+							"name": "[T]Check if the UPN and SPN uniqueness check has been disabled"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "1e1e6fdd-6973-4547-906c-a494b5fbdcba",
+				"name": "Domains allowing authenticated domain enumeration"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-PreWin2000AuthenticatedUsers",
+							"name": "[T]Check that the Pre-Windows 2000 Compatible Access group does not contain Authenticated Users"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "091995b9-7254-473a-996f-6b8368d20431",
+				"name": "Non-default members in Pre-Windows 2000 Compatible Access"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-PreWin2000Other",
+							"name": "[T]Check that the Pre-Windows 2000 Compatible Access group has not been modified from its default"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "e7f703b3-5dba-4aef-8346-4d589be2c828",
+				"name": "Non-Tier Zero account with 'Admin Count' flag"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "A-AdminSDHolder",
+							"name": "[M]Check for suspicious account(s) used in administrator activities"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "7d258d2d-a43d-4a90-85d7-71c946ae5fd7",
+				"name": "Domains with a minimum default password policy length less than 15 characters"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Increased minimum length to 15 based on NIST guidance",
+							"id": "A-MinPwdLen",
+							"name": "[T]Check for short password length in password policy"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "bb0f620d-6a55-4413-ac74-4c82905e8598",
+				"name": "Enabled built-in guest user accounts"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "A-Guest",
+							"name": "[M][T]Check if the guest account is enabled"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Built-in Active Directory Guest account is enabled",
+							"name": "Built-in Active Directory Guest account is enabled"
+						}
+					]
+				}
+			]
+		}
+	]
+}
