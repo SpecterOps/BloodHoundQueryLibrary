@@ -27,7 +27,7 @@ jobs:
 
     - name: Test queries with pytest
       run: |
-        pytest tests/test_cypher_syntax.py -rs
+        pytest tests/test_cypher_syntax.py
 
     - name: Add test report to summary
       run: cat test-report.md >> $GITHUB_STEP_SUMMARY
