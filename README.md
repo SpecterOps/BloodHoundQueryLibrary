@@ -61,6 +61,7 @@ acknowledgements: Martin Sohn Christensen, @martinsohndk
 Whenever new queries are added, the syntax is automatically validated, ensuring that only syntactically compatible queries are added.
 
 ## Learning Cypher Queries
+
 One of BloodHound’s key features is its flexibility through Cypher queries – a query language to search the BloodHound graph database.
 
 Queries can answer anything from simple questions (e.g., “*Which users haven’t reset their passwords in 180 days?*”), to complex identity attack path problems (e.g., “*Which low-privileged users can compromise computers hosting a gMSA with unconstrained delegation?*”).
@@ -71,6 +72,43 @@ The library gives you practical examples for learning Cypher and can be combined
 - [Neo4j Cypher Cheat Sheet](https://neo4j.com/docs/cypher-cheat-sheet/current/lists/)
 
 You can also learn with the communty by joining the #cypher_queries channel in the [BloodHound community Slack](https://support.bloodhoundenterprise.io/hc/en-us/articles/16730536907547).
+
+## BloodHound Operator usage example
+
+Command line usage is easy with the [BloodHound Operator](https://github.com/SadProcessor/BloodHoundOperator) PowerShell module.
+
+First load the `Queries.json`:
+
+```powershell
+> $queries = Invoke-RestMethod "https://raw.githubusercontent.com/SpecterOps/BloodHoundQueryLibrary/refs/heads/main/Queries.json"
+```
+
+Example: Run a query in BloodHound:
+
+```powershell
+> $queries[0] | BHInvoke
+
+
+Name      : Tier Zero / High Value external Entra ID users
+Query     : MATCH (n:AZUser)
+            WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+            AND n.name CONTAINS '#EXT#@'
+            RETURN n
+            LIMIT 100
+Result    : {@{label=ASADMIN_PHANTOMCORP.ONMICROSOFT.COM#EXT#@PHANTOMCORP.ONMICROSOFT.COM; kind=AZUser; objectId=D5C8A563-34C0-41EB-BC89-14
+            A2ECB4CA62; isTierZero=True; isOwnedObject=False; lastSeen=2025-06-17T13:29:14.601282321Z; properties=}, @{label=RHADMIN_PHANTO
+            MCORP.ONMICROSOFT.COM#EXT#@PHANTOMCORP.ONMICROSOFT.COM; kind=AZUser; objectId=C1C0F17B-58F1-4B04-B50C-2B194B74E75D; isTierZero=
+            True; isOwnedObject=False; lastSeen=2025-06-17T13:29:24.198Z; properties=}}
+Count     : 1
+Timestamp : 17-06-2025 13:55:27
+Duration  : 00:00:00.0265562
+```
+
+Example:  Import a few queries to BloodHound's Custom Searches:
+
+```powershell
+> $queries[0..4] | New-BHPathQuery
+```
 
 ## Contributing
 
