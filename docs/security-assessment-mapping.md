@@ -5,7 +5,7 @@ To assist in these broader security assessment capabilities, BloodHound queries 
 
 This approach enables different security teams to leverage BloodHound's comprehensive attack path data for multiple kinds of risk validation, whether they're conducting red team assessments, blue team analysis, or compliance audits.
 
-The BloodHound-centric mapping data is available at [security-assessment-mapping.json](/docs/security-assessmet-mapping.json)
+The BloodHound-centric mapping data is available at [security-assessment-mapping.json](/docs/security-assessment-mapping.json)
 
 ## Assessment Coverage Overview
 
