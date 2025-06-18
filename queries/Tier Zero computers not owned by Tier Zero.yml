@@ -6,7 +6,7 @@ category: Dangerous Privileges
 description: 
 query: |-
   MATCH p=(n:Base)-[:Owns]->(:Computer)
-  WHERE NOT coalesce(n.system_tags, "") CONTAINS "admin_tier_0"
+  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
   RETURN p
 revision: 1
 resources: 
