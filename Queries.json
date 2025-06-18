@@ -1158,7 +1158,7 @@
     ]
   },
   {
-    "name": "Tier Zero omputers not requiring inbound SMB signing",
+    "name": "Tier Zero computers not requiring inbound SMB signing",
     "guid": "13485477-f026-4b1f-906d-4f2e37364ba4",
     "prebuilt": false,
     "platforms": [
@@ -1540,22 +1540,6 @@
     ]
   },
   {
-    "name": "All Operators",
-    "guid": "3dfd0843-1ff9-4c21-aa67-feae08d109de",
-    "prebuilt": false,
-    "platforms": [
-      "Active Directory"
-    ],
-    "category": "Domain Information",
-    "description": null,
-    "query": "MATCH p=(:Base)-[:MemberOf]->(n:Group)\nWHERE (\n  n.objectid ENDS WITH 'S-1-5-32-551' OR // Backup Operators\n  n.objectid ENDS WITH 'S-1-5-32-556' OR // Network Configuration Operators\n  n.objectid ENDS WITH 'S-1-5-32-549' OR // Server Operators\n  n.objectid ENDS WITH 'S-1-5-32-579' OR // Access Control Assistance Operators\n  n.objectid ENDS WITH 'S-1-5-32-548' OR // Account Operators\n  n.objectid ENDS WITH 'S-1-5-32-569' OR // Cryptographic Operators\n  n.objectid ENDS WITH 'S-1-5-32-550' // Print Operators\n)\nRETURN p",
-    "revision": 1,
-    "resources": [],
-    "acknowledgements": [
-      "Martin Sohn Christensen, @martinsohndk"
-    ]
-  },
-  {
     "name": "Shortest paths from Azure Applications to Tier Zero / High Value targets",
     "guid": "60ff7c58-a98e-4bc1-9e32-8378d2db0c43",
     "prebuilt": true,
@@ -1749,7 +1733,7 @@
     ]
   },
   {
-    "name": "Circular AD group memberships",
+    "name": "Uncommon permission on containers",
     "guid": "018c2b45-e30f-47d8-a751-22419c3d0736",
     "prebuilt": false,
     "platforms": [
@@ -1795,6 +1779,22 @@
     "revision": 1,
     "resources": [],
     "acknowledgements": []
+  },
+  {
+    "name": "All Operators",
+    "guid": "3dfd0843-1ff9-4c21-aa67-feae08d109de",
+    "prebuilt": false,
+    "platforms": [
+      "Active Directory"
+    ],
+    "category": "Domain Information",
+    "description": null,
+    "query": "MATCH p=(:Base)-[:MemberOf]->(n:Group)\nWHERE (\n  n.objectid ENDS WITH 'S-1-5-32-551' OR // Backup Operators\n  n.objectid ENDS WITH 'S-1-5-32-556' OR // Network Configuration Operators\n  n.objectid ENDS WITH 'S-1-5-32-549' OR // Server Operators\n  n.objectid ENDS WITH 'S-1-5-32-579' OR // Access Control Assistance Operators\n  n.objectid ENDS WITH 'S-1-5-32-548' OR // Account Operators\n  n.objectid ENDS WITH 'S-1-5-32-569' OR // Cryptographic Operators\n  n.objectid ENDS WITH 'S-1-5-32-550' // Print Operators\n)\nRETURN p",
+    "revision": 1,
+    "resources": [],
+    "acknowledgements": [
+      "Martin Sohn Christensen, @martinsohndk"
+    ]
   },
   {
     "name": "Shortest paths from Owned objects to Tier Zero",
