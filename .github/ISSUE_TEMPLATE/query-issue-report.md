@@ -1,26 +1,73 @@
 ---
 name: Query issue report
 about: Report a query issue to help improve the project
-title: 'Query issue: INSERT_QUERY_NAME'
-labels: ''
-assignees: ''
+title: 'Query issue: '
+labels: 
+  - query
 
----
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Report an issue with a BloodHound query
+        Use this issue/form to report any issues with a query saved in the repository
 
-**Query reference**
- - Query name
- - Query URL or GUID
+  - type: markdown
+    attributes:
+      value: |
+        ## Query details
+        
+  - type: input
+    id: guid
+    attributes:
+      label: Query GUID
+      description: The query unique's identifier
+    validations:
+      required: true
 
-Query:
-```
-MATCH p=(b:You) - [h:CanReport] -> (e:Issues)
-WHERE e.WellDescribed = true
-RETURN p
-```
+  - type: textarea
+    id: query_body
+    attributes:
+      label: Query content
+      description: |
+        The BloodHound query content
+        ```bash
+        MATCH p = (s:Computer)-[:DCFor]->(:Domain)
+        WHERE s.strongcertificatebindingenforcementraw = 0 OR s.strongcertificatebindingenforcementraw = 1
+        RETURN p
+        LIMIT 1000
+        ```
+    validations:
+      required: true
 
-**Describe the issue**
-A clear and concise description of what the issue is.
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: Issue description
+      description: |
+        Describe the issue faced when using the query
+    validations:
+      required: true
 
-**BloodHound context:**
- - Version [e.g. "BloodHound CE 7.0"]
- - Database [e.g. Neo4j or Postgres]
+  - type: markdown
+    attributes:
+      value: |
+        ## BloodHound context
+
+  - type: input
+    id: bloodhound_version
+    attributes:
+      label: BloodHound version
+      description: The version of BloodHound used when trying to run the query
+      placeholder: BloodHound CE 7.0
+    validations:
+      required: true
+
+  - type: input
+    id: bloodhound_db
+    attributes:
+      label: BloodHound DB
+      description: "The database used for BloodHound (hint: CE uses Neo4j by default, while BHE is always Postgres)"
+      placeholder: e.g. Neo4j or Postgres
+    validations:
+      required: true

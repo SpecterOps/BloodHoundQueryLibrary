@@ -114,8 +114,8 @@
     ],
     "category": "Dangerous Privileges",
     "description": null,
-    "query": "MATCH p=(n:Base)-[:Owns]->(:Computer)\nWHERE NOT coalesce(n.system_tags, \"\") CONTAINS \"admin_tier_0\"\nRETURN p",
-    "revision": 1,
+    "query": "MATCH p=(n:Base)-[:Owns]->(:Computer)\nWHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')\nRETURN p",
+    "revision": 2,
     "resources": [],
     "acknowledgements": [
       "Martin Sohn Christensen, @martinsohndk"
@@ -283,8 +283,8 @@
     ],
     "category": "Domain Information",
     "description": null,
-    "query": "MATCH p=(n:Base)-[r:MemberOf]->(m:Group)\nWHERE m.objectid ENDS WITH \"-571\"\nAND (n:User or n:Computer)\nRETURN p",
-    "revision": 1,
+    "query": "MATCH p=(:Base)-[:MemberOf*1..]->(m:Group)\nWHERE m.objectid ENDS WITH \"-571\"\nRETURN p",
+    "revision": 2,
     "resources": [],
     "acknowledgements": [
       "Martin Sohn Christensen, @martinsohndk"
@@ -2613,8 +2613,8 @@
     ],
     "category": "Active Directory Hygiene",
     "description": null,
-    "query": "MATCH (n:Computer)\nWHERE n.enabled = true\nAND n.whencreated < (datetime().epochseconds - (60 * 3 * 86400))\nAND n.pwdlastset < (datetime().epochseconds - (60 * 3 * 86400))\nAND coalesce(n.system_tags, \"\") CONTAINS \"admin_tier_0\"\nRETURN n",
-    "revision": 1,
+    "query": "MATCH (n:Computer)\nWHERE n.enabled = true\nAND n.whencreated < (datetime().epochseconds - (60 * 3 * 86400))\nAND n.pwdlastset < (datetime().epochseconds - (60 * 3 * 86400))\nAND ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')\nRETURN n",
+    "revision": 2,
     "resources": [],
     "acknowledgements": [
       "Martin Sohn Christensen, @martinsohndk"
