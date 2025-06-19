@@ -1,6 +1,5 @@
----
 name: Query issue report
-about: Report a query issue to help improve the project
+description: Report a query issue to help improve the project
 title: 'Query issue: '
 labels: 
   - query
