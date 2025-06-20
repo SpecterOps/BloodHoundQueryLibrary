@@ -3,7 +3,7 @@ guid: 912454f1-75a3-4813-b3df-7bddac0ff00d
 prebuilt: false
 platforms:
 - Azure
-category: General
+category: Shortest Paths
 description: Return shortest paths from Azure Users to Azure VMs to check for attack vectors.
 query: |-
   MATCH p = shortestPath((m:AZUser)-[*..]->(n:AZVM)) 
