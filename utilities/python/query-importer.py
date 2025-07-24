@@ -29,42 +29,65 @@ def build_signature(method: str, uri: str, body: bytes, token_key: str) -> (str,
     signature = base64.b64encode(digester.digest()).decode()
     return date_header, signature
 
-def load_queries(file_path: str):
+def load_queries(file_path: str, platforms_filter: list[str] | None = None):
+    """
+    Read the SpecterOps query-library JSON and return only the queries whose
+    'platforms' list intersects with `platforms_filter` (case-insensitive).
+
+    Args:
+        file_path:  Path to the master queries JSON.
+        platforms_filter:  List of platform strings (lower-cased).  If None or
+                           empty, no filtering is applied.
+
+    Returns:
+        List[dict] with keys: name, description, query
+    """
     if not os.path.isfile(file_path):
         raise FileNotFoundError(f"Query file not found: {file_path}")
 
-    with open(file_path, "r") as file:
+    with open(file_path, "r") as fh:
         try:
-            raw_data = json.load(file)
+            raw_data = json.load(fh)
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON format: {e}")
 
     if not isinstance(raw_data, list):
-        raise ValueError("Expected a list of query objects in the JSON file")
+        raise ValueError("Expected a list of query objects at top level")
 
-    flattened_queries = []
+    flattened = []
+    filter_active = bool(platforms_filter)
+    skipped_platform = 0
     for idx, entry in enumerate(raw_data):
         try:
-            name = entry.get("name", f"Unnamed Query {idx + 1}")
-            category = entry.get("category", "Uncategorized")
-            description = entry.get("description") or f"{name} - {category}"
-            query = entry.get("query")
-
-            if not query:
-                print(f"[!] Skipping query '{name}' (missing 'query' field)")
+            # ----- platform gating ------------------------------------------------
+            entry_platforms = [p.lower() for p in entry.get("platforms", [])]
+            if filter_active and not any(p in entry_platforms for p in platforms_filter):
+                skipped_platform += 1
                 continue
 
-            flattened_queries.append({
-                "name": name,
+            query_text = entry.get("query")
+            if not query_text:
+                print(f"[!] Skipping entry #{idx+1} (missing 'query' field)")
+                continue
+
+            name        = entry.get("name", f"Unnamed Query {idx+1}")
+            category    = entry.get("category", "Uncategorized")
+            description = entry.get("description") or f"{name} - {category}"
+
+            flattened.append({
+                "name":        name,
                 "description": description,
-                "query": query
+                "query":       query_text
             })
 
-        except Exception as e:
-            print(f"[!] Error processing query at index {idx}: {e}")
+        except Exception as exc:
+            print(f"[!] Error processing entry #{idx+1}: {exc}")
 
-    print(f"[+] Loaded {len(flattened_queries)} queries from {file_path}")
-    return flattened_queries
+    print(f"[+] Loaded {len(flattened)} queries from {file_path}"
+          f"{' after platform filtering' if filter_active else ''}")
+    if skipped_platform and filter_active:
+        print(f"    [-] Skipped {skipped_platform} queries (platform mismatch)")
+    return flattened
 
 def submit_query_with_retries(url, headers, body, query_name):
     for attempt in range(1, MAX_RETRIES + 1):
@@ -92,12 +115,22 @@ def main():
     parser.add_argument("--token-key", required=True, help="API token key")
     parser.add_argument("--queries-file", required=True, help="Path to JSON file containing custom queries")
     parser.add_argument("--base-url", default="http://127.0.0.1:8080", help="BloodHound API base URL")
+    parser.add_argument(
+        "--platforms",
+        nargs="+",                   # allow 1 + values:  --platforms "Active Directory" "Azure AD"
+        metavar="PLATFORM",
+        help="Import only queries that list one of these platform strings "
+             "(case-insensitive).  If omitted, all queries are imported."
+    )
 
     args = parser.parse_args()
 
-    try:
-        queries = load_queries(args.queries_file)
+    # Normalize platform filters to lower-case once
+    platform_filters = [p.lower() for p in (args.platforms or [])]
 
+    try:
+        queries = load_queries(args.queries_file, platform_filters if platform_filters else None)
+        
         for query in queries:
             body = json.dumps(query).encode()
             uri = "/api/v2/saved-queries"
