@@ -7,11 +7,11 @@ description:
 query: |-
   MATCH (n:User)
   WHERE n.logonscript IS NOT NULL
-  MATCH (d:Domain)-[:TrustedBy]->(:Domain)-[:Contains*1..]->(n)
+  MATCH (d:Domain)<-[:SameForestTrust|CrossForestTrust]-(:Domain)-[:Contains*1..]->(n)
   WITH n,last(split(d.name, '@')) AS domain
   WHERE toUpper(n.logonscript) STARTS WITH ("\\\\" + domain + "\\")
   RETURN n
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
