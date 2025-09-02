@@ -5,11 +5,11 @@ platforms: Azure
 category: Shortest Paths
 description: 
 query: |-
-  MATCH p=shortestPath((s:AZApp)-[:AZAvereContributor|AZContributor|AZGetCertificates|AZGetKeys|AZGetSecrets|AZHasRole|AZMemberOf|AZOwner|AZRunsAs|AZVMContributor|AZAutomationContributor|AZKeyVaultContributor|AZVMAdminLogin|AZAddMembers|AZAddSecret|AZExecuteCommand|AZGlobalAdmin|AZPrivilegedAuthAdmin|AZGrant|AZGrantSelf|AZPrivilegedRoleAdmin|AZResetPassword|AZUserAccessAdministrator|AZOwns|AZCloudAppAdmin|AZAppAdmin|AZAddOwner|AZManagedIdentity|AZAKSContributor|AZNodeResourceGroup|AZWebsiteContributor|AZLogicAppContributor|AZMGAddMember|AZMGAddOwner|AZMGAddSecret|AZMGGrantAppRoles|AZMGGrantRole|SyncedToADUser|AZRoleEligible|AZContains*1..]->(t:AZBase))
+  MATCH p=shortestPath((s:AZApp)-[:AZ_ATTACK_PATHS*1..]->(t:AZBase))
   WHERE ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0') AND s<>t
   RETURN p
   LIMIT 1000
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 
