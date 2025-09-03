@@ -6,7 +6,7 @@ platforms:
 category: Shortest Paths
 description: Return shortest paths from Azure Users to Azure Keyvaults to check for attack vectors.
 query: |-
-  MATCH p = shortestPath((n:AZUser)-[*..]->(g:AZKeyVault))
+  MATCH p = shortestPath((n:AZUser)-[:AZ_ATTACK_PATHS*..]->(g:AZKeyVault))
   RETURN p
 revision: 1
 resources: -
