@@ -5,10 +5,11 @@ platforms: Azure
 category: General
 description: 
 query: |-
-  MATCH p = (:AZBase)-[:AZGlobalAdmin*1..]->(:AZTenant)
+  MATCH p=(:AZBase)-[:AZHasRole*1..]->(t:AZRole)
+  WHERE t.name =~ '(?i)Global Administrator.*'
   RETURN p
   LIMIT 1000
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 

@@ -5,10 +5,10 @@ platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-
-  MATCH (n:Domain)
-  WHERE n.machineaccountquota > 0
-  RETURN n
-revision: 1
+  MATCH (d:Domain)
+  WHERE d.machineaccountquota > 0
+  RETURN d
+revision: 2
 resources: 
 - https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/default-workstation-numbers-join-domain
 - https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/add-workstations-to-domain

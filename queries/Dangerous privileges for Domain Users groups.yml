@@ -5,11 +5,12 @@ platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-
-  MATCH p=(s:Group)-[:AD_ATTACK_PATHS]->(:Base)
+  MATCH p=(s:Group)-[r:AD_ATTACK_PATHS]->(:Base)
   WHERE s.objectid ENDS WITH '-513'
+  AND NOT r:MemberOf
   RETURN p
   LIMIT 1000
-revision: 2
+revision: 3
 resources: 
 acknowledgements: 
 
