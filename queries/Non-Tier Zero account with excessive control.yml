@@ -1,4 +1,4 @@
-name: Non-Tier Zero account with excessive control
+name: Non-Tier Zero object with excessive control
 guid: 944cecfe-519b-4318-b226-e8520161b454
 prebuilt: false
 platforms: Active Directory
@@ -11,7 +11,7 @@ query: |-
   WITH n, COLLECT(DISTINCT(m)) AS endNodes
   WHERE SIZE(endNodes) >= 1000
   RETURN n
-revision: 3
+revision: 4
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
