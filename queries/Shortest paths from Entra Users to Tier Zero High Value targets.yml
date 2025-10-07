@@ -6,8 +6,7 @@ category: Shortest Paths
 description: 
 query: |-
   MATCH p=shortestPath((s:AZUser)-[:AZ_ATTACK_PATHS*1..]->(t:AZBase))
-  WHERE (t:AZBase) AND t.name =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|Privileged Authentication Administrator' AND s<>t
-  AND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
   RETURN p
   LIMIT 1000
 revision: 2
