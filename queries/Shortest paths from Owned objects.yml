@@ -6,11 +6,11 @@ category: Shortest Paths
 description: 
 query: |-
   MATCH p=shortestPath((s:Base)-[:AD_ATTACK_PATHS*1..]->(t:Base))
-  WHERE (s:Tag_Owned)
+  WHERE ((s:Tag_Owned) OR COALESCE(s.system_tags, '') CONTAINS 'owned')
   AND s<>t
   RETURN p
   LIMIT 1000
-revision: 2
+revision: 3
 resources: 
 acknowledgements: 
 
