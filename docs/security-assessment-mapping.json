@@ -1242,7 +1242,7 @@
 		{
 			"bloodhound_query": {
 				"guid": "944cecfe-519b-4318-b226-e8520161b454",
-				"name": "Non-Tier Zero account with excessive control"
+				"name": "Non-Tier Zero object with excessive control"
 			},
 			"maps_to": [
 				{
