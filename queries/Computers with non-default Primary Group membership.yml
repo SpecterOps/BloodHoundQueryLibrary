@@ -7,11 +7,13 @@ description:
 query: |-
   MATCH p=(n:Computer)-[r:MemberOf]->(g:Group)
   WHERE NOT g.objectid ENDS WITH "-515" // Domain Computers
-  AND NOT g.objectid ENDS WITH "-516" // Domain Controllers
-  AND NOT g.objectid ENDS WITH "-521" // Read-Only Domain Controllers
+  AND NOT n.isdc = true
+  AND NOT n.isreadonlydc = true
   AND r.isprimarygroup = true
   RETURN p
-revision: 1
+revision: 2
 resources: 
+- https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-ada3/e12954a4-6865-4432-94e6-00c310ca87c0
+- https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/5dbcf875-e802-4357-a6e2-1bdff19ff9b5
+- https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/73d11ea7-e634-453e-944d-559654cc91c5
 acknowledgements: Martin Sohn Christensen, @martinsohndk
-
