@@ -602,9 +602,9 @@
       "Active Directory"
     ],
     "category": "Shortest Paths",
-    "description": "WARNING - MANY TO MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE",
+    "description": "WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE",
     "query": "// MANY TO MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE\nMATCH p=shortestPath((s:Tag_Owned)-[:AD_ATTACK_PATHS*1..]->(t:Base))\nWHERE s<>t\nAND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')\nRETURN p\nLIMIT 1000",
-    "revision": 3,
+    "revision": 4,
     "resources": [],
     "acknowledgements": []
   },
@@ -1210,9 +1210,13 @@
     ],
     "category": "Active Directory Hygiene",
     "description": null,
-    "query": "MATCH p=(n:Computer)-[r:MemberOf]->(g:Group)\nWHERE NOT g.objectid ENDS WITH \"-515\" // Domain Computers\nAND NOT g.objectid ENDS WITH \"-516\" // Domain Controllers\nAND NOT g.objectid ENDS WITH \"-521\" // Read-Only Domain Controllers\nAND r.isprimarygroup = true\nRETURN p",
-    "revision": 1,
-    "resources": [],
+    "query": "MATCH p=(n:Computer)-[r:MemberOf]->(g:Group)\nWHERE NOT g.objectid ENDS WITH \"-515\" // Domain Computers\nAND NOT n.isdc = true\nAND NOT n.isreadonlydc = true\nAND r.isprimarygroup = true\nRETURN p",
+    "revision": 2,
+    "resources": [
+      "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-ada3/e12954a4-6865-4432-94e6-00c310ca87c0",
+      "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/5dbcf875-e802-4357-a6e2-1bdff19ff9b5",
+      "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/73d11ea7-e634-453e-944d-559654cc91c5"
+    ],
     "acknowledgements": [
       "Martin Sohn Christensen, @martinsohndk"
     ]
@@ -1456,8 +1460,8 @@
     ],
     "category": "Active Directory Hygiene",
     "description": null,
-    "query": "MATCH (n:Base)\nWHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')\nAND (n:User or n:Computer)\nWITH n\nOPTIONAL MATCH (n)-[:MemberOf*1..]->(m:Group)\nWHERE m.objectid ENDS WITH '-519'\nWITH n, m\nWHERE m IS NULL\nRETURN n",
-    "revision": 1,
+    "query": "// Get all Tier Zero accounts that are members of Denied RODC Password Replication Group\nMATCH (n:Base)-[:MemberOf*1..]->(m:Group)\nWHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')\nAND (n:User OR n:Computer)\nAND m.objectid ENDS WITH '-519'\nWITH COLLECT(n.objectid) AS MembersOfDeniedGroup\n\n// Get all Tier Zero accounts\nMATCH (x:Base)\nWHERE ((x:Tag_Tier_Zero) OR COALESCE(x.system_tags, '') CONTAINS 'admin_tier_0')\nAND (x:User OR x:Computer)\n\n// Filter the members of Denied RODC Password Replication Group\nAND NOT x.objectid IN MembersOfDeniedGroup\nRETURN x",
+    "revision": 2,
     "resources": [],
     "acknowledgements": [
       "Martin Sohn Christensen, @martinsohndk"
@@ -1678,9 +1682,9 @@
       "Azure"
     ],
     "category": "Shortest Paths",
-    "description": null,
+    "description": "WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE",
     "query": "MATCH p=shortestPath((s:AZApp)-[:AZ_ATTACK_PATHS*1..]->(t:AZBase))\nWHERE ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0') AND s<>t\nRETURN p\nLIMIT 1000",
-    "revision": 2,
+    "revision": 3,
     "resources": [],
     "acknowledgements": []
   },
@@ -1706,9 +1710,9 @@
       "Azure"
     ],
     "category": "Shortest Paths",
-    "description": null,
+    "description": "WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE",
     "query": "MATCH p=shortestPath((s:AZUser)-[:AZ_ATTACK_PATHS*1..]->(t:AZBase))\nWHERE (t:AZBase) AND t.name =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|Privileged Authentication Administrator' AND s<>t\nAND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')\nRETURN p\nLIMIT 1000",
-    "revision": 2,
+    "revision": 3,
     "resources": [],
     "acknowledgements": []
   },
@@ -1782,9 +1786,9 @@
       "Azure"
     ],
     "category": "Shortest Paths",
-    "description": null,
+    "description": "WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE",
     "query": "MATCH p=shortestPath((s:AZBase)-[:AZ_ATTACK_PATHS*1..]->(t:AZSubscription))\nWHERE s<>t\nRETURN p\nLIMIT 1000",
-    "revision": 2,
+    "revision": 3,
     "resources": [],
     "acknowledgements": []
   },
@@ -1921,22 +1925,6 @@
     "revision": 1,
     "resources": [],
     "acknowledgements": []
-  },
-  {
-    "name": "Trace ACE inheritance",
-    "guid": "8c5454df-3ae8-412c-b271-3c4c55df7141",
-    "prebuilt": false,
-    "platforms": [
-      "Active Directory"
-    ],
-    "category": "Domain Information",
-    "description": "When BloodHound shows that an inherited ACE applies to an object it does not show the source/where it is inherited from from (OU, Container, Domain root) - the source is where it should be remediated. This query can sometimes find the source of an inherited ACE, but only works if the ACE is set to also apply to the source itself.",
-    "query": "// Replace INSERT_OBJECT_ID with the affected principal\n// Replace 'GenericAll' with the specific edge you're tracing\nWITH \"INSERT_OBJECT_ID\" as OID\nMATCH p=()-[:GenericAll {isacl:true,isinherited:false}]->()-[:Contains*1..]->(:Base{objectid:OID})\nWHERE NONE(ou in NODES(p) WHERE ou:OU AND ou.isaclprotected IS NOT NULL)\nRETURN p",
-    "revision": 1,
-    "resources": [],
-    "acknowledgements": [
-      "Walter.Legowski, @SadProcessor"
-    ]
   },
   {
     "name": "Foreign Service Principals With any Abusable MS Graph App Role Assignment",
@@ -2648,9 +2636,9 @@
       "Azure"
     ],
     "category": "Shortest Paths",
-    "description": null,
+    "description": "WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE",
     "query": "MATCH p=shortestPath((s:AZBase)-[:AZ_ATTACK_PATHS*1..]->(t:AZRole))\nWHERE t.name =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|Privileged Authentication Administrator' AND s<>t\nRETURN p\nLIMIT 1000",
-    "revision": 2,
+    "revision": 3,
     "resources": [],
     "acknowledgements": []
   },
