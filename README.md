@@ -80,13 +80,15 @@ Command line usage is easy with the [BloodHound Operator](https://github.com/Sad
 First load the `Queries.json`:
 
 ```powershell
-> $queries = Invoke-RestMethod "https://raw.githubusercontent.com/SpecterOps/BloodHoundQueryLibrary/refs/heads/main/Queries.json"
+$queries = Invoke-RestMethod "https://raw.githubusercontent.com/SpecterOps/BloodHoundQueryLibrary/refs/heads/main/Queries.json"
 ```
 
 Example: Run a query in BloodHound:
 
 ```powershell
-> $queries[0] | BHInvoke
+$queries[0] | BHInvoke
+```
+```
 
 
 Name      : Tier Zero / High Value external Entra ID users
@@ -104,10 +106,32 @@ Timestamp : 17-06-2025 13:55:27
 Duration  : 00:00:00.0265562
 ```
 
-Example:  Import a few queries to BloodHound's Custom Searches:
+Example: Import a few queries to BloodHound's Custom Searches:
 
 ```powershell
-> $queries[0..4] | New-BHPathQuery
+$queries[0..4] | New-BHPathQuery
+```
+
+Example: Test all queries
+
+```powershell
+$results = [System.Collections.ArrayList]::new()
+$queries | % { 
+    "$($results.Count + 1)/$($queries.Count) $($_.name)"
+    $results.Add([PSCustomObject]@{
+        Name = $_.name
+        Time = (Measure-Command { 
+            $errorMsg = $null
+            try {
+                $result = $_ | BHInvoke -WarningAction "Stop"
+            } catch {
+                $errorMsg = $_.Exception.Message
+            }
+        }).TotalSeconds
+        Result = $result
+        Error = $errorMsg
+    }) | Out-Null
+}
 ```
 
 ## Contributing
