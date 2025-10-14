@@ -6,10 +6,10 @@ category: General
 description: 
 query: |-
   MATCH p=(t:AZRole)<-[:AZHasRole|AZMemberOf*1..2]-(:AZBase)
-  WHERE t.name =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|Privileged Authentication Administrator'
+  WHERE t.name =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|Privileged Authentication Administrator|Privileged Role Administrator'
   RETURN p
   LIMIT 1000
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 
