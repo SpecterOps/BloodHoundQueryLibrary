@@ -134,6 +134,10 @@ $queries | % {
 }
 ```
 
+## Query Importer
+
+There is a dedicated script included with this repository for importing all queries into BloodHound Community Edition located at `utilities/python/query-importer.py` based on the master `Queries.json` file for easy plug-and-play usage of the queries bundled in this repository.
+
 ## Contributing
 
 The BloodHound Query Library's success depends on community participation. BloodHound users who have developed useful queries are encouraged to contribute them to the library.
