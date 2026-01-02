@@ -10,5 +10,5 @@ query: |-
   WHERE m.system_tags CONTAINS 'owned'
   RETURN p
 revision: 1
-resources: -
+resources: 
 acknowledgements: Daniel Scheidt, @theluemmel
