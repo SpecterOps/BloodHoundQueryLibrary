@@ -22,7 +22,7 @@ The library is a free tool for the community maintained in a human-readable form
 
 ![BloodHound Query Library frontend screenshot](queries.specterops.io.png)
 
-You can also easily bulk import all non-default queries into BlodHound:
+You can also easily bulk import all queries into BlodHound:
 
 1. Download [Queries.zip](https://github.com/SpecterOps/BloodHoundQueryLibrary/releases/latest/download/Queries.zip) from Releases.
 2. Import `Queries.zip` by either:
