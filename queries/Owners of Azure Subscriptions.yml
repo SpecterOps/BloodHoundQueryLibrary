@@ -11,5 +11,5 @@ query: |-
   RETURN p
   LIMIT 1000
 revision: 1
-resources: -
+resources: 
 acknowledgements: Daniel Scheidt, @theluemmel

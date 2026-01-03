@@ -10,5 +10,5 @@ query: |-
   WHERE g.displayname = "MICROSOFT GRAPH"
   RETURN p
 revision: 1
-resources: -
+resources: 
 acknowledgements: Daniel Scheidt, @theluemmel

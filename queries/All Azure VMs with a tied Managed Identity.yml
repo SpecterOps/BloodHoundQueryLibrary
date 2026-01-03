@@ -9,5 +9,5 @@ query: |-
   MATCH p=(:AZVM)-[:AZManagedIdentity]->(n) 
   RETURN p
 revision: 1
-resources: -
+resources: 
 acknowledgements: Daniel Scheidt, @theluemmel
