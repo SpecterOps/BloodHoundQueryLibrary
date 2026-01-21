@@ -42,7 +42,7 @@ The library contains queries that demonstrate BloodHound's versatility beyond tr
 - Community contributed queries (see [Contributing](#contributing))
 - Novel queries to further showcase BloodHound's security assessment capabilities (see [security-assessment-mapping.md](/docs/security-assessment-mapping.md))
 
-Individual query files are stored in stored [/Queries](/Queries/) as `.yml` and are automatically combined into a single Queries.json/Queries.zip as part of our [releases](https://github.com/SpecterOps/BloodHoundQueryLibrary/releases).
+Individual query files are stored in stored [/queries](/queries/) as `.yml` and are automatically combined into a single Queries.json/Queries.zip as part of our [releases](https://github.com/SpecterOps/BloodHoundQueryLibrary/releases).
 
 The query files use the YAML structure found in [query-structure.yml](/docs/query-structure.yml), for example:
 
