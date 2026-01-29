@@ -18,9 +18,16 @@
 
 The BloodHound Query Library is a community-driven collection of [Cypher queries](https://support.bloodhoundenterprise.io/hc/en-us/articles/16721164740251) designed to help [BloodHound Community Edition](https://github.com/SpecterOps/BloodHound) and [BloodHound Enterprise](https://specterops.io/bloodhound-overview/) users to unlock the full potential of the flexible BloodHound platform by creating an open query ecosystem.
 
-The library is a free tool for the community maintained in a human-readable format (YAML) through this repository and the sleek and searchable front-end is found at https://queries.specterops.io/
+The library is a free tool for the community maintained in a human-readable format (YAML) through this repository and the searchable front-end at https://queries.specterops.io/
 
 ![BloodHound Query Library frontend screenshot](queries.specterops.io.png)
+
+You can also easily bulk import all queries into BloodHound:
+
+1. Download [Queries.zip](https://github.com/SpecterOps/BloodHoundQueryLibrary/releases/latest/download/Queries.zip) from Releases.
+2. Import `Queries.zip` by either:
+   - UI: Explore -> Cypher -> Import
+   - API: [/api/v2/saved-queries/import](https://bloodhound.specterops.io/reference/cypher/import-one-or-more-cypher-queries)
 
 For an introduction to the project, please read our blog post:
 
@@ -35,7 +42,7 @@ The library contains queries that demonstrate BloodHound's versatility beyond tr
 - Community contributed queries (see [Contributing](#contributing))
 - Novel queries to further showcase BloodHound's security assessment capabilities (see [security-assessment-mapping.md](/docs/security-assessment-mapping.md))
 
-Individual query files are stored in stored in [/Queries](/Queries/) as `.yml` and are automatically combined into a single  [Queries.json](/Queries.json) file that powers the front-end.
+Individual query files are stored in stored [/queries](/queries/) as `.yml` and are automatically combined into a single Queries.json/Queries.zip as part of our [releases](https://github.com/SpecterOps/BloodHoundQueryLibrary/releases).
 
 The query files use the YAML structure found in [query-structure.yml](/docs/query-structure.yml), for example:
 
@@ -80,7 +87,7 @@ Command line usage is easy with the [BloodHound Operator](https://github.com/Sad
 First load the `Queries.json`:
 
 ```powershell
-$queries = Invoke-RestMethod "https://raw.githubusercontent.com/SpecterOps/BloodHoundQueryLibrary/refs/heads/main/Queries.json"
+$queries = Invoke-RestMethod "https://github.com/SpecterOps/BloodHoundQueryLibrary/releases/latest/download/Queries.json"
 ```
 
 Example: Run a query in BloodHound:
