@@ -1,0 +1,12 @@
+name: All gMSAs
+guid: 0fc16935-14b7-4859-9a2a-a191daa4c081
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: List all Group Managed Service Accounts (gMSAs) by finding nodes targeted by ReadGMSAPassword relationships.
+query: |-
+  MATCH ()-[:ReadGMSAPassword]->(g)
+  RETURN g
+revision: 1
+resources:
+acknowledgements: chryzsh
