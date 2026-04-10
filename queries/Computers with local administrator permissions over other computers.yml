@@ -13,4 +13,4 @@ revision: 1
 resources:  
  - https://specterops.io/blog/2025/04/08/the-renaissance-of-ntlm-relay-attacks-everything-you-need-to-know/
  - https://github.com/subat0mik/Misconfiguration-Manager
-acknowledgements: Mat Fiore, @stuk0v
+acknowledgements: @stuk0v_
