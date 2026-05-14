@@ -1,0 +1,14 @@
+name: All Domain Controllers
+guid: 0596dba7-9180-49a0-aa54-00243240037d
+prebuilt: true
+platforms: Active Directory
+category: Domain Information
+description: Displays all Domain Controllers by identifying computer objects that are members of the Domain Controllers group.
+query: |-
+  MATCH p = (t:Group)<-[:MemberOf*1..]-(a:Computer)
+  WHERE t.objectid ENDS WITH '-516'
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:
