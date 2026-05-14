@@ -1,0 +1,19 @@
+name: Hidden Control Over Disabled Non-Privileged Objects
+guid: 6f3b8d7c-2d9b-4f5f-8f6f-7b1e8f4c92aa
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Identifies non-privileged users, groups, or computers with dangerous control permissions over disabled user or computer objects.
+query: |-
+  MATCH (source)
+  WHERE source:User OR source:Group OR source:Computer
+  MATCH (target)
+  WHERE (target:User OR target:Computer) AND target.enabled = false
+  MATCH (source)-[r:GenericAll|GenericWrite|WriteDACL|WriteOwner|WriteAccountRestrictions]->(target)
+  WHERE NOT source.highvalue = true
+    AND NOT source.name =~ '(?i)(ADMINISTRATORS|DOMAIN ADMINS|ENTERPRISE ADMINS|SCHEMA ADMINS|KEY ADMINS|ENTERPRISE KEY ADMINS|ACCOUNT OPERATORS|BACKUP OPERATORS|SERVER OPERATORS|PRINT OPERATORS|NETWORK CONFIGURATION OPERATORS|CRYPTOGRAPHIC OPERATORS|DNSADMINS|DOMAIN CONTROLLERS|READ-ONLY DOMAIN CONTROLLERS|ENTERPRISE READ-ONLY DOMAIN CONTROLLERS|CLONEABLE DOMAIN CONTROLLERS|CERT PUBLISHERS|REPLICATOR|DHCP ADMINISTRATORS|HYPER-V ADMINISTRATORS|STORAGE REPLICA ADMINISTRATORS|PROTECTED USERS|DNSUPDATEPROXY|GROUP POLICY CREATOR OWNERS)@.*'
+  RETURN source, r, target
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:
