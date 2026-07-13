@@ -29,9 +29,12 @@ You can also easily bulk import all queries into BloodHound:
    - UI: Explore -> Cypher -> Import
    - API: [/api/v2/saved-queries/import](https://bloodhound.specterops.io/reference/cypher/import-one-or-more-cypher-queries)
 
-For an introduction to the project, please read our blog post:
+These blog posts give an in-depth introduction to the project:
 
 - [Introducing the BloodHound Query Library](https://specterops.io/blog/2025/06/17/introducing-the-bloodhound-query-library/)
+- [What’s New in the BloodHound Query Library: BYOL, OpenGraph, Multi-Server, and More](https://specterops.io/blog/2026/04/15/whats-new-in-the-bloodhound-query-library-byol-opengraph-multi-server-and-more/)
+
+
 
 ## Deprecation Notice: `system_tags` Queries
 
