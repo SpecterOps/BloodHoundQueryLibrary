@@ -5,12 +5,11 @@ platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-
-  MATCH p=shortestPath((s:Group)-[:AD_ATTACK_PATHS*1..]->(t:Base))
+  MATCH p=shortestPath((s:Group)-[:AD_ATTACK_PATHS*1..]->(t:Tag_Tier_Zero))
   WHERE s.objectid ENDS WITH '-513' AND s<>t
-  AND (t:Tag_Tier_Zero)
   RETURN p
   LIMIT 1000
-revision: 3
+revision: 4
 resources: 
 acknowledgements: 
 
