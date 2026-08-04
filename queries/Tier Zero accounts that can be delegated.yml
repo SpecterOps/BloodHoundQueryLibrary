@@ -6,7 +6,7 @@ category: Kerberos Interaction
 description: Delegation protection is achieved by either enabling "Account is sensitive and cannot be delegated" or making it a member of the Protected Users security group.
 query: |-
   MATCH (m:Base)
-  WHERE ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (m:Tag_Tier_Zero)
   AND m.enabled = true
   AND m.sensitive = false
   OPTIONAL MATCH (g:Group)<-[:MemberOf*1..]-(n:Base)
@@ -14,7 +14,7 @@ query: |-
   WITH m, COLLECT(n) AS matchingNs
   WHERE NONE(n IN matchingNs WHERE n.objectid = m.objectid)
   RETURN m
-revision: 2
+revision: 3
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

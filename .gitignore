@@ -179,3 +179,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+AGENTS.md

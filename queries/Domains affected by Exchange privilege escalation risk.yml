@@ -7,9 +7,9 @@ description:
 query: |-
   MATCH p=(n:Group)-[r:WriteDacl|ForceChangePassword|AddMember]->(m:Base)
   WHERE n.name STARTS WITH "EXCHANGE "
-  AND ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  AND (m:Tag_Tier_Zero)
   RETURN p
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

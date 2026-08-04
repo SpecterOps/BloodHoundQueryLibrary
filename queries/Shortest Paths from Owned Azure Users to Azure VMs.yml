@@ -7,9 +7,9 @@ category: Shortest Paths
 description: Return shortest paths from Owned Azure Users to Azure VMs to check for attack vectors.
 query: |-
   MATCH p = shortestPath((m:AZUser)-[:AZ_ATTACK_PATHS*..]->(n:AZVM))
-  WHERE ((m:Tag_Owned) OR COALESCE(m.system_tags, '') CONTAINS 'owned')
+  WHERE (m:Tag_Owned)
   RETURN p
-revision: 2
+revision: 3
 resources: 
 acknowledgements: Daniel Scheidt, @theluemmel
 

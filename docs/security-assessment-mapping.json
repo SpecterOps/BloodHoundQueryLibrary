@@ -744,15 +744,15 @@
 		{
 			"bloodhound_query": {
 				"guid": "cb8cf96e-21c9-422b-9439-390a13446ca6",
-				"name": "Kerberos-enabled service accounts without AES encryption support"
+				"name": "Kerberos-enabled service accounts permitting RC4 encryption"
 			},
 			"maps_to": [
 				{
 					"source": "PingCastle",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "PC flags service accounts not supporting AES. Following the RC4 disablement enforcement of CVE-2026-20833, the Key Distribution Center no longer assumes RC4 support for accounts without a msDS-SupportedEncryptionTypes value, so the BH query instead flags accounts where RC4 is explicitly permitted.",
 							"id": "S-AesNotEnabled",
 							"name": "[T]Check the use of Kerberos on services accounts without AES support"
 						}
@@ -762,8 +762,8 @@
 					"source": "MDI",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "MDI flags accounts not supporting AES. Following the RC4 disablement enforcement of CVE-2026-20833, the Key Distribution Center no longer assumes RC4 support for accounts without a msDS-SupportedEncryptionTypes value, so the BH query instead flags accounts where RC4 is explicitly permitted.",
 							"id": "Unsecure account attributes: Enable Kerberos AES encryption support",
 							"name": "Unsecure account attributes: Enable Kerberos AES encryption support"
 						}
@@ -773,8 +773,8 @@
 					"source": "PurpleKnight",
 					"controls": [
 						{
-							"mapping_scope": "superset",
-							"mapping_scope_detail": "BH query matches all base nodes with SPNs (users and computers), while PK targets only user accounts. BH also catches accounts with passwords predating Windows Server 2008 which PK does not.",
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "BH query matches all base nodes with SPNs (users and computers), while PK targets only user accounts. PK flags accounts not supporting AES, while the BH query flags accounts where RC4 is explicitly permitted following the RC4 disablement enforcement of CVE-2026-20833.",
 							"id": "b608276e-3849-419d-bc34-6e5a362b3e79",
 							"name": "Primary users with SPN not supporting AES encryption on Kerberos"
 						}
@@ -2086,15 +2086,15 @@
 		{
 			"bloodhound_query": {
 				"guid": "8d94d3f3-3d53-4939-a206-3c0a4dd3f646",
-				"name": "Users with logon scripts stored in a trusted domain"
+				"name": "Users with logon scripts"
 			},
 			"maps_to": [
 				{
 					"source": "PingCastle",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Query finds users with logon scripts no conditions.",
 							"id": "T-ScriptOutOfDomain",
 							"name": "[T]Check if login scripts may be located in a trusted domain"
 						}

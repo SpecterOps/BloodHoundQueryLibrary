@@ -5,12 +5,11 @@ platforms: Active Directory
 category: Shortest Paths
 description: 
 query: |-
-  MATCH p=shortestPath((s:Group)-[:AD_ATTACK_PATHS*1..]->(t:Base))
+  MATCH p=shortestPath((s:Group)-[:AD_ATTACK_PATHS*1..]->(t:Tag_Tier_Zero))
   WHERE s.objectid ENDS WITH '-513' AND s<>t
-  AND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
   RETURN p
   LIMIT 1000
-revision: 2
+revision: 4
 resources: 
 acknowledgements: 
 
