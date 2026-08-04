@@ -8,10 +8,10 @@ query: |-
   // MANY TO MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
   MATCH p=shortestPath((s:Tag_Owned)-[:AD_ATTACK_PATHS*1..]->(t:Base))
   WHERE s<>t
-  AND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  AND (t:Tag_Tier_Zero)
   RETURN p
   LIMIT 1000
-revision: 4
+revision: 5
 resources: 
 acknowledgements: 
 

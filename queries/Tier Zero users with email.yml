@@ -6,7 +6,7 @@ category: Active Directory Hygiene
 description: Tier Zero accounts with email access have an increased attack surface.
 query: |-
   MATCH (n)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   AND n.email <> ""
   AND n.enabled = true
   AND NOT toUpper(n.email) ENDS WITH ".ONMICROSOFT.COM"
@@ -23,7 +23,7 @@ query: |-
       OR n.name STARTS WITH "HEALTHMAILBOX")
   )
   RETURN n
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

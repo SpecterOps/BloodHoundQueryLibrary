@@ -34,26 +34,6 @@ These blog posts give an in-depth introduction to the project:
 - [Introducing the BloodHound Query Library](https://specterops.io/blog/2025/06/17/introducing-the-bloodhound-query-library/)
 - [What’s New in the BloodHound Query Library: BYOL, OpenGraph, Multi-Server, and More](https://specterops.io/blog/2026/04/15/whats-new-in-the-bloodhound-query-library-byol-opengraph-multi-server-and-more/)
 
-
-
-## Deprecation Notice: `system_tags` Queries
-
-Queries in the library currently use two methods to scope nodes to Tier Zero and Owned, supporting both old and new versions of BloodHound. At the end of July 2026, all queries will be updated to use the newer simpler method.
-
-Old versions require scoping with a node property and null handling:
-
-```cypher
-WHERE COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0'
-```
-
-New versions can use node labels directly:
-
-```cypher
-WHERE (n:Tag_Tier_Zero)
-```
-
-The simpler label-based approach was introduced with [Privilege Zones](https://specterops.io/privilege-zones/), which became generally available in [v2026.03.23](https://bloodhound.specterops.io/resources/release-notes/2026-03-23). Upgrade your BloodHound version to ensure queries from the library continue to work.
-
 ## Overview
 
 The library contains queries that demonstrate BloodHound's versatility beyond traditional attack path analysis. This includes:
@@ -126,7 +106,7 @@ $queries[0] | BHInvoke
 ```powershell
 Name      : Tier Zero / High Value external Entra ID users
 Query     : MATCH (n:AZUser)
-            WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+            WHERE (n:Tag_Tier_Zero)
             AND n.name CONTAINS '#EXT#@'
             RETURN n
             LIMIT 100

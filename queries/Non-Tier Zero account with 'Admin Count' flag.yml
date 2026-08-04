@@ -8,7 +8,7 @@ query: |-
   MATCH (n:Base)
   WHERE (n:User OR n:Computer)
   AND n.admincount = true
-  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND NOT (n:Tag_Tier_Zero)
   AND NOT n.objectid ENDS WITH '-502' // KRBTGT user
   AND NOT n.objectid ENDS WITH '-500' // Administrator user
   OPTIONAL MATCH (n)-[:MemberOf]->(g:Group)
@@ -28,7 +28,7 @@ query: |-
   WITH n, g
   WHERE g IS NULL
   RETURN n
-revision: 2
+revision: 3
 resources:
 - https://learn.microsoft.com/en-us/windows/win32/adschema/a-admincount
 - https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory#protected-groups

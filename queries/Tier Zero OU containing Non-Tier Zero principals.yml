@@ -7,10 +7,10 @@ description: Identifies Tier Zero OUs that contain Non-Tier Zero principals. Org
 query: |-
   MATCH p = (ou:OU)-[:Contains]->(n:Base)
   WHERE (n:User OR n:Group OR n:Computer)
-    AND (COALESCE(ou.system_tags, '') CONTAINS 'admin_tier_0' OR ou:Tag_Tier_Zero)
-    AND NOT (COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0' OR n:Tag_Tier_Zero)
+    AND (ou:Tag_Tier_Zero)
+    AND NOT (n:Tag_Tier_Zero)
   RETURN p
   LIMIT 1000
-revision: 1
+revision: 2
 resources:
 acknowledgements: Martin Sohn Christensen, @martinsohndk

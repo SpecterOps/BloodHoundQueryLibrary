@@ -6,10 +6,10 @@ category: Dangerous Privileges
 description: 
 query: |-
   MATCH p=(n:Base)-[:HasSIDHistory]->(m:Base)
-  WHERE ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
-  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (m:Tag_Tier_Zero)
+  AND NOT (n:Tag_Tier_Zero)
   RETURN p
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

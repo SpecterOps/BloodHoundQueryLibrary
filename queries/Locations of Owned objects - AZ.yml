@@ -6,10 +6,10 @@ category: General
 description: 
 query: |-
   MATCH p = (t:AZBase)<-[:AZContains*1..]-(:AZTenant)
-  WHERE ((t:Tag_Owned) OR COALESCE(t.system_tags, '') CONTAINS 'owned')
+  WHERE (t:Tag_Owned)
   RETURN p
   LIMIT 1000
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
