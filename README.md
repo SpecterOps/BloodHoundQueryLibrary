@@ -8,7 +8,7 @@
         alt="Slack"/>
     </a>
     <a href="https://github.com/SpecterOps/BloodHoundQueryLibrary/actions">
-        <img src="https://github.com/SpecterOps/BloodHoundQueryLibrary/actions/workflows/syntax.yml/badge.svg"
+        <img src="https://github.com/SpecterOps/BloodHoundQueryLibrary/actions/workflows/test.yml/badge.svg"
         alt="Syntax check"/>
     </a>
 </p>
