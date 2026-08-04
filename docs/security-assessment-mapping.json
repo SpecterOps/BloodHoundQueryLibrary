@@ -1628,7 +1628,7 @@
 		{
 			"bloodhound_query": {
 				"guid": "944cecfe-519b-4318-b226-e8520161b454",
-				"name": "Non-Tier Zero object with excessive control"
+				"name": "Non-Tier Zero principal with excessive control"
 			},
 			"maps_to": [
 				{
@@ -3019,7 +3019,7 @@
 		{
 			"bloodhound_query": {
 				"guid": "eeed0434-28e3-4d84-9dfb-9108d5997589",
-				"name": "Objects created in the last 10 days"
+				"name": "Objects created in the past 10 days"
 			},
 			"maps_to": [
 				{
@@ -3356,7 +3356,7 @@
 		{
 			"bloodhound_query": {
 				"guid": "622bf05c-b34b-4538-9a1e-524a2f6f58b0",
-				"name": "Computers members of built-in privileged groups"
+				"name": "Computers with membership in default privileged groups"
 			},
 			"maps_to": [
 				{
@@ -3375,7 +3375,7 @@
 		{
 			"bloodhound_query": {
 				"guid": "96e86fb9-4cd6-4df3-81a6-e36fd7a34614",
-				"name": "Principals with write Shadow Credentials on Tier Zero principals"
+				"name": "Principals that can write Shadow Credentials on Tier Zero principals"
 			},
 			"maps_to": [
 				{
@@ -3393,8 +3393,8 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "ef587ba1-a740-4bcf-b4e0-e1137d01b1af",
-				"name": "Non-Tier Zero principals with access to gMSA passwords"
+				"guid": "10d0ee8e-17ec-4f6c-9b94-8dffe548f9d4",
+				"name": "Non-Tier Zero principals with access to enabled gMSA passwords"
 			},
 			"maps_to": [
 				{
