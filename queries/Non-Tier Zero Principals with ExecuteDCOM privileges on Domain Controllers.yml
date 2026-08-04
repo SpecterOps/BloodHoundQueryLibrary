@@ -1,6 +1,6 @@
 name: Non-Tier Zero Principals with ExecuteDCOM privileges on Domain Controllers
 guid: 2aeefd57-cbe7-4f0e-907f-86a97d7b723c
-prebuilt: true
+prebuilt: false
 platforms: Active Directory
 category: Dangerous Privileges
 description: 
@@ -13,7 +13,7 @@ query: |-
   OR g.objectid ENDS WITH "S-1-5-32-559" // Performance Log Users
   RETURN p1,p2
   LIMIT 1000
-revision: 2
+revision: 3
 resources: 
 acknowledgements: 
 
