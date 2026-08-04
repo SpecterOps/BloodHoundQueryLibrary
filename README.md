@@ -33,7 +33,7 @@ These blog posts give an in-depth introduction to the project:
 
 - [Introducing the BloodHound Query Library](https://specterops.io/blog/2025/06/17/introducing-the-bloodhound-query-library/)
 - [What’s New in the BloodHound Query Library: BYOL, OpenGraph, Multi-Server, and More](https://specterops.io/blog/2026/04/15/whats-new-in-the-bloodhound-query-library-byol-opengraph-multi-server-and-more/)
-s
+
 ## Overview
 
 The library contains queries that demonstrate BloodHound's versatility beyond traditional attack path analysis. This includes:
