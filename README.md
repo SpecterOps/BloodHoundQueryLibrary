@@ -29,9 +29,10 @@ You can also easily bulk import all queries into BloodHound:
    - UI: Explore -> Cypher -> Import
    - API: [/api/v2/saved-queries/import](https://bloodhound.specterops.io/reference/cypher/import-one-or-more-cypher-queries)
 
-For an introduction to the project, please read our blog post:
+For an introduction to the project, please read the blog posts:
 
-- [Introducing the BloodHound Query Library](https://specterops.io/blog/2025/06/17/introducing-the-bloodhound-query-library/)
+- [Jun 17, 2025: Introducing the BloodHound Query Library](https://specterops.io/blog/2025/06/17/introducing-the-bloodhound-query-library/)
+- [Apr 15, 2026: What’s New in the BloodHound Query Library: BYOL, OpenGraph, Multi-Server, and More](https://specterops.io/blog/2026/04/15/whats-new-in-the-bloodhound-query-library-byol-opengraph-multi-server-and-more/)
 
 ## Deprecation Notice: `system_tags` Queries
 
@@ -98,11 +99,12 @@ One of BloodHound’s key features is its flexibility through Cypher queries –
 Queries can answer anything from simple questions (e.g., “*Which users haven’t reset their passwords in 180 days?*”), to complex identity attack path problems (e.g., “*Which low-privileged users can compromise computers hosting a gMSA with unconstrained delegation?*”).
 
 The library gives you practical examples for learning Cypher and can be combined with these resources:
-- [BloodHound documentation: Searching with Cypher](https://support.bloodhoundenterprise.io/hc/en-us/articles/16721164740251)
+- [BloodHound documentation: Searching with Cypher](https://bloodhound.specterops.io/analyze-data/explore/cypher-search)
+- [queries.specterops.io Cheat Sheet](https://queries.specterops.io/cheatsheet)
 - [openCypher resources](https://opencypher.org/resources/)
 - [Neo4j Cypher Cheat Sheet](https://neo4j.com/docs/cypher-cheat-sheet/current/lists/)
 
-You can also learn with the community by joining the #cypher_queries channel in the [BloodHound community Slack](https://support.bloodhoundenterprise.io/hc/en-us/articles/16730536907547).
+You can also learn with the community by joining the #cypher_queries channel in the [BloodHound community Slack](https://bloodhound.specterops.io/resources/community-support/getting-help).
 
 ## BloodHound Operator usage example
 
