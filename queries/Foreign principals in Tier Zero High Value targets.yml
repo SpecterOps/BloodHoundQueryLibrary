@@ -6,12 +6,12 @@ category: Azure Hygiene
 description: 
 query: |-
   MATCH (n:AZServicePrincipal)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   AND NOT toUpper(n.appownerorganizationid) = toUpper(n.tenantid)
   AND n.appownerorganizationid CONTAINS '-'
   RETURN n
   LIMIT 100
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 

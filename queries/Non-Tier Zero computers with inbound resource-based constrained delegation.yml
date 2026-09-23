@@ -6,8 +6,8 @@ category: Dangerous Privileges
 description: Computers outside of Tier Zero where another principal has been granted the ability to impersonate users via resource-based constrained delegation (RBCD).
 query: |-
   MATCH p = (m:Base)-[:AllowedToAct]->(n:Computer)
-  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE NOT (n:Tag_Tier_Zero)
   RETURN p
-revision: 1
+revision: 2
 resources: https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-constrained-delegation-overview
 acknowledgements: Martin Sohn Christensen, @martinsohndk

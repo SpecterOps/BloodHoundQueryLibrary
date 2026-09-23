@@ -6,14 +6,14 @@ category: Active Directory Hygiene
 description: 
 query: |-
   MATCH (u:User)
-  WHERE ((u:Tag_Tier_Zero) OR COALESCE(u.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (u:Tag_Tier_Zero)
   AND u.enabled = true
   AND u.smartcardrequired = false
   AND NOT u.name STARTS WITH 'MSOL_' // Removes false positive, Entra sync
   AND NOT u.name STARTS WITH 'PROVAGENTGMSA' // Removes false positive, Entra sync
   AND NOT u.name STARTS WITH 'ADSYNCMSA_' // Removes false positive, Entra sync
   RETURN u
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 

@@ -8,7 +8,7 @@ query: |-
   MATCH p=(:Domain)-[:Contains*1..]->(c:Container)<-[r]-(n:Base)
 
   // Exclude Tier Zero
-  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE NOT (n:Tag_Tier_Zero)
 
   // Scope edges to ACLs
   AND r.isacl
@@ -43,7 +43,7 @@ query: |-
 
   RETURN p
   LIMIT 2000
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

@@ -3,7 +3,7 @@
 name: The name of the query.
 guid: 51cd8e42-f795-4551-a009-61395e6cedf5 # Unique GUID for the query, for example from PowerShell Cmdlet `New-Guid`.
 prebuilt: false # Whether the query is part of the default query set in BloodHound's Pre-built Searches. Your custom query must set this to false.
-platform: Active Directory # One or more platforms the query targets/shows risk in.
+platforms: Active Directory # One or more platforms the query targets/shows risk in.
 # Use a list for multiple platforms:
 # - Active Directory
 # - Azure

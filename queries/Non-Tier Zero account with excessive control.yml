@@ -7,11 +7,11 @@ description: Returns non-Tier Zero principals with >= 1000 direct rights to othe
 query: |-
   MATCH (n:Base)-[r:AD_ATTACK_PATHS]->(m:Base)
   WHERE NOT r:MemberOf
-  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND NOT (n:Tag_Tier_Zero)
   WITH n, COLLECT(DISTINCT(m)) AS endNodes
   WHERE SIZE(endNodes) >= 1000
   RETURN n
-revision: 5
+revision: 6
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

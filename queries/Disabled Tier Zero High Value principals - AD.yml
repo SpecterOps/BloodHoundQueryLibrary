@@ -6,13 +6,13 @@ category: Active Directory Hygiene
 description: 
 query: |-
   MATCH (n:Base)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   AND n.enabled = false
   AND NOT n.objectid ENDS WITH '-502' // Removes false positive, KRBTGT
   AND NOT n.objectid ENDS WITH '-500' // Removes false positive, built-in Administrator
   RETURN n
   LIMIT 100
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 

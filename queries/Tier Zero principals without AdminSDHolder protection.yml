@@ -6,10 +6,10 @@ category: Active Directory Hygiene
 description:
 query: |-
   MATCH (n:Base)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   AND n.adminsdholderprotected = false
   RETURN n
   LIMIT 500
-revision: 1
+revision: 2
 resources:
 acknowledgements:

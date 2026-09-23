@@ -6,11 +6,11 @@ category: Azure Hygiene
 description: 
 query: |-
   MATCH (n:AZUser)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   AND n.name CONTAINS '#EXT#@'
   RETURN n
   LIMIT 100
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 

@@ -7,13 +7,13 @@ description:
 query: |-
   MATCH (ENTRA:AZBase)
   MATCH (AD:Base)
-  WHERE ((AD:Tag_Tier_Zero) OR COALESCE(AD.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (AD:Tag_Tier_Zero)
   AND ENTRA.onpremsyncenabled = true
   AND ENTRA.onpremid = AD.objectid
   RETURN ENTRA
   // Replace 'RETURN ENTRA' with 'RETURN AD' to see the corresponding AD principals
   LIMIT 100
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 

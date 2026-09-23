@@ -7,9 +7,9 @@ description:
 query: |-
   MATCH (c:Computer)
   WHERE c.webclientrunning = True
-  AND ((c:Tag_Tier_Zero) OR COALESCE(c.system_tags, '') CONTAINS 'admin_tier_0')
+  AND (c:Tag_Tier_Zero)
   RETURN c LIMIT 1000
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

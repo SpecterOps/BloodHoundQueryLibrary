@@ -47,7 +47,7 @@ class GithubReporter:
         )
         template = env.get_template("githubsummary.md.j2")
         rendered = template.render(data=self.results)
-        with open("test-report.md", "w") as f:
+        with open("test-report.md", "w", encoding="utf-8") as f:
             f.write(rendered)
 
 

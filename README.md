@@ -8,7 +8,7 @@
         alt="Slack"/>
     </a>
     <a href="https://github.com/SpecterOps/BloodHoundQueryLibrary/actions">
-        <img src="https://github.com/SpecterOps/BloodHoundQueryLibrary/actions/workflows/syntax.yml/badge.svg"
+        <img src="https://github.com/SpecterOps/BloodHoundQueryLibrary/actions/workflows/test.yml/badge.svg"
         alt="Syntax check"/>
     </a>
 </p>
@@ -29,27 +29,10 @@ You can also easily bulk import all queries into BloodHound:
    - UI: Explore -> Cypher -> Import
    - API: [/api/v2/saved-queries/import](https://bloodhound.specterops.io/reference/cypher/import-one-or-more-cypher-queries)
 
-For an introduction to the project, please read our blog post:
+These blog posts give an in-depth introduction to the project:
 
 - [Introducing the BloodHound Query Library](https://specterops.io/blog/2025/06/17/introducing-the-bloodhound-query-library/)
-
-## Deprecation Notice: `system_tags` Queries
-
-Queries in the library currently use two methods to scope nodes to Tier Zero and Owned, supporting both old and new versions of BloodHound. At the end of July 2026, all queries will be updated to use the newer simpler method.
-
-Old versions require scoping with a node property and null handling:
-
-```cypher
-WHERE COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0'
-```
-
-New versions can use node labels directly:
-
-```cypher
-WHERE (n:Tag_Tier_Zero)
-```
-
-The simpler label-based approach was introduced with [Privilege Zones](https://specterops.io/privilege-zones/), which became generally available in [v2026.03.23](https://bloodhound.specterops.io/resources/release-notes/2026-03-23). Upgrade your BloodHound version to ensure queries from the library continue to work.
+- [What’s New in the BloodHound Query Library: BYOL, OpenGraph, Multi-Server, and More](https://specterops.io/blog/2026/04/15/whats-new-in-the-bloodhound-query-library-byol-opengraph-multi-server-and-more/)
 
 ## Overview
 
@@ -98,11 +81,12 @@ One of BloodHound’s key features is its flexibility through Cypher queries –
 Queries can answer anything from simple questions (e.g., “*Which users haven’t reset their passwords in 180 days?*”), to complex identity attack path problems (e.g., “*Which low-privileged users can compromise computers hosting a gMSA with unconstrained delegation?*”).
 
 The library gives you practical examples for learning Cypher and can be combined with these resources:
-- [BloodHound documentation: Searching with Cypher](https://support.bloodhoundenterprise.io/hc/en-us/articles/16721164740251)
+- [BloodHound documentation: Searching with Cypher](https://bloodhound.specterops.io/analyze-data/explore/cypher-search)
+- [queries.specterops.io Cheat Sheet](https://queries.specterops.io/cheatsheet)
 - [openCypher resources](https://opencypher.org/resources/)
 - [Neo4j Cypher Cheat Sheet](https://neo4j.com/docs/cypher-cheat-sheet/current/lists/)
 
-You can also learn with the community by joining the #cypher_queries channel in the [BloodHound community Slack](https://support.bloodhoundenterprise.io/hc/en-us/articles/16730536907547).
+You can also learn with the community by joining the #cypher_queries channel in the [BloodHound community Slack](https://bloodhound.specterops.io/resources/community-support/getting-help).
 
 ## BloodHound Operator usage example
 
@@ -123,7 +107,7 @@ $queries[0] | BHInvoke
 ```powershell
 Name      : Tier Zero / High Value external Entra ID users
 Query     : MATCH (n:AZUser)
-            WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+            WHERE (n:Tag_Tier_Zero)
             AND n.name CONTAINS '#EXT#@'
             RETURN n
             LIMIT 100

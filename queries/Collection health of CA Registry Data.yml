@@ -17,6 +17,6 @@ query: |-
   AND c.lastlogontimestamp > (datetime().epochseconds - (30 * 86400))
   RETURN p
 revision: 2
-resources: https://bloodhound.specterops.io/collect-data/enterprise-collection/permissions#ca-registry
+resources: https://bloodhound.specterops.io/collect-data/sharphound-data-permissions#ca-registry
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

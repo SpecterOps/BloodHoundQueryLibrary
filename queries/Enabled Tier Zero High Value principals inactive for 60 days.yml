@@ -7,7 +7,7 @@ description:
 query: |-
   WITH 60 as inactive_days
   MATCH (n:Base)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   AND n.enabled = true
   AND n.lastlogontimestamp < (datetime().epochseconds - (inactive_days * 86400)) // Replicated value
   AND n.lastlogon < (datetime().epochseconds - (inactive_days * 86400)) // Non-replicated value
@@ -16,7 +16,7 @@ query: |-
   AND NOT n.objectid ENDS WITH '-500' // Removes false positive, built-in Administrator
   AND NOT n.name STARTS WITH 'AZUREADSSOACC.' // Removes false positive, Entra Seamless SSO
   RETURN n
-revision: 1
+revision: 2
 resources: 
 acknowledgements: 
 

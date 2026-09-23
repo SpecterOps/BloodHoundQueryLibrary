@@ -6,11 +6,11 @@ category: Active Directory Hygiene
 description: 
 query: |-
   MATCH (d:Domain)-[:Contains*1..]->(n:Base)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   WITH d, COUNT(n) AS adminCount
   WHERE adminCount > 50
   RETURN d
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

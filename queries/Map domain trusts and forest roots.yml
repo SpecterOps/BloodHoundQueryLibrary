@@ -1,0 +1,20 @@
+name: Map domain trusts and forest roots
+guid: 4dabcb63-f521-47ae-ab19-63c728e3d0ec
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: Maps domain trusts while identifying each forest root (the domain holding the Configuration container) and highlighting the abusable trust boundaries between forests, where an attacker can traverse from one forest to another via TGT delegation abuse or SID history spoofing.
+query: |-
+  MATCH (config:Container)
+  WHERE config.distinguishedname STARTS WITH 'CN=CONFIGURATION,DC'
+  MATCH p=(root:Domain)-[:Contains]->(config)
+  WHERE root.collected = 'true'
+  // Optionally also find any other domains in that forest
+  OPTIONAL MATCH t = (child:Domain)-[:SameForestTrust*..]->(root)
+  WHERE child.collected = 'true'
+  MATCH boundary=(:Domain)-[:AbuseTGTDelegation|SpoofSIDHistory]->(:Domain)
+  RETURN p,t,boundary
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Jim Sykora, @JimSycurity

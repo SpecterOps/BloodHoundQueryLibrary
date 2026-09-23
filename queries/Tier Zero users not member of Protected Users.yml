@@ -6,13 +6,13 @@ category: Active Directory Hygiene
 description: 
 query: |-
   MATCH (m:User)
-  WHERE ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (m:Tag_Tier_Zero)
   OPTIONAL MATCH (g:Group)<-[:MemberOf*1..]-(n:Base)
   WHERE g.objectid ENDS WITH '-525'
   WITH m, COLLECT(n) AS matchingNs
   WHERE NONE(n IN matchingNs WHERE n.objectid = m.objectid)
   RETURN m
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

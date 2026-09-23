@@ -9,7 +9,7 @@ The BloodHound-centric mapping data is available at [security-assessment-mapping
 
 ## Assessment Coverage Overview
 
-The following show which other security tools the mapping supports and the number BloodHound queries in the BloodHound Query Library that correspond to controls performed by the tools.
+The following shows which other security tools the mapping supports and the number of BloodHound queries in the BloodHound Query Library that correspond to controls performed by the tools.
 
 | Security Tool | Total Controls | Mapped Controls | Coverage |
 |---------------|-------------------|---------------|----------|
@@ -27,7 +27,7 @@ Each mapping includes a type that describes the relationship:
 
 Each BloodHound query entry includes its GUID and an array of tool mappings. Tool mappings specify the security tool, specific control details, mapping type, and any relevant notes about scope differences.
 
-For example, the below mapping excerpt shows the BloodHound query [Tier Zero computers with passwords older than the default maximum password age](../queries/Tier%20Zero%20computers%20with%20passwords%20older%20than%20the%20default%20maximum%20password%20age.yml) maps to one PingCastle control and one MDI, while also supsesetting them - increasing risk coverage by expanding the scope to Tier Zero.
+For example, the below mapping excerpt shows the BloodHound query [Tier Zero computers with passwords older than the default maximum password age](../queries/Tier%20Zero%20computers%20with%20passwords%20older%20than%20the%20default%20maximum%20password%20age.yml) maps to one PingCastle control and one MDI, while also supersetting them, increasing risk coverage by expanding the scope to Tier Zero.
 
 ```json
 {

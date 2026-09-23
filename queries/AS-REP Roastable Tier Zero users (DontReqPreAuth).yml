@@ -6,10 +6,10 @@ category: Active Directory Hygiene
 description: 
 query: |-
   MATCH (n:Base)
-  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WHERE (n:Tag_Tier_Zero)
   AND n.dontreqpreauth = true
   RETURN n
-revision: 1
+revision: 2
 resources: https://attack.mitre.org/techniques/T1558/004/
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
