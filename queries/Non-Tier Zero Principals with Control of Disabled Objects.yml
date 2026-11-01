@@ -1,0 +1,17 @@
+name: Non-Tier Zero Principals with Control of Disabled Objects
+guid: dbe1220a-2f30-4af1-8090-a79f347cb5ba
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Identifies non-Tier Zero users, groups, or computers with dangerous control permissions over disabled user or computer objects.
+query: |-
+  MATCH p = (source)-[r:GenericAll|GenericWrite|WriteDacl|WriteAccountRestrictions|WriteOwner|Owns|OwnsLimitedRights|WriteOwnerLimitedRights]->(target)
+  WHERE (source:User OR source:Group OR source:Computer)
+  AND NOT (source:Tag_Tier_Zero)
+  AND (target:User OR target:Computer)
+  AND target.enabled = false
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: NCV, @nickvourd
