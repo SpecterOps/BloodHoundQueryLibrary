@@ -1,0 +1,17 @@
+name: Shortest Paths from Owned Principals to Disabled Objects
+guid: 22dd14ca-2893-45ae-b07a-1b9868e93772
+prebuilt: false
+platforms: Active Directory
+category: Shortest Paths
+description: WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+query: |-
+  // MANY TO MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+  MATCH p=shortestPath((source:Tag_Owned)-[:ALL_ATTACK_PATHS*1..]->(target:Base))
+  WHERE source<>target
+  AND (target:User OR target:Computer)
+  AND target.enabled = false
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: NCV, @nickvourd
