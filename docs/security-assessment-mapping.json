@@ -3627,6 +3627,25 @@
 		},
 		{
 			"bloodhound_query": {
+				"guid": "d9e80a24-93a8-4847-b354-762b7ac7510d",
+				"name": "Non-Tier Zero accounts with WriteDACL on Tier Zero group"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Ensure non-admin identities cannot have WriteDACL permissions on sensitive groups",
+							"name": "Ensure non-admin identities cannot have WriteDACL permissions on sensitive groups"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
 				"guid": "43481dea-6c9c-47f0-8a3a-0c012c1a811e",
 				"name": "Enabled Entra ID users inactive for 90 days"
 			},
