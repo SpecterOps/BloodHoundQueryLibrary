@@ -6,9 +6,25 @@ platforms:
 category: Azure Hygiene
 description: Return all privileged Azure Service Principals.
 query: |-
-  MATCH p=(n:AZServicePrincipal)-[:AZHasRole|AZMemberOf*1..2]->(r:AZRole) 
-  WHERE r.displayname =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|PRIVILEGED AUTHENTICATION ADMINISTRATOR|Domain Name Administrator|Hybrid Identity Administrator|External Identity Provider Administrator|Privileged Role Administrator|Partner Tier2 Support|Application Administrator|Directory Synchronization Accounts' 
+  MATCH p=(n:AZServicePrincipal)-[:AZMemberOf*1..]->(:AZGroup)-[:AZHasRole]->(r:AZRole)
+  WHERE toUpper(r.roledefinitionid) IN [
+    '62E90394-69F5-4237-9190-012177145E10', // Global Administrator
+    'FE930BE7-5E62-47DB-91AF-98C3A49A38B1', // User Administrator
+    '158C047A-C907-4556-B7EF-446551A6B5F7', // Cloud Application Administrator
+    '0526716B-113D-4C15-B2C8-68E3C22B9F80', // Authentication Policy Administrator
+    '29232CDF-9323-42FD-ADE2-1D097AF3E4DE', // Exchange Administrator
+    '729827E3-9C14-49F7-BB1B-9608F156BBB8', // Helpdesk Administrator
+    '7BE44C8A-ADAF-4E2A-84D6-AB2649E08A13', // Privileged Authentication Administrator
+    '8329153B-31D0-4727-B945-745EB3BC5F31', // Domain Name Administrator
+    '8AC3FC64-6ECA-42EA-9E69-59F4C7B60EB2', // Hybrid Identity Administrator
+    'BE2F45A1-457D-42AF-A067-6EC1FA63BC45', // External Identity Provider Administrator
+    'E8611AB8-C189-46E8-94E1-60213AB1F814', // Privileged Role Administrator
+    'E00E864A-17C5-4A4B-9C06-F5B95A8D5BD8', // Partner Tier2 Support
+    '9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3', // Application Administrator
+    'D29B2B05-8046-44BA-8758-1E26182FCF32'  // Directory Synchronization Accounts
+  ]
   RETURN p
-revision: 1
+  LIMIT 1000
+revision: 2
 resources:
 acknowledgements: Daniel Scheidt, @theluemmel
