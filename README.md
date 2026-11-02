@@ -41,7 +41,7 @@ The library contains queries that demonstrate BloodHound's versatility beyond tr
 - Cherry-picked community queries
 - SpecterOps-created queries BloodHound Enterprise customers found valuable
 - Community contributed queries (see [Contributing](#contributing))
-- Novel queries to further showcase BloodHound's security assessment capabilities (see [security-assessment-mapping.md](/docs/security-assessment-mapping.md))
+- Novel queries to further showcase BloodHound's [security assessment capabilities](#security-assessment-mapping).
 
 Individual query files are stored in [/queries](/queries/) as `.yml` and are automatically combined into a single Queries.json/Queries.zip as part of our [releases](https://github.com/SpecterOps/BloodHoundQueryLibrary/releases).
 
@@ -72,7 +72,10 @@ Whenever new queries are added, the syntax is automatically validated, ensuring 
 
 BloodHound queries in this library have been mapped to controls from common security assessment tools, demonstrating how BloodHound can validate findings typically associated with dedicated tools like PingCastle, Microsoft Defender for Identity, and Tenable Nessus.
 
-For full coverage details and mapping structure, see [security-assessment-mapping.md](/docs/security-assessment-mapping.md).
+Explore supported tools, mapped controls, and coverage statistics on the [Security Assessments page](https://queries.specterops.io/security-assessments). The page is backed by the repository's [mapping overview](docs/security-assessment-mapping.md) and [mapping data](docs/security-assessment-mapping.json).
+
+<!-- Screenshot placeholder: replace the filename when adding a screenshot of the Security Assessments page. -->
+![Security Assessments page screenshot](queries.specterops.io-security-assessments.png)
 
 ## Learning Cypher Queries
 

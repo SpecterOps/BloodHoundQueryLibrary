@@ -9,16 +9,7 @@ The BloodHound-centric mapping data is available at [security-assessment-mapping
 
 ## Assessment Coverage Overview
 
-The following shows which other security tools the mapping supports and the number of BloodHound queries in the BloodHound Query Library that correspond to controls performed by the tools.
-
-| Security Tool | Total Controls | Mapped Controls | Coverage |
-|---------------|-------------------|---------------|----------|
-| [Netwrix PingCastle](https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html) | 186 | 107 | 58% |
-| [Semperis PurpleKnight](https://www.semperis.com/purple-knight/security-indicators/) | 190 | 97 | 51% |
-| [Microsoft Defender for Identity: Security Posture Assessment](https://learn.microsoft.com/en-us/defender-for-identity/security-assessment) | 83 (+3*) | 44 | 55% |
-| [Tenable Nessus: Active Directory Starter Scan](https://www.tenable.com/blog/new-in-nessus-find-and-fix-these-10-active-directory-misconfigurations) | 10 | 10 | 100% |
-
-* MDI lists 83 checks; three checks marked with an asterisk verify MDI sensor installation and are excluded from the coverage calculation. Coverage is calculated as 44 of the remaining 80 checks.
+See the [Security Assessments page](https://queries.specterops.io/security-assessments) for supported security tools, mapped controls, and coverage statistics calculated from the mapping JSON on GitHub's `main` branch. You can search the mappings and explore the corresponding BloodHound queries there.
 
 ## Mapping Structure
 Each mapping includes a type that describes the relationship:
