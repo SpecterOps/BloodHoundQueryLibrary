@@ -1,0 +1,15 @@
+name: Hybrid accounts Tier Zero in both Entra ID and Active Directory
+guid: 372579b2-a671-4697-a771-a9d32c5c61da
+prebuilt: false
+platforms:
+- Active Directory
+- Azure
+category: Cross Platform Attack Paths
+description: 
+query: |-
+  MATCH p = (:Tag_Tier_Zero)-[:SyncedToADUser|SyncedToEntraUser]->(:Tag_Tier_Zero)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources: 
+acknowledgements: 

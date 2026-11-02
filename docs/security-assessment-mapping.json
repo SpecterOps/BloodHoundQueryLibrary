@@ -246,6 +246,25 @@
 		},
 		{
 			"bloodhound_query": {
+				"guid": "372579b2-a671-4697-a771-a9d32c5c61da",
+				"name": "Hybrid accounts Tier Zero in both Entra ID and Active Directory"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Microsoft Entra ID privileged user accounts that are also privileged in Active Directory",
+							"name": "Microsoft Entra ID privileged user accounts that are also privileged in Active Directory"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
 				"guid": "5862dc4e-6f6f-4321-9474-d838968495ed",
 				"name": "Computers with non-default Primary Group membership"
 			},
