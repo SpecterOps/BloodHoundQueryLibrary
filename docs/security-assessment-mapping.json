@@ -227,6 +227,25 @@
 		},
 		{
 			"bloodhound_query": {
+				"guid": "b1c2fc7d-61fd-4047-81dc-42e75bea35b1",
+				"name": "Accounts with possible secrets in description"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Query searches limited attributes and does not use GenAI-powered analysis.",
+							"id": "Remove discoverable passwords in Active Directory account attributes",
+							"name": "Remove discoverable passwords in Active Directory account attributes"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
 				"guid": "5862dc4e-6f6f-4321-9474-d838968495ed",
 				"name": "Computers with non-default Primary Group membership"
 			},
