@@ -1,0 +1,14 @@
+name: Accounts local Administrator of Tier Zero computers
+guid: 52490ad1-42b8-416b-ac38-4a45cbe4d73c
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: 
+query: |-
+  MATCH p=()-[:MemberOf*0..]->()-[:AdminTo]->(n:Computer)
+  WHERE (n:Tag_Tier_Zero)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources: 
+acknowledgements: 

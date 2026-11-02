@@ -3279,6 +3279,25 @@
 		},
 		{
 			"bloodhound_query": {
+				"guid": "52490ad1-42b8-416b-ac38-4a45cbe4d73c",
+				"name": "Accounts local Administrator of Tier Zero computers"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Remove local admins on identity assets",
+							"name": "Remove local admins on identity assets"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
 				"guid": "d65a801f-d3ef-4b7e-8030-99ebfd6dad12",
 				"name": "Disabled Tier Zero / High Value principals (AD)"
 			},
