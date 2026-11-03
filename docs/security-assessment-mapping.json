@@ -951,63 +951,6 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "3f0fa2f3-fbdf-42c0-9e7d-97e689009161",
-				"name": "Collection health of DC Registry Data"
-			},
-			"maps_to": [
-				{
-					"source": "",
-					"controls": [
-						{
-							"mapping_scope": "partial",
-							"mapping_scope_detail": "MDI checks whether its sensor is installed on the server. This mapping checks whether the server is represented in BloodHound with the required supported data, which indicates BloodHound coverage. It does not verify MDI sensor deployment.",
-							"id": "Unmonitored domain controllers",
-							"name": "Unmonitored domain controllers"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
-				"guid": "c8dd3479-8063-450a-9456-557bc5f39e10",
-				"name": "Collection health of CA Registry Data"
-			},
-			"maps_to": [
-				{
-					"source": "",
-					"controls": [
-						{
-							"mapping_scope": "partial",
-							"mapping_scope_detail": "MDI checks whether its sensor is installed on the server. This mapping checks whether the server is represented in BloodHound with the required supported data, which indicates BloodHound coverage. It does not verify MDI sensor deployment.",
-							"id": "Unmonitored ADCS servers",
-							"name": "Unmonitored ADCS servers"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
-				"guid": "c8dd3479-8063-450a-9456-557bc5f39e10",
-				"name": "Collection health of DC Registry Data"
-			},
-			"maps_to": [
-				{
-					"source": "",
-					"controls": [
-						{
-							"mapping_scope": "partial",
-							"mapping_scope_detail": "MDI checks whether its sensor is installed on the server. This mapping checks whether the server is represented in BloodHound with the required supported data, which indicates BloodHound coverage. It does not verify MDI sensor deployment.",
-							"id": "Unmonitored ADFS servers",
-							"name": "Unmonitored ADFS servers"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
 				"guid": "421921fa-bc0f-4659-9680-b7481adcb132",
 				"name": "Domains where any user can join a computer to the domain"
 			},
