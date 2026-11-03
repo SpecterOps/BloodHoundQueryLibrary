@@ -16,8 +16,8 @@
 	"mappings": [
 		{
 			"bloodhound_query": {
-				"guid": "d263e621-7f1b-4efb-ad25-098fc7d4fb72",
-				"name": "Enabled computers inactive for 180 days - MSSQL Failover Cluster"
+				"guid": "8fbb372e-f3fd-4fc8-a362-06d6315812c9",
+				"name": "MSSQL Failover Cluster accounts with passwords older than 60 days"
 			},
 			"maps_to": [
 				{
