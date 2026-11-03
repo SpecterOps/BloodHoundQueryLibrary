@@ -1339,6 +1339,23 @@
 							"name": "[M]At least one domain controller is not owned correctly"
 						}
 					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
+							"id": "d2df85d9-abbc-4585-be11-123a6d90a871",
+							"name": "Domain Controller owner is not an administrator"
+						},
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
+							"id": "40499bf5-9087-4d55-9db3-2cb641a47ac8",
+							"name": "Privileged objects with unprivileged owners"
+						}
+					]
 				}
 			]
 		},
@@ -3156,36 +3173,6 @@
 							"mapping_scope_detail": "",
 							"id": "216596bf-333e-4f59-a3f5-8af65acbba9b",
 							"name": "Inheritance enabled on AdminSDHolder object"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
-				"guid": "99d29ded-223a-442b-a0e0-f8b5694c6441",
-				"name": "Tier Zero principals not owned by Tier Zero"
-			},
-			"maps_to": [
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "superset",
-							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
-							"id": "d2df85d9-abbc-4585-be11-123a6d90a871",
-							"name": "Domain Controller owner is not an administrator"
-						}
-					]
-				},
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "superset",
-							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
-							"id": "40499bf5-9087-4d55-9db3-2cb641a47ac8",
-							"name": "Privileged objects with unprivileged owners"
 						}
 					]
 				}
