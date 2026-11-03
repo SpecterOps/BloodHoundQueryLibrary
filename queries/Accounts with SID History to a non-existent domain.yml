@@ -8,9 +8,9 @@ query: |-
   MATCH (d:Domain)
   WITH collect(d.objectid) AS domainSIDs
   MATCH p=(n:Base)-[:HasSIDHistory]->(m:Base)
-  WHERE NOT n.domainsid IN domainSIDs
+  WHERE NOT m.domainsid IN domainSIDs
   RETURN p
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
