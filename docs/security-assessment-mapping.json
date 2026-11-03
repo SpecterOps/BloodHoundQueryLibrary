@@ -277,6 +277,17 @@
 							"name": "Microsoft Entra ID privileged user accounts that are also privileged in Active Directory"
 						}
 					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "c117b6a5-00c8-4e77-93d2-e291e36b462a",
+							"name": "Entra ID privileged users that are also privileged in AD"
+						}
+					]
 				}
 			]
 		},
@@ -3194,36 +3205,6 @@
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "5f6540a9-f226-4438-9e64-387a98beda2b",
 							"name": "AD privileged users that are synced to Entra ID"
-						}
-					]
-				},
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "combination",
-							"mapping_scope_detail": "Finds the direction AD -> Entra only.",
-							"id": "c117b6a5-00c8-4e77-93d2-e291e36b462a",
-							"name": "Entra ID privileged users that are also privileged in AD"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
-				"guid": "0d65c62e-bd77-4027-b967-fb36690739c9",
-				"name": "Tier Zero Entra ID principals synchronized with AD"
-			},
-			"maps_to": [
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "combination",
-							"mapping_scope_detail": "Finds the direction Entra -> AD only.",
-							"id": "c117b6a5-00c8-4e77-93d2-e291e36b462a",
-							"name": "Entra ID privileged users that are also privileged in AD"
 						}
 					]
 				}
