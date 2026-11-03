@@ -5,7 +5,7 @@ platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-
-  MATCH p=(n:Base)-[:WriteDACL]->(g:Group)
+  MATCH p=(n:Base)-[:WriteDacl]->(g:Group)
   WHERE NOT (n:Tag_Tier_Zero)
   AND (g:Tag_Tier_Zero)
   RETURN p
