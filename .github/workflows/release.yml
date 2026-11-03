@@ -64,6 +64,7 @@ jobs:
         run: |
           mkdir pages
           cp Queries.json pages/Queries.json
+          cp docs/security-assessment-mapping.json pages/security-assessment-mapping.json
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
