@@ -5,10 +5,10 @@ platforms: Active Directory
 category: Domain Information
 description: 
 query: |-
-  MATCH p=(n:Base)-[:MemberOf]->(g:Group) 
-  WHERE n.name STARTS WITH "DNSADMINS@"
+  MATCH p=(n:Base)-[:MemberOf*1..]->(g:Group) 
+  WHERE g.name STARTS WITH "DNSADMINS@"
   RETURN p
-revision: 1
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
