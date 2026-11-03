@@ -3076,16 +3076,16 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "95bec736-86ef-4017-8465-9b9b66548b17",
-				"name": "Foreign principals in Tier Zero / High Value targets"
+				"guid": "bf8701bb-964f-484e-98e9-6a5dc9a0b35f",
+				"name": "Foreign principals in Tier Zero groups"
 			},
 			"maps_to": [
 				{
 					"source": "PurpleKnight",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded exclusion scope to Tier Zero",
 							"id": "3bcaff82-ae70-4646-bc66-f7997be54e5e",
 							"name": "Foreign Security Principals in Privileged Group"
 						}

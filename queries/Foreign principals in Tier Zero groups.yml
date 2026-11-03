@@ -1,0 +1,16 @@
+name: Foreign principals in Tier Zero groups
+guid: bf8701bb-964f-484e-98e9-6a5dc9a0b35f
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: Identifies foreign domain principals that are direct members of Tier Zero groups.
+query: |-
+  MATCH p=(s:Base)-[:MemberOf]->(t:Group)
+  WHERE s.domainsid <> t.domainsid
+  AND (t:Tag_Tier_Zero)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk
+
