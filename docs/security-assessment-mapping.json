@@ -2369,25 +2369,6 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "96e70597-2d74-4503-a624-f1e30b642894",
-				"name": "Enrollment rights on certificate templates published to Enterprise CA with User Specified SAN enabled"
-			},
-			"maps_to": [
-				{
-					"source": "PingCastle",
-					"controls": [
-						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "Checks ESC1 scenario which is also covered by the query 49db8edc-8421-438f-b97b-23c042959bef",
-							"id": "A-CertTempCustomSubject",
-							"name": "[T]Check if authentication certificate templates allow users to control the subject"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
 				"guid": "60881923-296c-4702-adf7-a4f059dc9bb8",
 				"name": "ESC8-vulnerable Enterprise CAs"
 			},
