@@ -2525,14 +2525,14 @@
 					"source": "PingCastle",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "A-DCLdapSign",
 							"name": "[T]Check if signing is really required for LDAP"
 						},
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "A-DCLdapsChannelBinding",
 							"name": "[T]Check if the Channel Binding is enabled for LDAPS"
 						}
@@ -2542,8 +2542,8 @@
 					"source": "MDI",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "Resolve unsecure domain configurations: Enforce LDAP Signing policy to \"Require signing\"",
 							"name": "Resolve unsecure domain configurations: Enforce LDAP Signing policy to \"Require signing\""
 						}
@@ -2553,8 +2553,8 @@
 					"source": "PurpleKnight",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "4fe825ed-07fb-4b06-913a-be5c9542ca54",
 							"name": "LDAP signing is not required on Domain Controllers"
 						}
