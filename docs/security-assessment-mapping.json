@@ -722,8 +722,8 @@
 					"source": "PingCastle",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Flags Windows 10 without verifying ESU enrollment or LTSC support status. Does not detect unsupported Windows 11 releases.",
 							"id": "S-OS-W10",
 							"name": "[M]Obsolete OS (Windows 10 or Windows 11)"
 						},
