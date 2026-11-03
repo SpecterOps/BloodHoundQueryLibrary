@@ -1593,7 +1593,12 @@
 							"mapping_scope_detail": "",
 							"id": "P-OperatorsEmpty",
 							"name": "[M]Check that the operator groups are empty"
-						},
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
@@ -1923,7 +1928,12 @@
 							"mapping_scope_detail": "Expanded account scope to include accounts with SPN. Expanded group scope to include Enterprise Admins and Schema Admins",
 							"id": "P-ServiceDomainAdmin",
 							"name": "[M][T]Check if Service Accounts are domain administrators"
-						},
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
