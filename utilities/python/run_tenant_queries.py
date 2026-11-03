@@ -1,4 +1,4 @@
-"""Run every query in the library against a BloodHound tenant, one at a time.
+r"""Run every query in the library against a BloodHound tenant, one at a time.
 
 Credentials are read from the repository's .env file. The file may use either
 KEY=value entries or BloodHound's defautlt output format: ``Key: value`` / ``ID: value``
@@ -18,6 +18,7 @@ import os
 from pathlib import Path
 import sys
 from datetime import datetime
+from collections import Counter
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -137,6 +138,7 @@ def main() -> int:
 
     failures = 0
     empty_results = 0
+    http_status_counts: Counter[int] = Counter()
     print(f"Running {len(files)} queries against {args.tenant} sequentially (timeout {args.timeout}s each).")
     for index, path in enumerate(files, 1):
         try:
@@ -145,6 +147,7 @@ def main() -> int:
             query = query_doc["query"]
             body = json.dumps({"query": query, "include_properties": False}).encode("utf-8")
             status, response_text = signed_request(args.tenant, token_id, token_key, body, args.timeout)
+            http_status_counts[status] += 1
             try:
                 payload = json.loads(response_text)
             except json.JSONDecodeError:
@@ -169,6 +172,10 @@ def main() -> int:
         f"\nCompleted: {len(files) - failures} passed/informational, {failures} failed, "
         f"{empty_results} with no results."
     )
+    if http_status_counts:
+        print("HTTP status counts:")
+        for status, count in sorted(http_status_counts.items()):
+            print(f"  HTTP {status}: {count}")
     return 1 if failures else 0
 
 
