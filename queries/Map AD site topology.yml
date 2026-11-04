@@ -1,0 +1,14 @@
+name: Map AD site topology
+guid: 23665310-99fc-4a14-b00c-1739cad3a6be
+prebuilt: true
+platforms: Active Directory
+category: AD Sites
+description: Shows sites and the site-server or site-subnet objects they contain.
+query: |-
+  MATCH p = (:Site)-[:Contains]->(n:Base)
+  WHERE n:SiteServer OR n:SiteSubnet
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

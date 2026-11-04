@@ -6,9 +6,10 @@ platforms:
 category: Azure Hygiene
 description: Return all privileged Azure Service Principals.
 query: |-
-  MATCH p=(n:AZServicePrincipal)-[:AZHasRole|AZMemberOf*1..2]->(r:AZRole) 
-  WHERE r.displayname =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|PRIVILEGED AUTHENTICATION ADMINISTRATOR|Domain Name Administrator|Hybrid Identity Administrator|External Identity Provider Administrator|Privileged Role Administrator|Partner Tier2 Support|Application Administrator|Directory Synchronization Accounts' 
-  RETURN p
-revision: 1
+  MATCH (n:AZServicePrincipal)
+  OPTIONAL MATCH p1=(n)-[:AZHasRole]->(:AZRole)
+  OPTIONAL MATCH p2=(n)-[:AZMemberOf*1..]->(:AZGroup)-[:AZHasRole]->(:AZRole)
+  RETURN p1, p2
+revision: 2
 resources:
 acknowledgements: Daniel Scheidt, @theluemmel

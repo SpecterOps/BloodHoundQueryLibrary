@@ -1,0 +1,18 @@
+name: GPOs with paths outside domain SYSVOL
+guid: 361c044c-e76b-4969-a27c-c08ca588f1b1
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Finds GPOs whose collected GPC path does not contain <domain>\SYSVOL\
+query: |-
+  MATCH (g:GPO)
+  WHERE g.gpcpath IS NOT NULL
+    AND NOT (toUpper(g.gpcpath) CONTAINS (
+      head(tail(split(toUpper(g.name), '@'))) + '\\SYSVOL\\'
+    ))
+  RETURN g
+  LIMIT 1000
+revision: 1
+resources:
+- https://www.synacktiv.com/publications/gpoddity-exploiting-active-directory-gpos-through-ntlm-relaying-and-more#4-a-new-versatile-attack-vector-spoofing-gpo-location-through-the-gpcfilesyspath-attribute
+acknowledgements: Martin Sohn Christensen, @martinsohndk

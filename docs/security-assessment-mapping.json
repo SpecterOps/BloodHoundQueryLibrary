@@ -16,8 +16,8 @@
 	"mappings": [
 		{
 			"bloodhound_query": {
-				"guid": "d263e621-7f1b-4efb-ad25-098fc7d4fb72",
-				"name": "Enabled computers inactive for 180 days - MSSQL Failover Cluster"
+				"guid": "8fbb372e-f3fd-4fc8-a362-06d6315812c9",
+				"name": "MSSQL Failover Cluster accounts with passwords older than 60 days"
 			},
 			"maps_to": [
 				{
@@ -203,6 +203,23 @@
 							"name": "[M]Inactive account check"
 						}
 					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Query does not exclude service accounts.",
+							"id": "Remove stale Active Directory accounts",
+							"name": "Remove stale Active Directory accounts"
+						},
+						{
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Query does not exclude non-service accounts.",
+							"id": "Remove Stale Service Accounts",
+							"name": "Remove Stale Service Accounts"
+						}
+					]
 				}
 			]
 		},
@@ -220,6 +237,55 @@
 							"mapping_scope_detail": "",
 							"id": "S-C-Inactive",
 							"name": "[M]Inactive computer check"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "b1c2fc7d-61fd-4047-81dc-42e75bea35b1",
+				"name": "Accounts with possible secrets in description"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Query searches limited attributes and does not use GenAI-powered analysis.",
+							"id": "Remove discoverable passwords in Active Directory account attributes",
+							"name": "Remove discoverable passwords in Active Directory account attributes"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "372579b2-a671-4697-a771-a9d32c5c61da",
+				"name": "Hybrid accounts Tier Zero in both Entra ID and Active Directory"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Microsoft Entra ID privileged user accounts that are also privileged in Active Directory",
+							"name": "Microsoft Entra ID privileged user accounts that are also privileged in Active Directory"
+						}
+					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "c117b6a5-00c8-4e77-93d2-e291e36b462a",
+							"name": "Entra ID privileged users that are also privileged in AD"
 						}
 					]
 				}
@@ -410,8 +476,8 @@
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Unsecure account attributes: Remove Do not require Kerberos preauthentication",
-							"name": "Unsecure account attributes: Remove Do not require Kerberos preauthentication"
+							"id": "Unsecure account attributes: Remove Don't require Kerberos preauthentication",
+							"name": "Unsecure account attributes: Remove Don't require Kerberos preauthentication"
 						}
 					]
 				},
@@ -743,16 +809,16 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "cb8cf96e-21c9-422b-9439-390a13446ca6",
-				"name": "Kerberos-enabled service accounts permitting RC4 encryption"
+				"guid": "8ff729ab-74e2-44a7-b02b-e9a81137c44b",
+				"name": "Kerberos-enabled service accounts without AES encryption"
 			},
 			"maps_to": [
 				{
 					"source": "PingCastle",
 					"controls": [
 						{
-							"mapping_scope": "partial",
-							"mapping_scope_detail": "PC flags service accounts not supporting AES. Following the RC4 disablement enforcement of CVE-2026-20833, the Key Distribution Center no longer assumes RC4 support for accounts without a msDS-SupportedEncryptionTypes value, so the BH query instead flags accounts where RC4 is explicitly permitted.",
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "Assumes updated domain controllers with default AES KDC settings and available AES keys; unset and empty encryption configurations use the AES default.",
 							"id": "S-AesNotEnabled",
 							"name": "[T]Check the use of Kerberos on services accounts without AES support"
 						}
@@ -762,8 +828,8 @@
 					"source": "MDI",
 					"controls": [
 						{
-							"mapping_scope": "partial",
-							"mapping_scope_detail": "MDI flags accounts not supporting AES. Following the RC4 disablement enforcement of CVE-2026-20833, the Key Distribution Center no longer assumes RC4 support for accounts without a msDS-SupportedEncryptionTypes value, so the BH query instead flags accounts where RC4 is explicitly permitted.",
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "Assumes updated domain controllers with default AES KDC settings and available AES keys; unset and empty encryption configurations use the AES default.",
 							"id": "Unsecure account attributes: Enable Kerberos AES encryption support",
 							"name": "Unsecure account attributes: Enable Kerberos AES encryption support"
 						}
@@ -773,8 +839,8 @@
 					"source": "PurpleKnight",
 					"controls": [
 						{
-							"mapping_scope": "partial",
-							"mapping_scope_detail": "BH query matches all base nodes with SPNs (users and computers), while PK targets only user accounts. PK flags accounts not supporting AES, while the BH query flags accounts where RC4 is explicitly permitted following the RC4 disablement enforcement of CVE-2026-20833.",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Assumes updated domain controllers with default AES KDC settings and available AES keys; unset and empty encryption configurations use the AES default. Expanded scope to include computer accounts with SPNs as well as users.",
 							"id": "b608276e-3849-419d-bc34-6e5a362b3e79",
 							"name": "Primary users with SPN not supporting AES encryption on Kerberos"
 						}
@@ -863,17 +929,6 @@
 					]
 				},
 				{
-					"source": "MDI",
-					"controls": [
-						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
-							"id": "Weak cipher usage",
-							"name": "Weak cipher usage"
-						}
-					]
-				},
-				{
 					"source": "PurpleKnight",
 					"controls": [
 						{
@@ -928,8 +983,8 @@
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Unsecure domain configurations: ms-DS-MachineAccountQuota",
-							"name": "Unsecure domain configurations: ms-DS-MachineAccountQuota"
+							"id": "Unsecure domain configurations: Set ms-DS-MachineAccountQuota to \"0\"",
+							"name": "Unsecure domain configurations: Set ms-DS-MachineAccountQuota to \"0\""
 						}
 					]
 				},
@@ -975,8 +1030,8 @@
 					"source": "PingCastle",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "P-Delegated",
 							"name": "[M]At least one administrator account can be delegated"
 						}
@@ -986,8 +1041,8 @@
 					"source": "MDI",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "Ensure privileged accounts are not delegated",
 							"name": "Ensure privileged accounts are not delegated"
 						}
@@ -1017,20 +1072,9 @@
 					"controls": [
 						{
 							"mapping_scope": "superset",
-							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"mapping_scope_detail": "",
 							"id": "https://www.tenable.com/plugins/nessus/150480",
 							"name": "Kerberoasting"
-						}
-					]
-				},
-				{
-					"source": "MDI",
-					"controls": [
-						{
-							"mapping_scope": "superset",
-							"mapping_scope_detail": "Expanded scope to Tier Zero",
-							"id": "Unsecure account attributes: Remove a Service Principal Name (SPN)",
-							"name": "Unsecure account attributes: Remove a Service Principal Name (SPN)"
 						}
 					]
 				},
@@ -1061,6 +1105,17 @@
 							"mapping_scope_detail": "",
 							"id": "868c36af-b784-465b-a15c-291bd3c66d47",
 							"name": "Users with SPN defined"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Unsecure account attributes: Remove a Service Principal Name (SPN)",
+							"name": "Unsecure account attributes: Remove a Service Principal Name (SPN)"
 						}
 					]
 				}
@@ -1210,8 +1265,8 @@
 					"source": "MDI",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Query infers lack the AES encryption keys by password reset time or account creation instead of reading NTDS.",
 							"id": "Unsecure account attributes: Remove Password stored with weak encryption",
 							"name": "Unsecure account attributes: Remove Password stored with weak encryption"
 						}
@@ -1282,6 +1337,23 @@
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "P-DCOwner",
 							"name": "[M]At least one domain controller is not owned correctly"
+						}
+					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
+							"id": "d2df85d9-abbc-4585-be11-123a6d90a871",
+							"name": "Domain Controller owner is not an administrator"
+						},
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
+							"id": "40499bf5-9087-4d55-9db3-2cb641a47ac8",
+							"name": "Privileged objects with unprivileged owners"
 						}
 					]
 				}
@@ -1427,8 +1499,8 @@
 						{
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Remove false positives by reducing scope to Non-Tier Zero",
-							"id": "Admin SDHolder permissions",
-							"name": "Admin SDHolder permissions"
+							"id": "Remove access rights on suspicious accounts with the Admin SDHolder permission",
+							"name": "Remove access rights on suspicious accounts with the Admin SDHolder permission"
 						}
 					]
 				},
@@ -1553,6 +1625,17 @@
 					]
 				},
 				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Locate accounts in built-in Operator Groups",
+							"name": "Locate accounts in built-in Operator Groups"
+						}
+					]
+				},
+				{
 					"source": "PurpleKnight",
 					"controls": [
 						{
@@ -1646,8 +1729,8 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "310b3626-f8e6-4ab0-832c-72df6048597f",
-				"name": "Large default groups with outbound control of OUs"
+				"guid": "a334f21a-3d7f-448e-b7ea-1465a3127bce",
+				"name": "Large default groups with outbound control"
 			},
 			"maps_to": [
 				{
@@ -1655,7 +1738,7 @@
 					"controls": [
 						{
 							"mapping_scope": "superset",
-							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges",
+							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges on all object types",
 							"id": "P-DelegationEveryone",
 							"name": "[M][T]A Delegation is granted to Everyone"
 						}
@@ -1873,6 +1956,17 @@
 							"mapping_scope_detail": "Expanded account scope to include accounts with SPN. Expanded group scope to include Enterprise Admins and Schema Admins",
 							"id": "P-ServiceDomainAdmin",
 							"name": "[M][T]Check if Service Accounts are domain administrators"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Identify service accounts in privileged groups",
+							"name": "Identify service accounts in privileged groups"
 						}
 					]
 				}
@@ -2174,8 +2268,8 @@
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Overly permissive certificate template with privileged EKU (ESC2)",
-							"name": "Overly permissive certificate template with privileged EKU (ESC2)"
+							"id": "Edit overly permissive certificate template with privileged EKU (Any purpose EKU or No EKU) (ESC2)",
+							"name": "Edit overly permissive certificate template with privileged EKU (Any purpose EKU or No EKU) (ESC2)"
 						}
 					]
 				}
@@ -2222,38 +2316,38 @@
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Prevent requests for certificates valid for arbitrary users (ESC1)",
-							"name": "Prevent requests for certificates valid for arbitrary users (ESC1)"
+							"id": "Prevent users to request a certificate valid for arbitrary users based on the certificate template (ESC1)",
+							"name": "Prevent users to request a certificate valid for arbitrary users based on the certificate template (ESC1)"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Misconfigured enrollment agent certificate template (ESC3)",
-							"name": "Misconfigured enrollment agent certificate template (ESC3)"
+							"id": "Edit misconfigured enrollment agent certificate template (ESC3)",
+							"name": "Edit misconfigured enrollment agent certificate template (ESC3)"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Misconfigured certificate templates ACL (ESC4)",
-							"name": "Misconfigured certificate templates ACL (ESC4)"
+							"id": "Edit misconfigured certificate templates ACL (ESC4)",
+							"name": "Edit misconfigured certificate templates ACL (ESC4)"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Misconfigured certificate templates owner (ESC4)",
-							"name": "Misconfigured certificate templates owner (ESC4)"
+							"id": "Edit misconfigured certificate templates owner (ESC4)",
+							"name": "Edit misconfigured certificate templates owner (ESC4)"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Vulnerable Certificate Authority setting (ESC6)",
-							"name": "Vulnerable Certificate Authority setting (ESC6)"
+							"id": "Edit vulnerable Certificate Authority setting (ESC6)",
+							"name": "Edit vulnerable Certificate Authority setting (ESC6)"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Insecure ADCS certificate enrollment IIS endpoints (ESC8)",
-							"name": "Insecure ADCS certificate enrollment IIS endpoints (ESC8)"
+							"id": "Edit insecure ADCS certificate enrollment IIS endpoints (ESC8)",
+							"name": "Edit insecure ADCS certificate enrollment IIS endpoints (ESC8)"
 						}
 					]
 				},
@@ -2284,18 +2378,18 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "96e70597-2d74-4503-a624-f1e30b642894",
-				"name": "Enrollment rights on certificate templates published to Enterprise CA with User Specified SAN enabled"
+				"guid": "77a708b8-962e-4c3d-ad70-e994126aaeba",
+				"name": "CA Administrators and CA Managers (ESC7)"
 			},
 			"maps_to": [
 				{
-					"source": "PingCastle",
+					"source": "MDI",
 					"controls": [
 						{
 							"mapping_scope": "exact",
-							"mapping_scope_detail": "Checks ESC1 scenario which is also covered by the query 49db8edc-8421-438f-b97b-23c042959bef",
-							"id": "A-CertTempCustomSubject",
-							"name": "[T]Check if authentication certificate templates allow users to control the subject"
+							"mapping_scope_detail": "",
+							"id": "Edit misconfigured Certificate Authority ACL (ESC7)",
+							"name": "Edit misconfigured Certificate Authority ACL (ESC7)"
 						}
 					]
 				}
@@ -2448,14 +2542,14 @@
 					"source": "PingCastle",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "A-DCLdapSign",
 							"name": "[T]Check if signing is really required for LDAP"
 						},
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "A-DCLdapsChannelBinding",
 							"name": "[T]Check if the Channel Binding is enabled for LDAPS"
 						}
@@ -2465,10 +2559,10 @@
 					"source": "MDI",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
-							"id": "Unsecure domain configurations: LDAP Signing",
-							"name": "Unsecure domain configurations: LDAP Signing"
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
+							"id": "Resolve unsecure domain configurations: Enforce LDAP Signing policy to \"Require signing\"",
+							"name": "Resolve unsecure domain configurations: Enforce LDAP Signing policy to \"Require signing\""
 						}
 					]
 				},
@@ -2476,8 +2570,8 @@
 					"source": "PurpleKnight",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "4fe825ed-07fb-4b06-913a-be5c9542ca54",
 							"name": "LDAP signing is not required on Domain Controllers"
 						}
@@ -2594,9 +2688,20 @@
 					"controls": [
 						{
 							"mapping_scope": "partial",
-							"mapping_scope_detail": "Returns all principals with DCSync privileges.",
+							"mapping_scope_detail": "Returns all principals with DCSync privileges. In the results, look for accounts that are not Tier Zero.",
 							"id": "Remove non-admin accounts with DCSync permissions",
 							"name": "Remove non-admin accounts with DCSync permissions"
+						}
+					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "partial",
+							"mapping_scope_detail": "Returns all principals with DCSync privileges. In the results, look for User accounts prefixed with 'MSOL_'.",
+							"id": "Remove unnecessary replication permissions for Microsoft Entra Connect AD DS Connector account",
+							"name": "Remove unnecessary replication permissions for Microsoft Entra Connect AD DS Connector account"
 						}
 					]
 				},
@@ -2980,16 +3085,16 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "95bec736-86ef-4017-8465-9b9b66548b17",
-				"name": "Foreign principals in Tier Zero / High Value targets"
+				"guid": "bf8701bb-964f-484e-98e9-6a5dc9a0b35f",
+				"name": "Foreign principals in Tier Zero groups"
 			},
 			"maps_to": [
 				{
 					"source": "PurpleKnight",
 					"controls": [
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded exclusion scope to Tier Zero",
 							"id": "3bcaff82-ae70-4646-bc66-f7997be54e5e",
 							"name": "Foreign Security Principals in Privileged Group"
 						}
@@ -3075,36 +3180,6 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "99d29ded-223a-442b-a0e0-f8b5694c6441",
-				"name": "Tier Zero principals not owned by Tier Zero"
-			},
-			"maps_to": [
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "superset",
-							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
-							"id": "d2df85d9-abbc-4585-be11-123a6d90a871",
-							"name": "Domain Controller owner is not an administrator"
-						}
-					]
-				},
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "superset",
-							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
-							"id": "40499bf5-9087-4d55-9db3-2cb641a47ac8",
-							"name": "Privileged objects with unprivileged owners"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
 				"guid": "a8b6ec67-21aa-4dd2-8906-47bb81bf5262",
 				"name": "Tier Zero AD principals synchronized with Entra ID"
 			},
@@ -3117,36 +3192,6 @@
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "5f6540a9-f226-4438-9e64-387a98beda2b",
 							"name": "AD privileged users that are synced to Entra ID"
-						}
-					]
-				},
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "combination",
-							"mapping_scope_detail": "Finds the direction AD -> Entra only.",
-							"id": "c117b6a5-00c8-4e77-93d2-e291e36b462a",
-							"name": "Entra ID privileged users that are also privileged in AD"
-						}
-					]
-				}
-			]
-		},
-		{
-			"bloodhound_query": {
-				"guid": "0d65c62e-bd77-4027-b967-fb36690739c9",
-				"name": "Tier Zero Entra ID principals synchronized with AD"
-			},
-			"maps_to": [
-				{
-					"source": "PurpleKnight",
-					"controls": [
-						{
-							"mapping_scope": "combination",
-							"mapping_scope_detail": "Finds the direction Entra -> AD only.",
-							"id": "c117b6a5-00c8-4e77-93d2-e291e36b462a",
-							"name": "Entra ID privileged users that are also privileged in AD"
 						}
 					]
 				}
@@ -3244,6 +3289,17 @@
 							"name": "Accounts with Kerberos constrained delegation configured to SSO computer account"
 						}
 					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Remove unsafe permissions on sensitive Microsoft Entra Connect accounts",
+							"name": "Remove unsafe permissions on sensitive Microsoft Entra Connect accounts"
+						}
+					]
 				}
 			]
 		},
@@ -3272,6 +3328,25 @@
 							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges, instead of just the AddAllowedToAct edge. Expanded target scope to all KRBTGT account types.",
 							"id": "eb99e786-3ce1-4172-9801-dd4203cfd3e2",
 							"name": "krbtgt account with Resource-Based Constrained Delegation (RBCD) enabled"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "52490ad1-42b8-416b-ac38-4a45cbe4d73c",
+				"name": "Accounts local Administrator of Tier Zero computers"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Remove local admins on identity assets",
+							"name": "Remove local admins on identity assets"
 						}
 					]
 				}
@@ -3527,6 +3602,17 @@
 							"name": "Privileged group contains guest account"
 						}
 					]
+				},
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Ensure external and guest accounts are not granted privileged roles",
+							"name": "Ensure external and guest accounts are not granted privileged roles"
+						}
+					]
 				}
 			]
 		},
@@ -3563,6 +3649,44 @@
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "36e3878e-e65c-47a1-a9b8-0444ce978683",
 							"name": "Unprivileged owner of a privileged group"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "d9e80a24-93a8-4847-b354-762b7ac7510d",
+				"name": "Non-Tier Zero accounts with WriteDACL on Tier Zero group"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Expanded scope to Tier Zero",
+							"id": "Ensure non-admin identities cannot have WriteDACL permissions on sensitive groups",
+							"name": "Ensure non-admin identities cannot have WriteDACL permissions on sensitive groups"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "92f269ee-3727-4ffa-947b-aad492ac0fa2",
+				"name": "All privileged Azure Service Principals"
+			},
+			"maps_to": [
+				{
+					"source": "MDI",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Ensure service accounts in Entra ID are not assigned Domain Name Admin or Global Admin roles",
+							"name": "Ensure service accounts in Entra ID are not assigned Domain Name Admin or Global Admin roles"
 						}
 					]
 				}

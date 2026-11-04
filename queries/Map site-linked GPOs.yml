@@ -1,0 +1,14 @@
+name: Map site-linked GPOs
+guid: 5bd38b39-bdc9-4f4c-9463-fe0631904fe7
+prebuilt: true
+platforms: Active Directory
+category: AD Sites
+description: Shows site-linked GPOs and affected site-servers and site-subnets
+query: |-
+  MATCH p = (:GPO)-[:GPLink]->(:Site)-[:Contains]->(n:Base)
+  WHERE n:SiteServer OR n:SiteSubnet
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

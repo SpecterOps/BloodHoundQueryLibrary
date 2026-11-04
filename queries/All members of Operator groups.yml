@@ -5,7 +5,7 @@ platforms: Active Directory
 category: Domain Information
 description: 
 query: |-
-  MATCH p=(:Base)-[:MemberOf]->(n:Group)
+  MATCH p=(:Base)-[:MemberOf*1..]->(n:Group)
   WHERE (
     n.objectid ENDS WITH 'S-1-5-32-551' OR // Backup Operators
     n.objectid ENDS WITH 'S-1-5-32-556' OR // Network Configuration Operators
@@ -16,7 +16,8 @@ query: |-
     n.objectid ENDS WITH 'S-1-5-32-550' // Print Operators
   )
   RETURN p
-revision: 2
+  LIMIT 1000
+revision: 3
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

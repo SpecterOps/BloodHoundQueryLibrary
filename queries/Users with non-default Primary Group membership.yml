@@ -6,13 +6,23 @@ category: Active Directory Hygiene
 description: 
 query: |-
   MATCH p=(n:User)-[r:MemberOf]->(g:Group)
-  WHERE NOT g.objectid ENDS WITH "-513" // Domain Users
-  AND r.isprimarygroup = true
-  AND NOT n.objectid ENDS WITH "-501" // Guests account, as it has primaryGroup to Guests
-  AND (n.gmsa IS NULL OR n.gmsa = false) // Not gMSA, as it has primaryGroup to Domain Computers
-  AND (n.msa IS NULL OR n.msa = false) // Not MSA, as it has primaryGroup to Domain Computers
+  WHERE r.isprimarygroup = true
+  AND (
+    (
+      n.objectid ENDS WITH "-501" // User: Guest
+      AND NOT g.objectid ENDS WITH "-514" // Group: Domain Guests
+    )
+    OR
+    (
+      NOT n.objectid ENDS WITH "-501" // Other users
+      AND NOT g.objectid ENDS WITH "-513" // Group: Domain Users
+    )
+  )
+  AND (n.gmsa IS NULL OR n.gmsa = false)
+  AND (n.msa IS NULL OR n.msa = false)
   RETURN p
-revision: 1
+  LIMIT 1000
+revision: 2
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

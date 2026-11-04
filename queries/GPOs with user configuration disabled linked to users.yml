@@ -1,0 +1,15 @@
+name: GPOs with user configuration disabled linked to users
+guid: a1afd8a8-bdb2-466f-b876-c470521f5055
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Shows GPOs with user configuration disabled (status 1) linked at the domain level with descendant enabled users. Returns up to 1000 GPLink and Contains paths to those users. Linked scope does not establish effective policy application and does not account for blocked inheritance, enforcement, security filtering, or WMI filtering.
+query: |-
+  MATCH p = (g:GPO)-[:GPLink]->(:Domain)-[:Contains*1..]->(u:User)
+  WHERE toString(g.gpostatusraw) = '1' // user configuration disabled
+    AND u.enabled = true
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

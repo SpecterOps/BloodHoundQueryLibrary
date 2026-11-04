@@ -1,0 +1,15 @@
+name: Non-Tier Zero accounts with WriteDACL on Tier Zero group
+guid: d9e80a24-93a8-4847-b354-762b7ac7510d
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: 
+query: |-
+  MATCH p=(n:Base)-[:WriteDacl]->(g:Group)
+  WHERE NOT (n:Tag_Tier_Zero)
+  AND (g:Tag_Tier_Zero)
+  RETURN p
+revision: 1
+resources: 
+acknowledgements: Martin Sohn Christensen, @martinsohndk
+

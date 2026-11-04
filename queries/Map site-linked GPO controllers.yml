@@ -1,0 +1,14 @@
+name: Map site-linked GPO controllers
+guid: 3fa47036-3999-410a-834c-680ec8dfdd0b
+prebuilt: true
+platforms: Active Directory
+category: AD Sites
+description: Shows site-linked GPO controllers and affected site-servers and site-subnets
+query: |-
+  MATCH p = (:Base)-[:Owns|WriteOwner|WriteDacl|GenericAll|GenericWrite]->(:GPO)-[:GPLink]->(:Site)-[:Contains]->(n:Base)
+  WHERE n:SiteServer OR n:SiteSubnet
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

@@ -6,9 +6,9 @@ category: Active Directory Hygiene
 description: 
 query: |-
   MATCH (n:Domain)
-  WHERE toString(n.functionallevel) IN ['2008','2003','2003 Interim','2000 Mixed/Native']
+  WHERE toString(n.functionallevel) IN ['2016', '2012 R2', '2012', '2008','2003','2003 Interim','2000 Mixed/Native']
   RETURN  n
-revision: 1
-resources: 
+revision: 2
+resources: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-functional-levels
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 

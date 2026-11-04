@@ -5,27 +5,29 @@ platforms: Active Directory
 category: Active Directory Hygiene
 description: 
 query: |-
-  // Domain Controllers
-  MATCH p1=(n:Computer)-[r:MemberOf]->(g:Group)
-  WHERE NOT g.objectid ENDS WITH "-516"
-  AND n.isdc = true
-  AND r.isprimarygroup = true
-
-  // Domain Computers
-  OPTIONAL MATCH p2=(n:Computer)-[r:MemberOf]->(g:Group)
-  WHERE NOT g.objectid ENDS WITH "-515"
-  AND NOT n.isdc = true
-  AND NOT n.isreadonlydc = true
-  AND r.isprimarygroup = true
-
-  // Read-Only Domain Controllers
-  OPTIONAL MATCH p3=(n:Computer)-[r:MemberOf]->(g:Group)
-  WHERE NOT g.objectid ENDS WITH "-521"
-  AND n.isreadonlydc = true
-  AND r.isprimarygroup = true
-
-  RETURN p1,p2,p3
-revision: 3
+  MATCH p=(n:Computer)-[r:MemberOf]->(g:Group)
+  WHERE r.isprimarygroup = true
+  AND (
+    (
+      n.isreadonlydc = true
+      AND NOT g.objectid ENDS WITH "-521" // Read-Only Domain Controllers
+    )
+    OR
+    (
+      n.isdc = true
+      AND coalesce(n.isreadonlydc, false) = false
+      AND NOT g.objectid ENDS WITH "-516" // Domain Controllers
+    )
+    OR
+    (
+      coalesce(n.isdc, false) = false
+      AND coalesce(n.isreadonlydc, false) = false
+      AND NOT g.objectid ENDS WITH "-515" // Domain Computers
+    )
+  )
+  RETURN p
+  LIMIT 1000
+revision: 4
 resources: 
 - https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-ada3/e12954a4-6865-4432-94e6-00c310ca87c0
 - https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/5dbcf875-e802-4357-a6e2-1bdff19ff9b5

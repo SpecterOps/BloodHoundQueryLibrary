@@ -1,0 +1,17 @@
+name: All Domain Controllers
+guid: b6c75830-f4d1-4c9d-b1ad-105687ee6990
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: Displays all Domain Controllers (Writeable and Read-only) connected to their domain-specific Domain Controllers group.
+query: |-
+  MATCH p = (g:Group)<-[:MemberOf*1..]-(:Computer)
+  WHERE g.objectid ENDS WITH '-516' // (Writeable) Domain Controllers
+  OR g.objectid ENDS WITH '-521' // Read-Only Domain Controllers
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+- https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#domain-controllers
+- https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#read-only-domain-controllers
+acknowledgements: NCV, @nickvourd
