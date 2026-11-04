@@ -1729,8 +1729,8 @@
 		},
 		{
 			"bloodhound_query": {
-				"guid": "310b3626-f8e6-4ab0-832c-72df6048597f",
-				"name": "Large default groups with outbound control of OUs"
+				"guid": "a334f21a-3d7f-448e-b7ea-1465a3127bce",
+				"name": "Large default groups with outbound control"
 			},
 			"maps_to": [
 				{
@@ -1738,7 +1738,7 @@
 					"controls": [
 						{
 							"mapping_scope": "superset",
-							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges",
+							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges on all object types",
 							"id": "P-DelegationEveryone",
 							"name": "[M][T]A Delegation is granted to Everyone"
 						}
