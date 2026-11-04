@@ -5,7 +5,7 @@ platforms: Active Directory
 category: Active Directory Hygiene
 description: BloodHound typically identifies risk on Active Directory objects stored in OUs, however behind the scenes; Active Directory has a hieracy of containers e.g. CN=SYSTEM and CN=CONFIGURATION, on which control can lead to risk. Results are prone to false-positives but can assist auditing containers permissions. 
 query: |-
-  MATCH p=(:Domain)-[:Contains*1..]->(c:Container)<-[r]-(n:Base)
+  MATCH p=(:Domain)-[:Contains*1..]->(c:Container)<-[r:AD_ATTACK_PATHS]-(n:Base)
 
   // Exclude Tier Zero
   WHERE NOT (n:Tag_Tier_Zero)
