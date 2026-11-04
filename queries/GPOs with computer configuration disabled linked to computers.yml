@@ -1,0 +1,15 @@
+name: GPOs with computer configuration disabled linked to computers
+guid: 82191294-bc75-4053-8646-f5be4ceb2a24
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Shows GPOs with computer configuration disabled (status 2) linked at the domain level with descendant enabled computers. Returns up to 1000 GPLink and Contains paths to those computers. Linked scope does not establish effective policy application and does not account for blocked inheritance, enforcement, security filtering, or WMI filtering.
+query: |-
+  MATCH p = (g:GPO)-[:GPLink]->(:Domain)-[:Contains*1..]->(c:Computer)
+  WHERE toString(g.gpostatusraw) = '2' // computer configuration disabled
+    AND c.enabled = true
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk
