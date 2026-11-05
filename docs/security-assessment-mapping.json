@@ -3811,6 +3811,25 @@
 					]
 				}
 			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "ad716465-61d5-4d29-a63c-572021d46c65",
+				"name": "Accounts with constrained delegation to KRBTGT"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-DelegationKrbtgt",
+							"name": "Ensure that no accounts are configured with delegation to the krbtgt service"
+						}
+					]
+				}
+			]
 		}
 	]
 }

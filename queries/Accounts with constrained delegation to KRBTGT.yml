@@ -1,0 +1,16 @@
+name: Accounts with constrained delegation to KRBTGT
+guid: ad716465-61d5-4d29-a63c-572021d46c65
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: Finds user and computer accounts whose msDS-AllowedToDelegateTo contains the krbtgt service. Checks the raw allowedtodelegate property because AllowedToDelegate edges resolve computer targets and do not reliably represent delegation to this service. Requires SharpHound ObjectProps collection.
+query: |-
+  MATCH (n:Base)
+  WHERE (n:User OR n:Computer)
+  AND ANY(target IN n.allowedtodelegate WHERE toUpper(head(split(target, '/'))) = 'KRBTGT')
+  RETURN n
+revision: 1
+resources:
+- https://skyblue.team/posts/delegate-krbtgt/#lets-backdoor-
+- https://eladshamir.com/2019/01/28/Wagging-the-Dog.html
+acknowledgements: Martin Sohn Christensen, @martinsohndk
