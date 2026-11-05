@@ -3830,6 +3830,25 @@
 					]
 				}
 			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "370e66f8-d85d-4856-9dc6-f86be1d26119",
+				"name": "Accounts with invisible Unicode characters in SPNs"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "Requires ObjectProps. Flags all 15 invisible codepoints, with or without a collision; returns accounts without collision-target details.",
+							"id": "A-SpnUnicodeCollision",
+							"name": "SPN containing an invisible Unicode character has been found"
+						}
+					]
+				}
+			]
 		}
 	]
 }
