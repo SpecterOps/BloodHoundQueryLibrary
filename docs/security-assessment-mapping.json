@@ -1229,8 +1229,8 @@
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Replace Enterprise or Domain Admin account for Entra Connect AD DS Connector account",
-							"name": "Replace Enterprise or Domain Admin account for Entra Connect AD DS Connector account"
+							"id": "Replace Enterprise or Domain Admin account for Microsoft Entra Connect AD DS Connector account",
+							"name": "Replace Enterprise or Domain Admin account for Microsoft Entra Connect AD DS Connector account"
 						}
 					]
 				}
