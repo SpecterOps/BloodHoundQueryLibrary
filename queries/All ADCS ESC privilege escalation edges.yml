@@ -5,9 +5,9 @@ platforms: Active Directory
 category: Active Directory Certificate Services
 description: 
 query: |-
-  MATCH p=(:Base)-[:ADCSESC1|ADCSESC3|ADCSESC4|ADCSESC6a|ADCSESC6b|ADCSESC9a|ADCSESC9b|ADCSESC10a|ADCSESC10b|ADCSESC13|GoldenCert|CoerceAndRelayNTLMToADCS]->(:Base)
+  MATCH p=(:Base)-[:ADCSESC1|ADCSESC3|ADCSESC4|ADCSESC6a|ADCSESC6b|ADCSESC9a|ADCSESC9b|ADCSESC10a|ADCSESC10b|ADCSESC13|ADCSESC16|GoldenCert|CoerceAndRelayNTLMToADCS|CoerceAndRelayNTLMToADCSRPC]->(:Base)
   RETURN p
-revision: 1
+revision: 2
 resources:
 - https://posts.specterops.io/certified-pre-owned-d95910965cd2
 - https://posts.specterops.io/adcs-attack-paths-in-bloodhound-part-1-799f3d3b03cf
