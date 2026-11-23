@@ -1290,6 +1290,17 @@
 							"name": "Prevent Certificate Enrollment with arbitrary Application Policies (ESC15)"
 						}
 					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "98d9fe0d-f69a-4389-82ed-fc5524f27dfc",
+							"name": "ADCS ESC15 - Schema 1 vulnerability"
+						}
+					]
 				}
 			]
 		},
@@ -2348,6 +2359,18 @@
 							"mapping_scope_detail": "",
 							"id": "Edit insecure ADCS certificate enrollment IIS endpoints (ESC8)",
 							"name": "Edit insecure ADCS certificate enrollment IIS endpoints (ESC8)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "df369db9-8790-4b44-a9f8-24879e2dd7b5",
+							"name": "ADCS ESC9 - no security extension"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Enforce encryption for RPC certificate enrollment interface (ESC11)",
+							"name": "Enforce encryption for RPC certificate enrollment interface (ESC11)"
 						}
 					]
 				},
@@ -2358,19 +2381,43 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "790e1c72-5786-4907-83cd-9f310db70f1b",
-							"name": "Certificate templates that allow requesters to specify a subjectAltName"
+							"name": "Certificate template with SAN allowed"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "d64cab17-754c-4643-872b-a9113fbb7808",
-							"name": "Certificate templates with 3 or more insecure configurations"
+							"name": "ADCS ESC1 - Enrollee Supplies Subject with Authentication EKU"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "1feb2a3b-877f-4d54-8e3e-0e107d190192",
+							"name": "ADCS ESC3 - Enrollment Agent certificate"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "a76ea884-afef-4d00-9820-b24117a12661",
-							"name": "Dangerous control paths expose certificate templates"
+							"name": "ADCS ESC4 - risky control paths expose certificate templates"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "b5ce7350-3699-4b27-8a72-ae9da3c119e3",
+							"name": "ADCS ESC11 - Certificate Authority with no RPC encryption enforcement"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "960a0b70-47f9-44cc-8509-85d16b6d3c11",
+							"name": "ADCS ESC13 - certificate template with issuance policy linked to group"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "a2e14240-d550-47dd-941d-1dfd0d8c7608",
+							"name": "ADCS ESC16 - Certificate Authority with globally disabled security extension"
 						}
 					]
 				}
@@ -2390,6 +2437,17 @@
 							"mapping_scope_detail": "",
 							"id": "Edit misconfigured Certificate Authority ACL (ESC7)",
 							"name": "Edit misconfigured Certificate Authority ACL (ESC7)"
+						}
+					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "fc125d92-fc59-403e-8ee5-c7f3bcbb53e7",
+							"name": "ADCS ESC7 - non-privileged account with Manage CA or Manage Certificates permission"
 						}
 					]
 				}
@@ -2425,7 +2483,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "08612871-a9dc-4d18-a2cc-580e086e3199",
-							"name": "AD Certificate Authority with Web Enrollment - ESC8"
+							"name": "ADCS ESC8 - AD Certificate Authority with Web Enrollment"
 						}
 					]
 				}
@@ -3266,8 +3324,8 @@
 						{
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Audits all objects in the 'PUBLIC KEY SERVICES' container",
-							"id": "e441aeb0-ba69-426b-bbc1-028bf258c3d8",
-							"name": "Dangerous control paths expose certificate containers"
+							"id": "7b44c883-62eb-5e6d-bdef-dccf045c269f",
+							"name": "ADCS ESC5 - PKI object with vulnerable ACL"
 						}
 					]
 				}
