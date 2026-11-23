@@ -2361,8 +2361,8 @@
 							"name": "Edit insecure ADCS certificate enrollment IIS endpoints (ESC8)"
 						},
 						{
-							"mapping_scope": "exact",
-							"mapping_scope_detail": "",
+							"mapping_scope": "superset",
+							"mapping_scope_detail": "Purple Knight’s ESC9 check stops at the template. It does not verify whether issuance rules, CA enrollment rights, control of an eligible enrollee, and weak certificate binding allow an ESC9a or ESC9b path.",
 							"id": "df369db9-8790-4b44-a9f8-24879e2dd7b5",
 							"name": "ADCS ESC9 - no security extension"
 						},
