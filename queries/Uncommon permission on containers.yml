@@ -43,7 +43,7 @@ query: |-
 
   RETURN p
   LIMIT 2000
-revision: 2
+revision: 3
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
