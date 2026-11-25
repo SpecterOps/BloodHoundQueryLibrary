@@ -3,7 +3,7 @@ guid: 370e66f8-d85d-4856-9dc6-f86be1d26119
 prebuilt: false
 platforms: Active Directory
 category: Kerberos Interaction
-description: Finds user and computer accounts with SPNs containing invisible Unicode characters. This is an indicator of attack for a patched vulnerabiltiy named KerberLoss / CVE-2026-25177 
+description: Finds user and computer accounts with SPNs containing invisible Unicode characters. This is an indicator of attack for a patched vulnerability named KerberLoss / CVE-2026-25177
 query: |-
   MATCH (n:Base)
   WHERE (n:User OR n:Computer)
