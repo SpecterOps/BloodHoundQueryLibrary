@@ -63,7 +63,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "07362c0e-e675-4451-9d09-65ca46ab43a3",
-							"name": "Computers with password last set over 90 days ago"
+							"name": "Computer account with password last set over 90 days ago"
 						}
 					]
 				}
@@ -82,7 +82,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "a7813b26-5472-4fbd-a6a4-1c93bfeb2784",
-							"name": "gMSA objects with old passwords"
+							"name": "gMSA object with old password"
 						}
 					]
 				}
@@ -134,13 +134,13 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "750c9233-57b3-430c-af56-1e899e81b202",
-							"name": "Enabled admin accounts that are inactive"
+							"name": "Admin account enabled but inactive"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "1b6df9e8-e5ed-45f7-880c-44b4a9a7d6bd",
-							"name": "Domain Controllers that have not authenticated to the domain for more than 45 days"
+							"name": "Domain Controller not authenticated to the domain over 45 days"
 						}
 					]
 				}
@@ -181,7 +181,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "bd287262-50dd-4e99-9daa-7754eb27cddb",
-							"name": "Domain Controllers with old passwords"
+							"name": "Domain Controller with old password"
 						}
 					]
 				}
@@ -285,7 +285,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "c117b6a5-00c8-4e77-93d2-e291e36b462a",
-							"name": "Entra ID privileged users that are also privileged in AD"
+							"name": "Entra ID privileged user with privileges in AD"
 						}
 					]
 				}
@@ -337,7 +337,7 @@
 							"mapping_scope": "combination",
 							"mapping_scope_detail": "",
 							"id": "16262280-22e2-40e2-a227-9934e63dadaa",
-							"name": "Users and computers with non-default Primary Group IDs"
+							"name": "Account with non-default PGID"
 						}
 					]
 				}
@@ -389,7 +389,7 @@
 							"mapping_scope": "combination",
 							"mapping_scope_detail": "",
 							"id": "16262280-22e2-40e2-a227-9934e63dadaa",
-							"name": "Users and computers with non-default Primary Group IDs"
+							"name": "Account with non-default PGID"
 						}
 					]
 				}
@@ -436,7 +436,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to include computer accounts",
 							"id": "2c62cbf1-ebdb-4ac4-9c5c-6507a15fd9e2",
-							"name": "User accounts that store passwords with reversible encryption"
+							"name": "User password stored with reversible encryption"
 						}
 					]
 				}
@@ -488,7 +488,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "ad0f14a9-580c-4709-b8d2-c1be16b22a3e",
-							"name": "Users with Kerberos pre-authentication disabled"
+							"name": "User with Kerberos pre-authentication disabled"
 						}
 					]
 				}
@@ -559,7 +559,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "32c2a92b-fe99-4e5c-bfbb-7497b759946d",
-							"name": "User accounts with password not required"
+							"name": "User account with password not required"
 						}
 					]
 				}
@@ -600,7 +600,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "3653043f-2790-4255-a625-3359e6dc8ef6",
-							"name": "Users with Password Never Expires flag set"
+							"name": "User with Password never expires flag"
 						}
 					]
 				}
@@ -619,7 +619,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "755d0eba-b8dc-4216-a9d4-44ab43bfb7b5",
-							"name": "Privileged accounts with a password that never expires"
+							"name": "Privileged account with password never expires flag"
 						}
 					]
 				}
@@ -680,7 +680,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "ff50af43-c9c8-41c6-987f-eaaaedbca25c",
-							"name": "Domains with obsolete functional levels"
+							"name": "Domain with obsolete functional level"
 						}
 					]
 				}
@@ -801,7 +801,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "a0d33c5f-fda5-4a06-9b80-5196e099131e",
-							"name": "Computers with older OS versions"
+							"name": "Computer account with older OS version"
 						}
 					]
 				}
@@ -842,7 +842,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Assumes updated domain controllers with default AES KDC settings and available AES keys; unset and empty encryption configurations use the AES default. Expanded scope to include computer accounts with SPNs as well as users.",
 							"id": "b608276e-3849-419d-bc34-6e5a362b3e79",
-							"name": "Primary users with SPN not supporting AES encryption on Kerberos"
+							"name": "Primary user with SPN not supporting AES encryption on Kerberos"
 						}
 					]
 				}
@@ -894,7 +894,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "ca67406b-a063-4aba-ba61-261be7f9ee96",
-							"name": "User accounts that use DES encryption"
+							"name": "User account using DES encryption"
 						}
 					]
 				}
@@ -935,7 +935,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Returns all principals with weak supported Kerberos encryption types.",
 							"id": "f8af8921-8901-466e-ba91-df970a56cc21",
-							"name": "RC4 or DES encryption type are supported by Domain Controllers"
+							"name": "Domain Controller supporting RC4 or DES encryption"
 						}
 					]
 				}
@@ -995,7 +995,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "6317479a-c7df-49ca-bbf1-47ecdf199792",
-							"name": "Unprivileged users can add computer accounts to the domain"
+							"name": "Non-privileged user can add computer accounts to the domain"
 						}
 					]
 				}
@@ -1085,7 +1085,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "34d7d270-3b7b-4a0e-b0c4-15e8e2551c31",
-							"name": "Privileged users with SPN defined"
+							"name": "Privileged user with SPN defined"
 						}
 					]
 				}
@@ -1104,7 +1104,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "868c36af-b784-465b-a15c-291bd3c66d47",
-							"name": "Users with SPN defined"
+							"name": "User with SPN defined"
 						}
 					]
 				},
@@ -1156,13 +1156,13 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "dc8f6889-7df9-4414-9bf5-865f1e3e9e83",
-							"name": "Admins with old passwords"
+							"name": "Admin with old password"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "82901792-3b6e-4b3f-94d7-64d4743273fb",
-							"name": "Built-in domain Administrator account with old password (180 days)"
+							"name": "Built-in domain administrator account with old password (180 days)"
 						}
 					]
 				}
@@ -1181,7 +1181,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "4ef13866-3af9-477a-84d4-d2d7e39f3c0f",
-							"name": "Users with old passwords"
+							"name": "User with old password"
 						}
 					]
 				}
@@ -1211,7 +1211,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "4f964cc3-7ce9-4b44-b6d0-799622027adc",
-							"name": "Entra Connect sync account password reset"
+							"name": "Entra Connect Sync account password reset"
 						}
 					]
 				}
@@ -1229,8 +1229,8 @@
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
-							"id": "Replace Enterprise or Domain Admin account for Entra Connect AD DS Connector account",
-							"name": "Replace Enterprise or Domain Admin account for Entra Connect AD DS Connector account"
+							"id": "Replace Enterprise or Domain Admin account for Microsoft Entra Connect AD DS Connector account",
+							"name": "Replace Enterprise or Domain Admin account for Microsoft Entra Connect AD DS Connector account"
 						}
 					]
 				}
@@ -1288,6 +1288,17 @@
 							"mapping_scope_detail": "",
 							"id": "Prevent Certificate Enrollment with arbitrary Application Policies (ESC15)",
 							"name": "Prevent Certificate Enrollment with arbitrary Application Policies (ESC15)"
+						}
+					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "98d9fe0d-f69a-4389-82ed-fc5524f27dfc",
+							"name": "ADCS ESC15 - Schema 1 vulnerability"
 						}
 					]
 				}
@@ -1353,7 +1364,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Remove false positives by reducing source scope to Non-Tier Zero. Expanded target scope to Tier Zero",
 							"id": "40499bf5-9087-4d55-9db3-2cb641a47ac8",
-							"name": "Privileged objects with unprivileged owners"
+							"name": "Privileged object with unprivileged owner"
 						}
 					]
 				}
@@ -1402,7 +1413,7 @@
 							"mapping_scope": "partial",
 							"mapping_scope_detail": "Returns all members.",
 							"id": "e79191aa-b68f-4983-8420-b2ca25bca6ea",
-							"name": "Unprivileged principals as DNS Admins"
+							"name": "Non-privileged principal as DNS Admins"
 						}
 					]
 				}
@@ -1451,7 +1462,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "ec4a80dc-bec8-4557-b19f-cc3d15ed5517",
-							"name": "Enterprise Key Admins with full access to domain"
+							"name": "Enterprise Key Admins with full access to the domain"
 						}
 					]
 				}
@@ -1511,7 +1522,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Remove false positives by reducing scope to Non-Tier Zero",
 							"id": "39293315-4817-44f6-be2d-e76daeaf8208",
-							"name": "Permission changes on AdminSDHolder object"
+							"name": "AdminSDHolder object with permission changes"
 						}
 					]
 				}
@@ -1541,7 +1552,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "f2f975fd-6ce2-491b-8247-9662a0126187",
-							"name": "Operator groups no longer protected by AdminSDHolder and SDProp"
+							"name": "Operator group no longer protected by AdminSDHolder and SDProp"
 						}
 					]
 				}
@@ -1571,7 +1582,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "2c2b46b6-3bce-451c-bbc8-7c7652fecbf0",
-							"name": "Built-in domain Administrator account used within the last two weeks"
+							"name": "Built-in domain administrator account used within the last two weeks"
 						}
 					]
 				}
@@ -1642,7 +1653,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "681db401-004b-4cec-a4b8-07926a63e281",
-							"name": "Operators Groups that are not empty"
+							"name": "Operators group not empty"
 						}
 					]
 				}
@@ -1672,7 +1683,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero. Excluded false positives",
 							"id": "dbc58c9d-2df6-49cc-a732-ba370486211e",
-							"name": "Privileged accounts with mailbox"
+							"name": "Privileged account with mailbox"
 						}
 					]
 				}
@@ -1806,13 +1817,13 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "BH query covers all Tier Zero computers, not just Domain Controllers. BloodHound cannot distinguish Kerberos-only constrained delegation from protocol transition.",
 							"id": "275b22b7-6386-46b8-a1bd-3f14965bf643",
-							"name": "Principals with constrained authentication delegation enabled for a DC service"
+							"name": "Principal with constrained authentication delegation enabled for a DC service"
 						},
 						{
 							"mapping_scope": "partial",
 							"mapping_scope_detail": "BH query covers all Tier Zero computers, not just Domain Controllers. BloodHound cannot distinguish protocol transition from Kerberos-only constrained delegation.",
 							"id": "31dcc5f6-ceb0-4132-a698-95bae64fe7df",
-							"name": "Principals with constrained delegation using protocol transition enabled for a DC service"
+							"name": "Principal with constrained delegation using protocol transition enabled for a DC service"
 						}
 					]
 				}
@@ -1853,19 +1864,19 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "BH query covers all Tier Zero computers with inbound RBCD, not just Domain Controllers",
 							"id": "6df6c2ee-a77b-411b-8540-4357e5d0a1fb",
-							"name": "Domain Controllers with Resource-Based Constrained Delegation (RBCD) enabled"
+							"name": "Domain Controller with resource-based constrained delegation enabled"
 						},
 						{
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "BH query covers RBCD on all Tier Zero computers including AZUREADSSOACC; PK control is limited to only the AZUREADSSOACC account",
 							"id": "3d6ff5b6-8d01-46b9-a261-7f5ab0c3b306",
-							"name": "Resource Based Constrained Delegation applied to AZUREADSSOACC account"
+							"name": "AZUREADSSOACC account with resource-based constrained delegation"
 						},
 						{
 							"mapping_scope": "combination",
 							"mapping_scope_detail": "Combined with '5ba7ad73-b6a3-4f18-8818-74e2088beb39' to cover all computers with RBCD.",
 							"id": "88040bb0-ce23-48a8-850f-277edaafbac7",
-							"name": "Computer account takeover through Kerberos Resource-Based Constrained Delegation (RBCD)"
+							"name": "Computer account takeover through Kerberos resource-based constrained delegation"
 						}
 					]
 				}
@@ -1917,7 +1928,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "5d5d5b9c-5685-4786-b3a4-eb2ab1480a69",
-							"name": "Computer or user accounts with SPN that have unconstrained delegation"
+							"name": "Account with SPN that has unconstrained delegation"
 						}
 					]
 				}
@@ -2056,7 +2067,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "ffa8305f-ff2e-4196-b980-8d7cafce849d",
-							"name": "Dangerous Trust Attribute Set"
+							"name": "Dangerous trust attribute set"
 						},
 						{
 							"mapping_scope": "exact",
@@ -2152,7 +2163,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "78a9064a-f3a0-4420-ab9d-2db003d6f4b4",
-							"name": "Well-known privileged SIDs in SIDHistory"
+							"name": "Principal with well-known privileged SID in SIDHistory"
 						}
 					]
 				}
@@ -2231,7 +2242,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "86e00792-a38f-409b-bd74-76e7ceecb93e",
-							"name": "SSO computer account with password last set over 90 days ago"
+							"name": "AZUREADSSOACC account with password last set over 90 days ago"
 						}
 					]
 				}
@@ -2348,6 +2359,12 @@
 							"mapping_scope_detail": "",
 							"id": "Edit insecure ADCS certificate enrollment IIS endpoints (ESC8)",
 							"name": "Edit insecure ADCS certificate enrollment IIS endpoints (ESC8)"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "Enforce encryption for RPC certificate enrollment interface (ESC11)",
+							"name": "Enforce encryption for RPC certificate enrollment interface (ESC11)"
 						}
 					]
 				},
@@ -2358,19 +2375,49 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "790e1c72-5786-4907-83cd-9f310db70f1b",
-							"name": "Certificate templates that allow requesters to specify a subjectAltName"
+							"name": "Certificate template with SAN allowed"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "d64cab17-754c-4643-872b-a9113fbb7808",
-							"name": "Certificate templates with 3 or more insecure configurations"
+							"name": "ADCS ESC1 - Enrollee Supplies Subject with Authentication EKU"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "1feb2a3b-877f-4d54-8e3e-0e107d190192",
+							"name": "ADCS ESC3 - Enrollment Agent certificate"
 						},
 						{
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "a76ea884-afef-4d00-9820-b24117a12661",
-							"name": "Dangerous control paths expose certificate templates"
+							"name": "ADCS ESC4 - risky control paths expose certificate templates"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "Purple Knight's ESC9 check stops at the template. It does not verify whether issuance rules, CA enrollment rights, control of an eligible enrollee, and weak certificate binding allow an ESC9a or ESC9b path.",
+							"id": "df369db9-8790-4b44-a9f8-24879e2dd7b5",
+							"name": "ADCS ESC9 - no security extension"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "b5ce7350-3699-4b27-8a72-ae9da3c119e3",
+							"name": "ADCS ESC11 - Certificate Authority with no RPC encryption enforcement"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "960a0b70-47f9-44cc-8509-85d16b6d3c11",
+							"name": "ADCS ESC13 - certificate template with issuance policy linked to group"
+						},
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "a2e14240-d550-47dd-941d-1dfd0d8c7608",
+							"name": "ADCS ESC16 - Certificate Authority with globally disabled security extension"
 						}
 					]
 				}
@@ -2390,6 +2437,17 @@
 							"mapping_scope_detail": "",
 							"id": "Edit misconfigured Certificate Authority ACL (ESC7)",
 							"name": "Edit misconfigured Certificate Authority ACL (ESC7)"
+						}
+					]
+				},
+				{
+					"source": "PurpleKnight",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "fc125d92-fc59-403e-8ee5-c7f3bcbb53e7",
+							"name": "ADCS ESC7 - non-privileged account with Manage CA or Manage Certificates permission"
 						}
 					]
 				}
@@ -2425,7 +2483,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "08612871-a9dc-4d18-a2cc-580e086e3199",
-							"name": "AD Certificate Authority with Web Enrollment - ESC8"
+							"name": "ADCS ESC8 - AD Certificate Authority with Web Enrollment"
 						}
 					]
 				}
@@ -2496,7 +2554,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "1e43868c-9a46-41e8-8daf-d8bfe57aaef7",
-							"name": "Kerberos KRBTGT account with old password"
+							"name": "Kerberos krbtgt account with old password"
 						}
 					]
 				}
@@ -2573,7 +2631,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Query returns DCs where both LDAP signing is not required or LDAPS channel binding is not enforced.",
 							"id": "4fe825ed-07fb-4b06-913a-be5c9542ca54",
-							"name": "LDAP signing is not required on Domain Controllers"
+							"name": "LDAP signing not required on DCs"
 						}
 					]
 				}
@@ -2633,7 +2691,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "baeb89cc-e32d-4f17-ad37-29a6a45ff724",
-							"name": "User accounts using Smart Card authentication with old password"
+							"name": "User account using Smart Card authentication with old password"
 						}
 					]
 				}
@@ -2712,7 +2770,7 @@
 							"mapping_scope": "partial",
 							"mapping_scope_detail": "Returns all principals with DCSync privileges.",
 							"id": "bcb85336-3507-4565-91a2-9c1360c5a5f1",
-							"name": "Non-default principals with DC Sync rights on the domain"
+							"name": "Non-default principal with DCSync rights on the domain"
 						}
 					]
 				}
@@ -2780,7 +2838,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "0d9236c4-98a1-4763-913b-783fdfe1de4c",
-							"name": "SMB Signing is not required on Domain Controllers"
+							"name": "Domain controller without SMB signing required"
 						}
 					]
 				}
@@ -2810,7 +2868,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded attributes scope to include 'unicodepwd' and 'msSFU30Password'",
 							"id": "dfa45647-c2b5-4066-b7db-3a8890868cef",
-							"name": "Users with the attribute userPassword set"
+							"name": "User with userPassword attribute"
 						}
 					]
 				}
@@ -2870,7 +2928,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "79d857a6-23a7-421d-a63d-5a2f9df5d080",
-							"name": "Anonymous access to Active Directory enabled"
+							"name": "Anonymous access to AD enabled"
 						}
 					]
 				}
@@ -2987,7 +3045,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "c0c929cf-ab95-4d8f-975b-8193054f520b",
-							"name": "Changes to Pre-Windows 2000 Compatible Access Group membership"
+							"name": "Risky Pre-Windows 2000 Compatible Access Group membership"
 						}
 					]
 				}
@@ -3017,7 +3075,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Remove false positives by reducing scope to Non-Tier Zero. Expanded target scope to Tier Zero",
 							"id": "e08bbf6a-b17e-4417-a9cd-8f4b7b6210f9",
-							"name": "Unprivileged accounts with adminCount=1"
+							"name": "Non-privileged account with adminCount=1"
 						}
 					]
 				}
@@ -3077,7 +3135,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "d14af45f-009c-4840-8e35-36a97c979a8c",
-							"name": "Built-in guest account is enabled"
+							"name": "Built-in guest account enabled"
 						}
 					]
 				}
@@ -3096,7 +3154,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded exclusion scope to Tier Zero",
 							"id": "3bcaff82-ae70-4646-bc66-f7997be54e5e",
-							"name": "Foreign Security Principals in Privileged Group"
+							"name": "Foreign Security Principal in privileged group"
 						}
 					]
 				}
@@ -3134,7 +3192,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "b3061191-07e0-468f-b2a0-bbf0485fa900",
-							"name": "AD objects created within the last 10 days"
+							"name": "AD object created within the last 10 days"
 						}
 					]
 				}
@@ -3153,7 +3211,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "c4218bf3-aca4-4d17-90a3-9ba3f4ec42e7",
-							"name": "Recent privileged account creation activity"
+							"name": "Privileged account recently created"
 						}
 					]
 				}
@@ -3172,7 +3230,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "216596bf-333e-4f59-a3f5-8af65acbba9b",
-							"name": "Inheritance enabled on AdminSDHolder object"
+							"name": "AdminSDHolder object with inheritance enabled"
 						}
 					]
 				}
@@ -3191,7 +3249,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "5f6540a9-f226-4438-9e64-387a98beda2b",
-							"name": "AD privileged users that are synced to Entra ID"
+							"name": "AD privileged user synced to Entra ID"
 						}
 					]
 				}
@@ -3209,8 +3267,8 @@
 						{
 							"mapping_scope": "combination",
 							"mapping_scope_detail": "Direct role assignments only.",
-							"id": "Hybrid-synced privileged role accounts",
-							"name": "Hybrid-synced privileged role accounts"
+							"id": "a8ec6249-33f7-4c88-9e11-fa85d7368b2d",
+							"name": "Hybrid-synced privileged role account"
 						}
 					]
 				}
@@ -3228,8 +3286,8 @@
 						{
 							"mapping_scope": "combination",
 							"mapping_scope_detail": "Group delegated role assignments only.",
-							"id": "Hybrid-synced privileged role accounts",
-							"name": "Hybrid-synced privileged role accounts"
+							"id": "a8ec6249-33f7-4c88-9e11-fa85d7368b2d",
+							"name": "Hybrid-synced privileged role account"
 						}
 					]
 				}
@@ -3248,7 +3306,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Remove false positives by reducing scope to Non-Tier Zero",
 							"id": "0e61db1b-b877-457e-9550-607330143d92",
-							"name": "Distributed COM Users group or Performance Log Users group are not empty"
+							"name": "Distributed COM Users or Performance Log Users not empty"
 						}
 					]
 				}
@@ -3266,8 +3324,8 @@
 						{
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Audits all objects in the 'PUBLIC KEY SERVICES' container",
-							"id": "e441aeb0-ba69-426b-bbc1-028bf258c3d8",
-							"name": "Dangerous control paths expose certificate containers"
+							"id": "7b44c883-62eb-5e6d-bdef-dccf045c269f",
+							"name": "ADCS ESC5 - PKI object with vulnerable ACL"
 						}
 					]
 				}
@@ -3285,8 +3343,8 @@
 						{
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges, instead of just the AllowedToAct edge.",
-							"id": "Accounts with Kerberos constrained delegation configured to SSO computer account",
-							"name": "Accounts with Kerberos constrained delegation configured to SSO computer account"
+							"id": "80326f13-7143-4668-968e-757e6cc2b8a9",
+							"name": "Account with Kerberos constrained delegation configured to AZUREADSSOACC"
 						}
 					]
 				},
@@ -3316,7 +3374,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges, instead of just the AllowedToAct edge. Expanded target scope to all KRBTGT account types.",
 							"id": "cfe3bfa1-f28e-4017-8e94-044bd6b914e3",
-							"name": "Accounts with Constrained Delegation configured to krbtgt"
+							"name": "Account with constrained delegation configured to krbtgt"
 						}
 					]
 				},
@@ -3327,7 +3385,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded technique scope to include all BloodHound traversable edges, instead of just the AddAllowedToAct edge. Expanded target scope to all KRBTGT account types.",
 							"id": "eb99e786-3ce1-4172-9801-dd4203cfd3e2",
-							"name": "krbtgt account with Resource-Based Constrained Delegation (RBCD) enabled"
+							"name": "Write access to RBCD on krbtgt account"
 						}
 					]
 				}
@@ -3365,7 +3423,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "87081486-fc4f-4027-842e-c5f17ec4f1bf",
-							"name": "Privileged users that are disabled"
+							"name": "Privileged user disabled"
 						}
 					]
 				}
@@ -3384,7 +3442,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Remove false positives by reducing scope to Non-Tier Zero. Checks prerequisites.",
 							"id": "5e0a22b9-2da5-4fde-9de6-e3a77961d6e6",
-							"name": "OU permissions enabling BadSuccessor dMSA escalation"
+							"name": "OU with excessive permission enabling BadSuccessor dMSA escalation"
 						}
 					]
 				}
@@ -3422,7 +3480,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "b5df966a-2202-401e-8c0c-0e212d7f666d",
-							"name": "Objects in privileged groups without adminCount=1 (SDProp)"
+							"name": "Object in privileged group without adminCount=1 (SDProp)"
 						}
 					]
 				}
@@ -3441,7 +3499,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "113f7039-879b-4093-a42b-dce6b47b313c",
-							"name": "Computer Accounts in Privileged Groups"
+							"name": "Computer account in privileged group"
 						}
 					]
 				}
@@ -3460,7 +3518,7 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "d6456fa7-456b-4cde-a8ef-9de5903d0419",
-							"name": "Shadow Credentials on privileged objects"
+							"name": "Shadow credentials on privileged object"
 						}
 					]
 				}
@@ -3479,7 +3537,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "5962cacc-495f-4487-9770-2a87ee8fc50a",
-							"name": "Non-privileged users with access to gMSA passwords"
+							"name": "Non-privileged user with access to gMSA password"
 						}
 					]
 				}
@@ -3498,7 +3556,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "BH includes PIM-eligible assignments (AZRoleEligible) which PK does not check via the roleAssignments API, so BH may surface additional principals PK would not flag.",
 							"id": "ca3c2e9e-40bd-4090-868b-db2446fac627",
-							"name": "Global Administrators that signed in during the last 14 days"
+							"name": "Global Administrator signed in during the last 14 days"
 						}
 					]
 				}
@@ -3517,13 +3575,13 @@
 							"mapping_scope": "exact",
 							"mapping_scope_detail": "",
 							"id": "b7f86499-830c-445d-bca9-4d289fc8dc89",
-							"name": "Guest accounts that were inactive for more than 30 days"
+							"name": "Guest account inactive over 30 days"
 						},
 						{
 							"mapping_scope": "partial",
 							"mapping_scope_detail": "BloodHound does not ingest the externalUserState property, so it cannot directly identify unredeemed guest invitations. Instead, the query surfaces guests created over 30 days ago who have never signed in, which is a reasonable proxy but also includes guests who redeemed their invite but never used it.",
 							"id": "4c4029ed-2fdd-46c8-8d96-eebefd2d9799",
-							"name": "Guest invites not accepted in last 30 day"
+							"name": "Guest invites not accepted in last 30 days"
 						}
 					]
 				}
@@ -3580,7 +3638,7 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero",
 							"id": "c687bf2a-e2b6-4a8e-8651-c0f7c79a4338",
-							"name": "More than 10 Privileged Administrators exist"
+							"name": "More than 10 privileged administrators exist"
 						}
 					]
 				}
@@ -3705,7 +3763,7 @@
 							"mapping_scope": "partial",
 							"mapping_scope_detail": "PurpleKnight checks both users and devices; the query covers only users.",
 							"id": "47bfb163-2e5d-42c8-9218-0b1e9609d0f6",
-							"name": "Users or devices inactive for at least 90 days"
+							"name": "User or device inactive for over 90 days"
 						}
 					]
 				}
@@ -3724,7 +3782,7 @@
 							"mapping_scope": "combination",
 							"mapping_scope_detail": "Combined with '4dc97cf4-3c03-4fe6-8a8b-4f665c67e1e5' to cover all computers with RBCD.",
 							"id": "88040bb0-ce23-48a8-850f-277edaafbac7",
-							"name": "Computer account takeover through Kerberos Resource-Based Constrained Delegation (RBCD)"
+							"name": "Computer account takeover through Kerberos resource-based constrained delegation"
 						}
 					]
 				}
@@ -3743,7 +3801,7 @@
 							"mapping_scope": "partial",
 							"mapping_scope_detail": "BloodHound's AllowedToDelegate edge does not distinguish between constrained delegation with or without protocol transition. The BH query returns both variants, while the PK control specifically excludes objects with protocol transition enabled.",
 							"id": "b332f034-f6b9-4bc2-8796-6ea044db909f",
-							"name": "Objects with constrained delegation configured"
+							"name": "Object with constrained delegation configured"
 						}
 					]
 				}
@@ -3762,7 +3820,7 @@
 							"mapping_scope": "partial",
 							"mapping_scope_detail": "The PK control resolves group transitive membership to individual principals, while the BH query traverses one hop via AZMemberOf.",
 							"id": "e231380a-a77e-481f-ab03-6310b7b5cdfa",
-							"name": "Prohibited Entra ID Roles Assigned"
+							"name": "Prohibited Entra ID role assigned"
 						}
 					]
 				}
@@ -3806,7 +3864,45 @@
 							"mapping_scope": "superset",
 							"mapping_scope_detail": "Expanded scope to Tier Zero. Includes SyncLAPSPassword",
 							"id": "9f532969-6a43-40a5-9035-f4f2e9cf9e88",
-							"name": "Changes to MS LAPS read permissions"
+							"name": "Computer with exposed Microsoft LAPS password"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "ad716465-61d5-4d29-a63c-572021d46c65",
+				"name": "Accounts with constrained delegation to KRBTGT"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "",
+							"id": "P-DelegationKrbtgt",
+							"name": "Ensure that no accounts are configured with delegation to the krbtgt service"
+						}
+					]
+				}
+			]
+		},
+		{
+			"bloodhound_query": {
+				"guid": "370e66f8-d85d-4856-9dc6-f86be1d26119",
+				"name": "Accounts with invisible Unicode characters in SPNs"
+			},
+			"maps_to": [
+				{
+					"source": "PingCastle",
+					"controls": [
+						{
+							"mapping_scope": "exact",
+							"mapping_scope_detail": "Requires ObjectProps. Flags all 15 invisible codepoints, with or without a collision; returns accounts without collision-target details.",
+							"id": "A-SpnUnicodeCollision",
+							"name": "SPN containing an invisible Unicode character has been found"
 						}
 					]
 				}

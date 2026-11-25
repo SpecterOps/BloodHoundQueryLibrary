@@ -1,0 +1,15 @@
+name: Accounts with invisible Unicode characters in SPNs
+guid: 370e66f8-d85d-4856-9dc6-f86be1d26119
+prebuilt: false
+platforms: Active Directory
+category: Kerberos Interaction
+description: Finds user and computer accounts with SPNs containing invisible Unicode characters. This is an indicator of attack for a patched vulnerability named KerberLoss / CVE-2026-25177
+query: |-
+  MATCH (n:Base)
+  WHERE (n:User OR n:Computer)
+  AND ANY(spn IN n.serviceprincipalnames WHERE spn =~ '(?s).*[\\u200B\\u200C\\u200D\\uFEFF\\u200E\\u200F\\u202A\\u202B\\u202C\\u202D\\u202E\\uFFFC\\uFFF9\\uFFFA\\uFFFB].*')
+  RETURN n
+revision: 1
+resources:
+  - https://www.semperis.com/blog/identity-crisis-novel-vulnerabilities-leading-to-kerberos-downgrade-dos-and-full-domain-takeover/
+acknowledgements: Martin Sohn Christensen, @martinsohndk

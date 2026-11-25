@@ -5,7 +5,7 @@ platforms: Active Directory
 category: Dangerous Privileges
 description: 
 query: |-
-  MATCH p=(n:Group)-[r:AD_ATTACK_PATHS]->(:Base)
+  MATCH p=(n:Group)-[:MemberOf*0..]->(:Group)-[r:AD_ATTACK_PATHS]->(:Base)
   WHERE (
       n.objectid ENDS WITH "-513"        // DOMAIN USERS
       OR n.objectid ENDS WITH "-515"     // DOMAIN COMPUTERS
@@ -17,7 +17,7 @@ query: |-
   )
   AND NOT type(r) IN ["MemberOf", "ClaimSpecialIdentity"]
   RETURN p
-revision: 2
+revision: 3
 resources: 
 acknowledgements: Martin Sohn Christensen, @martinsohndk
 
