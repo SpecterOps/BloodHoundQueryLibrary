@@ -1,0 +1,25 @@
+name: Enrollment rights on published ESC17 certificate templates
+guid: 37d9fc78-0c4c-4ef8-bf01-0722a8458ae9
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Certificate Services
+description: Enrollment rights on published certificate templates that allow an enrollee to supply an arbitrary subject and issue certificates suitable for server authentication, meeting the certificate template requirements for ADCS ESC17.
+query: |-
+  MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(ct:CertTemplate)-[:PublishedTo]->(:EnterpriseCA)
+  WHERE ct.enrolleesuppliessubject = True
+  AND ct.requiresmanagerapproval = False
+  AND (ct.authorizedsignatures = 0 OR ct.schemaversion = 1)
+  AND (
+    '1.3.6.1.5.5.7.3.1' IN ct.effectiveekus
+    OR '2.5.29.37.0' IN ct.effectiveekus
+    OR ct.effectiveekus = ['']
+    OR ct.effectiveekus IS NULL
+  )
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+- https://blog.digitrace.de/2026/01/using-adcs-to-attack-https-enabled-wsus-clients/
+- https://research.qu35t.pw/en/blog/esc17-introduction-threat-model/
+- https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation#esc17-enrollee-supplied-subject-for-server-authentication
+acknowledgements: "@stuk0v_"
